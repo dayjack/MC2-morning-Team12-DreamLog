@@ -11,6 +11,7 @@
 		166972642A015A4600702B59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972632A015A4600702B59 /* ContentView.swift */; };
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
 		166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972682A015A4800702B59 /* Preview Assets.xcassets */; };
+		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		166972632A015A4600702B59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		166972652A015A4800702B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		166972682A015A4800702B59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		166972602A015A4600702B59 /* mc2-DreamLog */ = {
 			isa = PBXGroup;
 			children = (
+				78C24FD32A0242540070906B /* Global */,
 				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
 				166972632A015A4600702B59 /* ContentView.swift */,
 				166972652A015A4800702B59 /* Assets.xcassets */,
@@ -65,6 +68,22 @@
 				166972682A015A4800702B59 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		78C24FD32A0242540070906B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				78C24FD42A02425E0070906B /* Extension */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		78C24FD42A02425E0070906B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78C24FD52A0242710070906B /* ColorExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78C24FD62A0242710070906B /* ColorExtension.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
 			);
