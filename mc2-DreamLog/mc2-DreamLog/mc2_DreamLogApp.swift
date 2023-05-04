@@ -11,7 +11,22 @@ import SwiftUI
 struct mc2_DreamLogApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if UserDefaults.standard.bool(forKey: "gotoMain") {
+                NavigationStack {
+                    MainView()
+                        .onAppear {
+                            sleep(2)
+                        }
+                }
+                .tint(.activeBrown)
+            } else {
+                TutorialStartView() // TutorialStartView
+                    .environmentObject(TutorialBoardElement())
+                    .onAppear {
+                        sleep(2)
+                    }
+                
+            }
         }
     }
 }

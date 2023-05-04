@@ -16,6 +16,19 @@
 		784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5BC2A0342800096D427 /* TextBrownModifier.swift */; };
 		784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5BE2A0342990096D427 /* TextGrayModifier.swift */; };
 		784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5C02A0342C90096D427 /* ViewExtension.swift */; };
+		784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5C22A03453B0096D427 /* BindingExtension.swift */; };
+		784EB5C62A0345630096D427 /* TutorialBoardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5C52A0345630096D427 /* TutorialBoardElement.swift */; };
+		784EB5C92A0345A20096D427 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5C82A0345A20096D427 /* MainView.swift */; };
+		784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5CA2A0345B90096D427 /* DreamBoardView.swift */; };
+		784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5CD2A0345E60096D427 /* TutorialStartView.swift */; };
+		784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5CF2A0345FD0096D427 /* TutorialView.swift */; };
+		784EB5D22A0346160096D427 /* TuturialBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5D12A0346160096D427 /* TuturialBoardView.swift */; };
+		784EB5D42A03462F0096D427 /* TutorialCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5D32A03462F0096D427 /* TutorialCalendarView.swift */; };
+		784EB5D62A0346470096D427 /* TutorialWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5D52A0346470096D427 /* TutorialWidgetView.swift */; };
+		784EB5D92A03467B0096D427 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5D82A03467B0096D427 /* ImagePicker.swift */; };
+		784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DA2A0346C70096D427 /* EditMenuView.swift */; };
+		784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */; };
+		784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DE2A0346FA0096D427 /* MultiPreview.swift */; };
 		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +43,19 @@
 		784EB5BC2A0342800096D427 /* TextBrownModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBrownModifier.swift; sourceTree = "<group>"; };
 		784EB5BE2A0342990096D427 /* TextGrayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGrayModifier.swift; sourceTree = "<group>"; };
 		784EB5C02A0342C90096D427 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		784EB5C22A03453B0096D427 /* BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
+		784EB5C52A0345630096D427 /* TutorialBoardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialBoardElement.swift; sourceTree = "<group>"; };
+		784EB5C82A0345A20096D427 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		784EB5CA2A0345B90096D427 /* DreamBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamBoardView.swift; sourceTree = "<group>"; };
+		784EB5CD2A0345E60096D427 /* TutorialStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialStartView.swift; sourceTree = "<group>"; };
+		784EB5CF2A0345FD0096D427 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		784EB5D12A0346160096D427 /* TuturialBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuturialBoardView.swift; sourceTree = "<group>"; };
+		784EB5D32A03462F0096D427 /* TutorialCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCalendarView.swift; sourceTree = "<group>"; };
+		784EB5D52A0346470096D427 /* TutorialWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWidgetView.swift; sourceTree = "<group>"; };
+		784EB5D82A03467B0096D427 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		784EB5DA2A0346C70096D427 /* EditMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMenuView.swift; sourceTree = "<group>"; };
+		784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgColorGeoView.swift; sourceTree = "<group>"; };
+		784EB5DE2A0346FA0096D427 /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		7891C6712A02802F006B5109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,9 +90,11 @@
 		166972602A015A4600702B59 /* mc2-DreamLog */ = {
 			isa = PBXGroup;
 			children = (
+				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
+				784EB5C72A0345830096D427 /* View */,
+				784EB5C42A0345560096D427 /* Model */,
 				7891C6712A02802F006B5109 /* Info.plist */,
 				78C24FD32A0242540070906B /* Global */,
-				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
 				166972632A015A4600702B59 /* ContentView.swift */,
 				166972652A015A4800702B59 /* Assets.xcassets */,
 				166972672A015A4800702B59 /* Preview Content */,
@@ -93,6 +121,48 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
+		784EB5C42A0345560096D427 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				784EB5C52A0345630096D427 /* TutorialBoardElement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		784EB5C72A0345830096D427 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				784EB5C82A0345A20096D427 /* MainView.swift */,
+				784EB5CA2A0345B90096D427 /* DreamBoardView.swift */,
+				784EB5D72A0346630096D427 /* Componets */,
+				784EB5CC2A0345CB0096D427 /* Tutorial */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		784EB5CC2A0345CB0096D427 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				784EB5CD2A0345E60096D427 /* TutorialStartView.swift */,
+				784EB5CF2A0345FD0096D427 /* TutorialView.swift */,
+				784EB5D12A0346160096D427 /* TuturialBoardView.swift */,
+				784EB5D32A03462F0096D427 /* TutorialCalendarView.swift */,
+				784EB5D52A0346470096D427 /* TutorialWidgetView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		784EB5D72A0346630096D427 /* Componets */ = {
+			isa = PBXGroup;
+			children = (
+				784EB5D82A03467B0096D427 /* ImagePicker.swift */,
+				784EB5DA2A0346C70096D427 /* EditMenuView.swift */,
+				784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */,
+				784EB5DE2A0346FA0096D427 /* MultiPreview.swift */,
+			);
+			path = Componets;
+			sourceTree = "<group>";
+		};
 		78C24FD32A0242540070906B /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +177,7 @@
 			children = (
 				78C24FD52A0242710070906B /* ColorExtension.swift */,
 				784EB5C02A0342C90096D427 /* ViewExtension.swift */,
+				784EB5C22A03453B0096D427 /* BindingExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -181,13 +252,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */,
+				784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */,
 				784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */,
+				784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */,
 				78C24FD62A0242710070906B /* ColorExtension.swift in Sources */,
+				784EB5D92A03467B0096D427 /* ImagePicker.swift in Sources */,
+				784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */,
 				784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */,
+				784EB5D22A0346160096D427 /* TuturialBoardView.swift in Sources */,
+				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
+				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
+				784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */,
+				784EB5C92A0345A20096D427 /* MainView.swift in Sources */,
+				784EB5D62A0346470096D427 /* TutorialWidgetView.swift in Sources */,
+				784EB5C62A0345630096D427 /* TutorialBoardElement.swift in Sources */,
 				784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */,
+				784EB5D42A03462F0096D427 /* TutorialCalendarView.swift in Sources */,
 				784EB5B92A03423B0096D427 /* ButtonBrownModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
