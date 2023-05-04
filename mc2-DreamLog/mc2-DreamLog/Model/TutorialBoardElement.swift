@@ -9,6 +9,7 @@ import SwiftUI
 
 class TutorialBoardElement : ObservableObject {
     
-    @Published var imageArr: [UIImage] = []
     @Published var textArr: [String] = []
+    @Published var viewArr: [BoardElement] = []
+    
 }

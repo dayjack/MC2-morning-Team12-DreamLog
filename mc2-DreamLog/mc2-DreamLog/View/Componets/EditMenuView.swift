@@ -33,7 +33,8 @@ struct EditMenuView: View {
             get: { self.showImagePicker },
             set: {
                 self.showImagePicker = $0
-                data.imageArr.append(self.image)
+//                data.imageArr.append(self.image)
+                data.viewArr.append(.init(elementView: Image(uiImage: self.image)))
             }
         )
         
@@ -51,6 +52,7 @@ struct EditMenuView: View {
                             .background(.white)
                             .clipShape(Circle())
                             .shadow(radius: 2)
+                            
                     }
                 }
                 .padding(.bottom, 20)

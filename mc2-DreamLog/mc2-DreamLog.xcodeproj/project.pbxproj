@@ -11,6 +11,7 @@
 		166972642A015A4600702B59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972632A015A4600702B59 /* ContentView.swift */; };
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
 		166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972682A015A4800702B59 /* Preview Assets.xcassets */; };
+		782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E9AF02A0379CC0025FD48 /* BoardElement.swift */; };
 		784EB5B92A03423B0096D427 /* ButtonBrownModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5B82A03423B0096D427 /* ButtonBrownModifier.swift */; };
 		784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5BA2A0342670096D427 /* ButtonWhiteBoldModifier.swift */; };
 		784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5BC2A0342800096D427 /* TextBrownModifier.swift */; };
@@ -39,6 +40,7 @@
 		166972632A015A4600702B59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		166972652A015A4800702B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		166972682A015A4800702B59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		782E9AF02A0379CC0025FD48 /* BoardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardElement.swift; sourceTree = "<group>"; };
 		784EB5B82A03423B0096D427 /* ButtonBrownModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBrownModifier.swift; sourceTree = "<group>"; };
 		784EB5BA2A0342670096D427 /* ButtonWhiteBoldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWhiteBoldModifier.swift; sourceTree = "<group>"; };
 		784EB5BC2A0342800096D427 /* TextBrownModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBrownModifier.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				784EB5C52A0345630096D427 /* TutorialBoardElement.swift */,
+				782E9AF02A0379CC0025FD48 /* BoardElement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
+				782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
 				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
 				784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */,

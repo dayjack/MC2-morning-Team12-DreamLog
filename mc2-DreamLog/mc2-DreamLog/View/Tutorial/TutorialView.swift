@@ -76,7 +76,8 @@ struct TutorialView: View {
                         Button {
                             
                             if !image.isEqual(UIImage(named: "DashPlus")!) {
-                                data.imageArr.append(self.image)
+                                
+                                data.viewArr.append(BoardElement.init(x: Double.random(in: -100...100), y: Double.random(in: -100...100), elementView: Image(uiImage: self.image)))
                                 self.image = UIImage(named: "DashPlus")!
                             }
                             
@@ -114,7 +115,7 @@ struct TutorialView: View {
             image = UIImage(named: "DashPlus")!
             index = 0
             data.textArr.removeAll()
-            data.imageArr.removeAll()
+            data.viewArr.removeAll()
         }
         .ignoresSafeArea(.keyboard)
         
