@@ -77,7 +77,7 @@ struct TutorialView: View {
                             
                             if !image.isEqual(UIImage(named: "DashPlus")!) {
                                 
-                                data.viewArr.append(BoardElement.init(x: Double.random(in: -100...100), y: Double.random(in: -100...100), elementView: Image(uiImage: self.image)))
+                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.image)))
                                 self.image = UIImage(named: "DashPlus")!
                             }
                             

@@ -29,7 +29,7 @@ struct TutorialBoardView: View {
                         item.elementView
                             .resizable()
                             .scaledToFit()
-                            .offset(x: item.x, y: item.y)
+                            .offset(x: item.offsetX, y: item.offsetY)
                             .frame(width: 150)
                     }
                     

@@ -35,7 +35,7 @@ struct EditMenuView: View {
                 if self.showImagePicker && !$0 {
                     print("log")
                     data.viewArr.append(
-                        .init(x: Double.random(in: -100...100), y: Double.random(in: -100...100), elementView: Image(uiImage: self.image))
+                        .init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.image))
                     )
                 }
                 self.showImagePicker = $0

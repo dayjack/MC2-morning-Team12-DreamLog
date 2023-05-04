@@ -11,21 +11,20 @@ struct BoardElement: Identifiable, Hashable {
     
     let id = UUID()
     
-    // 위치 : offset 용
-    var x: CGFloat = 0
-    var y: CGFloat = 0
+    var offsetX: CGFloat = 0
+    var offsetY: CGFloat = 0
 
-    var angle = 0
+    var elementAngle = 0
     
-    var scale = 1
+    var elmentScale = 1
     
     var elementView: Image
     
-    init(x: CGFloat = 0, y: CGFloat = 0, angle: Int = 0, scale: Int = 1, elementView: Image) {
-        self.x = x
-        self.y = y
-        self.angle = angle
-        self.scale = scale
+    init(offsetX: CGFloat = 0, offsetY: CGFloat = 0, elementAngle: Int = 0, elmentScale: Int = 1, elementView: Image) {
+        self.offsetX = offsetX
+        self.offsetY = offsetY
+        self.elementAngle = elementAngle
+        self.elmentScale = elmentScale
         self.elementView = elementView
     }
     
