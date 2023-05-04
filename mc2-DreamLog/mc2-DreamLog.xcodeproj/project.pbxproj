@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635FA852A03AB490056C2CB /* CheerLogView.swift */; };
 		166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972612A015A4600702B59 /* mc2_DreamLogApp.swift */; };
 		166972642A015A4600702B59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972632A015A4600702B59 /* ContentView.swift */; };
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1635FA852A03AB490056C2CB /* CheerLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogView.swift; sourceTree = "<group>"; };
 		1669725E2A015A4600702B59 /* mc2-DreamLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mc2-DreamLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166972612A015A4600702B59 /* mc2_DreamLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mc2_DreamLogApp.swift; sourceTree = "<group>"; };
 		166972632A015A4600702B59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				784EB5C82A0345A20096D427 /* MainView.swift */,
+				1635FA852A03AB490056C2CB /* CheerLogView.swift */,
 				784EB5CA2A0345B90096D427 /* DreamBoardView.swift */,
 				784EB5D72A0346630096D427 /* Componets */,
 				784EB5CC2A0345CB0096D427 /* Tutorial */,
@@ -267,6 +270,7 @@
 				784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */,
 				784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */,
 				784EB5D22A0346160096D427 /* TuturialBoardView.swift in Sources */,
+				1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */,
 				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
