@@ -20,13 +20,25 @@ struct DreamBoardView: View {
             let width = geo.size.width
             let height = geo.size.height
             
+            
             VStack {
                 
-                Image("BoardDummy")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.bottom, 5)
-                    .padding(.horizontal, 10)
+                VStack(spacing: 0) {
+                    Image("BoardDummy")
+                        .resizable()
+//                        .scaledToFill()
+                        .frame(height: height - 200)
+                        .scaledToFill()
+                    Text(text)
+                        .grayText(fontSize: 19)
+                        .fontWeight(.semibold)
+                        .frame(width: abs(width - 20), height: 43, alignment: .center)
+                        .padding(.top, 10)
+                        .background(.white)
+                        
+                }
+                .frame(width: abs(width - 20))
+                .padding(.horizontal, 10)
                 
                 HStack {
                     Text("I")
@@ -69,10 +81,11 @@ struct DreamBoardView: View {
                             Alert(title: Text("\(cheerText)으로\n응원을 추가하시겠어요?"),
                                   message: Text("작성하신 응원은 위젯에 표시됩니다."),
                                   primaryButton: .default(Text("확인"), action: {
-                                      print("\(cheerText) saved")
-                                  }),
+                                print("\(cheerText) saved")
+                                text = cheerText
+                            }),
                                   secondaryButton: .cancel(Text("취소"), action: {
-                                  }))
+                            }))
                         })
                     }
                 }
