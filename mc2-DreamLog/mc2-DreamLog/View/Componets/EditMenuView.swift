@@ -32,9 +32,13 @@ struct EditMenuView: View {
         let binding = Binding<Bool>(
             get: { self.showImagePicker },
             set: {
+                if self.showImagePicker && !$0 {
+                    print("log")
+                    data.viewArr.append(
+                        .init(x: Double.random(in: -100...100), y: Double.random(in: -100...100), elementView: Image(uiImage: self.image))
+                    )
+                }
                 self.showImagePicker = $0
-//                data.imageArr.append(self.image)
-                data.viewArr.append(.init(elementView: Image(uiImage: self.image)))
             }
         )
         
