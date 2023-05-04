@@ -33,10 +33,12 @@ extension View {
     /// - Returns: 속성이 적용된 텍스트가 여백없이 UIImage 형태로 반환
     func textToImage(text: String, backgroundColor: UIColor = .clear, textColor: UIColor = .black) -> UIImage {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 100)
         label.textAlignment = .center
         label.backgroundColor = backgroundColor
         label.textColor = textColor
         label.text = text
+        
         label.sizeToFit() // Size the label to fit the text
         
         UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
