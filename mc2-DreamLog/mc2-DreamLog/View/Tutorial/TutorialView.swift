@@ -10,8 +10,8 @@ import SwiftUI
 struct TutorialView: View {
     
     
-    @State var image = UIImage(named: "DashPlus")!
-    @State var text: String = ""
+    @State var tutorialImage = UIImage(named: "DashPlus")!
+    @State var tutorialText: String = ""
     
     @EnvironmentObject var data : TutorialBoardElement //
     
@@ -34,9 +34,9 @@ struct TutorialView: View {
     var body: some View {
         
         let binding = Binding<String>(
-            get: { self.text },
+            get: { self.tutorialText },
             set: {
-                self.text = $0
+                self.tutorialText = $0
                 self.textFieldChanged()
             }
         )
@@ -62,7 +62,7 @@ struct TutorialView: View {
                         .padding(.vertical, 18)
                     
                     if index < 2 {
-                        Image(uiImage: image)
+                        Image(uiImage: tutorialImage)
                             .resizable()
                             .scaledToFit()
                             .padding(.bottom, 22)
@@ -75,15 +75,15 @@ struct TutorialView: View {
                     NavigationLink(value: showEdit, label: {
                         Button {
                             
-                            if !image.isEqual(UIImage(named: "DashPlus")!) {
+                            if !tutorialImage.isEqual(UIImage(named: "DashPlus")!) {
                                 
-                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.image)))
-                                self.image = UIImage(named: "DashPlus")!
+                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.tutorialImage)))
+                                self.tutorialImage = UIImage(named: "DashPlus")!
                             }
                             
-                            if self.text != ""  {
-                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: textToImage(text: self.text))))
-                                text = ""
+                            if self.tutorialText != ""  {
+                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: textToImage(text: self.tutorialText))))
+                                tutorialText = ""
                             }
                             
                             if index == 2 {
@@ -109,10 +109,10 @@ struct TutorialView: View {
         }
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $showSheet) {
-            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$tutorialImage)
         }
         .onAppear {
-            image = UIImage(named: "DashPlus")!
+            tutorialImage = UIImage(named: "DashPlus")!
             index = 0
             data.viewArr.removeAll()
         }
@@ -133,7 +133,7 @@ struct TutorialView_Previews: PreviewProvider {
 extension TutorialView {
     
     private func textFieldChanged() {
-        if text != "" || !image.isEqual(UIImage(named: "DashPlus")!) {
+        if tutorialText != "" || !tutorialImage.isEqual(UIImage(named: "DashPlus")!) {
             isActive = true
         } else {
             isActive = false

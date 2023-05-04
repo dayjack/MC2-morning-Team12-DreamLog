@@ -16,7 +16,7 @@ import SwiftUI
 struct EditMenuView: View {
     
     @State var showImagePicker = false
-    @State var image = UIImage()
+    @State var elementImage = UIImage()
     @EnvironmentObject var data: TutorialBoardElement
     
     @State var btnNames: [String] = [
@@ -35,7 +35,7 @@ struct EditMenuView: View {
                 if self.showImagePicker && !$0 {
                     print("log")
                     data.viewArr.append(
-                        .init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.image))
+                        .init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.elementImage))
                     )
                 }
                 self.showImagePicker = $0
@@ -65,7 +65,7 @@ struct EditMenuView: View {
             }
         }
         .sheet(isPresented: binding) {
-            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$elementImage)
         }
     }
 }
