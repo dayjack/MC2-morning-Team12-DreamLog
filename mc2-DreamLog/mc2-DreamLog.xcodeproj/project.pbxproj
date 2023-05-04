@@ -29,6 +29,7 @@
 		784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DA2A0346C70096D427 /* EditMenuView.swift */; };
 		784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */; };
 		784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DE2A0346FA0096D427 /* MultiPreview.swift */; };
+		784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5E02A0370E80096D427 /* EditColorView.swift */; };
 		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		784EB5DA2A0346C70096D427 /* EditMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMenuView.swift; sourceTree = "<group>"; };
 		784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgColorGeoView.swift; sourceTree = "<group>"; };
 		784EB5DE2A0346FA0096D427 /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
+		784EB5E02A0370E80096D427 /* EditColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditColorView.swift; sourceTree = "<group>"; };
 		7891C6712A02802F006B5109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,12 +93,12 @@
 			isa = PBXGroup;
 			children = (
 				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
+				166972632A015A4600702B59 /* ContentView.swift */,
 				784EB5C72A0345830096D427 /* View */,
 				784EB5C42A0345560096D427 /* Model */,
-				7891C6712A02802F006B5109 /* Info.plist */,
 				78C24FD32A0242540070906B /* Global */,
-				166972632A015A4600702B59 /* ContentView.swift */,
 				166972652A015A4800702B59 /* Assets.xcassets */,
+				7891C6712A02802F006B5109 /* Info.plist */,
 				166972672A015A4800702B59 /* Preview Content */,
 			);
 			path = "mc2-DreamLog";
@@ -156,9 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				784EB5D82A03467B0096D427 /* ImagePicker.swift */,
-				784EB5DA2A0346C70096D427 /* EditMenuView.swift */,
 				784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */,
 				784EB5DE2A0346FA0096D427 /* MultiPreview.swift */,
+				784EB5DA2A0346C70096D427 /* EditMenuView.swift */,
+				784EB5E02A0370E80096D427 /* EditColorView.swift */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
 				784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */,
 				784EB5C92A0345A20096D427 /* MainView.swift in Sources */,
+				784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */,
 				784EB5D62A0346470096D427 /* TutorialWidgetView.swift in Sources */,
 				784EB5C62A0345630096D427 /* TutorialBoardElement.swift in Sources */,
 				784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */,

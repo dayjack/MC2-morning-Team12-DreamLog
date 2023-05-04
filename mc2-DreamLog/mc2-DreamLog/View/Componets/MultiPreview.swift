@@ -20,16 +20,19 @@ struct MultiPreview<Content>: View where Content: View {
             content()
         }
         .previewDisplayName("iPhone SE (3rd generation)")
+        .environmentObject(TutorialBoardElement())
         NavigationStack {
             content()
         }
         .previewDevice("iPhone 14 Pro")
         .previewDisplayName("iPhone 14 Pro")
+        .environmentObject(TutorialBoardElement())
         NavigationStack {
             content()
         }
         .previewDevice("iPhone 13 mini")
         .previewDisplayName("iPhone 13 mini")
+        .environmentObject(TutorialBoardElement())
     }
 }
 

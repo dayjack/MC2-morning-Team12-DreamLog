@@ -15,31 +15,10 @@ import SwiftUI
 
 struct EditMenuView: View {
     
-    @State private var sliderValue = 3.0
-    @State var colorNum = 0
+    @State var showImagePicker = false
+    @State var image = UIImage()
     
-    let colorArr: [Color] = [
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink,
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink
-    ]
     @State var btnNames: [String] = [
-        "hand.draw",
         "character",
         "paintbrush.pointed",
         "photo",
@@ -50,43 +29,12 @@ struct EditMenuView: View {
     var body: some View {
         
         VStack{
-            // 색상 고르는 뷰 & 펜 두꺼움 고르는 슬라이더
-            // EditColorView
-            VStack {
-                
-                ScrollView(.horizontal,showsIndicators: false) {
-                    HStack {
-                        ForEach(0..<colorArr.count, id: \.self) { colorIndex in
-                            Circle()
-                                .frame(width: colorNum == colorIndex ? 40 : 30)
-                                .foregroundColor(colorArr[colorIndex])
-                                .onTapGesture {
-                                    withAnimation(.easeInOut(duration: 0.36)) {
-                                        colorNum = colorIndex
-                                    }
-                                }
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Circle().foregroundColor(.textGray).frame(width: 10)
-                    Slider(value: $sliderValue, in: 1...30, step: 1)
-                        .padding(.horizontal, 20)
-                    
-                    Circle().foregroundColor(.textGray).frame(width: 30)
-                }
-                .padding(.horizontal, 20)
-            }
             
-            // 메인 편집 설정 창
-            // EditMenuView
             HStack {
                 Spacer()
                 ForEach(btnNames, id: \.self) { name in
                     Button {
-                        print("clicked")
+                        showImagePicker = true
                     } label: {
                         Image(systemName: name)
                             .foregroundColor(.secondary)
@@ -97,9 +45,12 @@ struct EditMenuView: View {
                     }
                 }
                 .padding(.bottom, 20)
-                //                .padding(.top, 80)
+                .padding(.top, 80)
                 Spacer()
             }
+        }
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
         }
     }
 }
