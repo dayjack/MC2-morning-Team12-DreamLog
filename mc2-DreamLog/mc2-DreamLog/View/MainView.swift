@@ -26,7 +26,7 @@ struct MainView: View {
                             Text("Second")
                         }
                         .tag(1)
-                    Text("The Last Tab")
+                    CheerLogView()
                         .tabItem {
                             Image(systemName: "3.square.fill")
                             Text("Third")
