@@ -45,20 +45,26 @@ struct DreamBoardView: View {
                     .padding(.bottom, 15)
                 
                 VStack(alignment: .leading) {
-                    
-                    Text("오늘 나에게 주는 응원 한마디")
-                    Divider()
-                    TextField("ex | 오늘도 한번 열심히 달려보자🔥", text: $text)
+                    HStack {
+                        Text("나에게 주는 응원 한마디")
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.textGreen)
+                        }
+                    }
                 }
                 .padding(.horizontal, 16)
                 .frame(width: width - 30)
-                .frame(height: 100)
+                .frame(height: 50)
                 .background(.white)
-                .cornerRadius(20)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 12)
                         .stroke(Color.gray, lineWidth: 1)
                 )
+                .padding(.bottom, 20)
             }
         }
     }
