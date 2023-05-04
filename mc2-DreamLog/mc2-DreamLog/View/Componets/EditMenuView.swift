@@ -17,6 +17,7 @@ struct EditMenuView: View {
     
     @State var showImagePicker = false
     @State var image = UIImage()
+    @EnvironmentObject var data: TutorialBoardElement
     
     @State var btnNames: [String] = [
         "character",
@@ -27,6 +28,14 @@ struct EditMenuView: View {
     ]
     
     var body: some View {
+        
+        let binding = Binding<Bool>(
+            get: { self.showImagePicker },
+            set: {
+                self.showImagePicker = $0
+                data.imageArr.append(self.image)
+            }
+        )
         
         VStack{
             
@@ -49,7 +58,7 @@ struct EditMenuView: View {
                 Spacer()
             }
         }
-        .sheet(isPresented: $showImagePicker) {
+        .sheet(isPresented: binding) {
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
         }
     }
