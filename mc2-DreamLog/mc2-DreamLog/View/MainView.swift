@@ -1,0 +1,64 @@
+//
+//  MainView.swift
+//  mc2-DreamLog
+//
+//  Created by ChoiYujin on 2023/05/04.
+//
+
+import SwiftUI
+
+struct MainView: View {
+    
+    @State var selection = 0
+    
+    var body: some View {
+            BgColorGeoView { geo in
+                TabView(selection: $selection) {
+                    DreamBoardView()
+                        .tabItem {
+                            Image(systemName: "menucard")
+                            Text("비전보드")
+                        }
+                        .tag(0)
+                    Text("Another Tab")
+                        .tabItem {
+                            Image(systemName: "2.square.fill")
+                            Text("Second")
+                        }
+                        .tag(1)
+                    Text("The Last Tab")
+                        .tabItem {
+                            Image(systemName: "3.square.fill")
+                            Text("Third")
+                        }
+                        .tag(2)
+                }
+            }
+        .onAppear {
+            UserDefaults.standard.set(true, forKey: "gotoMain")
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            if selection == 0 {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        print("+ clicked")
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.textGreen)
+                            .font(.system(size: 22))
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MultiPreview {
+            MainView()
+        }
+    }
+}
