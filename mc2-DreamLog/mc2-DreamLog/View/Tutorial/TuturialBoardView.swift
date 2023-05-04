@@ -32,11 +32,6 @@ struct TutorialBoardView: View {
                             .offset(x: item.offsetX, y: item.offsetY)
                             .frame(width: 150)
                     }
-                    
-                    ForEach(data.textArr, id: \.self) { item in
-                        Text(item)
-                            .offset(x: Double.random(in: -100...100), y: Double.random(in: -100...100))
-                    }
                 }
                 Spacer()
                 EditMenuView()

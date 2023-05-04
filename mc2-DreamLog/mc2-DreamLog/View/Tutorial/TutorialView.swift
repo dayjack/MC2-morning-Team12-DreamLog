@@ -82,7 +82,7 @@ struct TutorialView: View {
                             }
                             
                             if self.text != ""  {
-                                data.textArr.append(self.text)
+                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: textToImage(text: self.text))))
                                 text = ""
                             }
                             
@@ -114,7 +114,6 @@ struct TutorialView: View {
         .onAppear {
             image = UIImage(named: "DashPlus")!
             index = 0
-            data.textArr.removeAll()
             data.viewArr.removeAll()
         }
         .ignoresSafeArea(.keyboard)
