@@ -15,31 +15,11 @@ import SwiftUI
 
 struct EditMenuView: View {
     
-    @State private var sliderValue = 3.0
-    @State var colorNum = 0
+    @State var showImagePicker = false
+    @State var elementImage = UIImage()
+    @EnvironmentObject var data: TutorialBoardElement
     
-    let colorArr: [Color] = [
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink,
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink
-    ]
     @State var btnNames: [String] = [
-        "hand.draw",
         "character",
         "paintbrush.pointed",
         "photo",
@@ -49,44 +29,26 @@ struct EditMenuView: View {
     
     var body: some View {
         
-        VStack{
-            // 색상 고르는 뷰 & 펜 두꺼움 고르는 슬라이더
-            // EditColorView
-            VStack {
-                
-                ScrollView(.horizontal,showsIndicators: false) {
-                    HStack {
-                        ForEach(0..<colorArr.count, id: \.self) { colorIndex in
-                            Circle()
-                                .frame(width: colorNum == colorIndex ? 40 : 30)
-                                .foregroundColor(colorArr[colorIndex])
-                                .onTapGesture {
-                                    withAnimation(.easeInOut(duration: 0.36)) {
-                                        colorNum = colorIndex
-                                    }
-                                }
-                        }
-                    }
+        let binding = Binding<Bool>(
+            get: { self.showImagePicker },
+            set: {
+                if self.showImagePicker && !$0 {
+                    print("log")
+                    data.viewArr.append(
+                        .init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.elementImage))
+                    )
                 }
-                .padding(.horizontal)
-                
-                HStack {
-                    Circle().foregroundColor(.textGray).frame(width: 10)
-                    Slider(value: $sliderValue, in: 1...30, step: 1)
-                        .padding(.horizontal, 20)
-                    
-                    Circle().foregroundColor(.textGray).frame(width: 30)
-                }
-                .padding(.horizontal, 20)
+                self.showImagePicker = $0
             }
+        )
+        
+        VStack{
             
-            // 메인 편집 설정 창
-            // EditMenuView
             HStack {
                 Spacer()
                 ForEach(btnNames, id: \.self) { name in
                     Button {
-                        print("clicked")
+                        showImagePicker = true
                     } label: {
                         Image(systemName: name)
                             .foregroundColor(.secondary)
@@ -94,12 +56,16 @@ struct EditMenuView: View {
                             .background(.white)
                             .clipShape(Circle())
                             .shadow(radius: 2)
+                            
                     }
                 }
                 .padding(.bottom, 20)
-                //                .padding(.top, 80)
+                .padding(.top, 80)
                 Spacer()
             }
+        }
+        .sheet(isPresented: binding) {
+            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$elementImage)
         }
     }
 }
