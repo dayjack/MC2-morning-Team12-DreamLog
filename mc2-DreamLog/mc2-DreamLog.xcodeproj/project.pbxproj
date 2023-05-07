@@ -33,6 +33,8 @@
 		784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DE2A0346FA0096D427 /* MultiPreview.swift */; };
 		784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5E02A0370E80096D427 /* EditColorView.swift */; };
 		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
+		83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */; };
+		83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		784EB5E02A0370E80096D427 /* EditColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditColorView.swift; sourceTree = "<group>"; };
 		7891C6712A02802F006B5109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingView.swift; sourceTree = "<group>"; };
+		83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 				784EB5C82A0345A20096D427 /* MainView.swift */,
 				1635FA852A03AB490056C2CB /* CheerLogView.swift */,
 				784EB5CA2A0345B90096D427 /* DreamBoardView.swift */,
+				83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */,
 				784EB5D72A0346630096D427 /* Componets */,
 				784EB5CC2A0345CB0096D427 /* Tutorial */,
 			);
@@ -163,6 +168,7 @@
 		784EB5D72A0346630096D427 /* Componets */ = {
 			isa = PBXGroup;
 			children = (
+				83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */,
 				784EB5D82A03467B0096D427 /* ImagePicker.swift */,
 				784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */,
 				784EB5DE2A0346FA0096D427 /* MultiPreview.swift */,
@@ -266,6 +272,7 @@
 				784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */,
 				784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */,
 				78C24FD62A0242710070906B /* ColorExtension.swift in Sources */,
+				83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */,
 				784EB5D92A03467B0096D427 /* ImagePicker.swift in Sources */,
 				784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */,
 				784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */,
@@ -278,6 +285,7 @@
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
 				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
 				784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */,
+				83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */,
 				784EB5C92A0345A20096D427 /* MainView.swift in Sources */,
 				784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */,
 				784EB5D62A0346470096D427 /* TutorialWidgetView.swift in Sources */,
