@@ -35,6 +35,7 @@
 		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
 		83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */; };
 		83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */; };
+		9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingView.swift; sourceTree = "<group>"; };
 		83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingMenuView.swift; sourceTree = "<group>"; };
+		9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				784EB5D12A0346160096D427 /* TuturialBoardView.swift */,
 				784EB5D32A03462F0096D427 /* TutorialCalendarView.swift */,
 				784EB5D52A0346470096D427 /* TutorialWidgetView.swift */,
+				9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */,
 				784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */,
 				78C24FD62A0242710070906B /* ColorExtension.swift in Sources */,
+				9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */,
 				83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */,
 				784EB5D92A03467B0096D427 /* ImagePicker.swift in Sources */,
 				784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */,
