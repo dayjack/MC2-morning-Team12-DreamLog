@@ -12,6 +12,7 @@
 		166972642A015A4600702B59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972632A015A4600702B59 /* ContentView.swift */; };
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
 		166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972682A015A4800702B59 /* Preview Assets.xcassets */; };
+		167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 167435602A09021D00891AAB /* CoreData.xcdatamodeld */; };
 		438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87852A0881CB00037E11 /* FixableImageView.swift */; };
 		438E87882A0882AB00037E11 /* FocusUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87872A0882AB00037E11 /* FocusUUID.swift */; };
 		782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E9AF02A0379CC0025FD48 /* BoardElement.swift */; };
@@ -47,6 +48,7 @@
 		166972632A015A4600702B59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		166972652A015A4800702B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		166972682A015A4800702B59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		167435612A09021D00891AAB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		438E87852A0881CB00037E11 /* FixableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixableImageView.swift; sourceTree = "<group>"; };
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
 		782E9AF02A0379CC0025FD48 /* BoardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardElement.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				166972652A015A4800702B59 /* Assets.xcassets */,
 				7891C6712A02802F006B5109 /* Info.plist */,
 				166972672A015A4800702B59 /* Preview Content */,
+				167435602A09021D00891AAB /* CoreData.xcdatamodeld */,
 			);
 			path = "mc2-DreamLog";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */,
 				784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */,
+				167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */,
 				438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */,
 				784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */,
 				784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */,
@@ -505,6 +509,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		167435602A09021D00891AAB /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				167435612A09021D00891AAB /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 167435612A09021D00891AAB /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 166972562A015A4600702B59 /* Project object */;
 }
