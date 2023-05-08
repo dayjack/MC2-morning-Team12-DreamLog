@@ -18,6 +18,7 @@ struct EditMenuView: View {
     @State var showImagePicker = false
     @State var elementImage = UIImage()
     @EnvironmentObject var data: TutorialBoardElement
+    @State var editState: EditState = .none
     
     @State var btnNames: [String] = [
         "character",
@@ -26,6 +27,10 @@ struct EditMenuView: View {
         "face.smiling",
         "rectangle"
     ]
+    
+    enum EditState {
+        case character, paintbrush, photo, face, rectangle, none
+    }
     
     var body: some View {
         
@@ -43,25 +48,33 @@ struct EditMenuView: View {
         )
         
         VStack{
-            
+            editview(editState: self.editState)
             HStack {
                 Spacer()
                 ForEach(btnNames, id: \.self) { name in
                     Button {
                         // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
-                        showImagePicker = true
+                        switch name {
+                        case "character":
+                            editState = .character
+                        case "paintbrush.pointed":
+                            editState = .paintbrush
+                        case "photo":
+                            showImagePicker = true
+                            editState = .photo
+                        case "face.smiling":
+                            editState = .face
+                        case "rectangle":
+                            editState = .rectangle
+                        default:
+                            editState = .none
+                        }
                     } label: {
                         Image(systemName: name)
-                            .foregroundColor(.secondary)
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                            
+                            .menuButton()
                     }
                 }
                 .padding(.bottom, 20)
-                .padding(.top, 80)
                 Spacer()
             }
         }
@@ -75,6 +88,28 @@ struct EditBar_Previews: PreviewProvider {
     static var previews: some View {
         MultiPreview {
             EditMenuView()
+        }
+    }
+}
+
+extension EditMenuView {
+    
+    func editview(editState: EditState) -> some View {
+        return HStack {
+            switch editState {
+            case .character:
+                EmptyView()
+            case .paintbrush:
+                EmptyView()
+            case .photo:
+                EmptyView()
+            case .face:
+                Text("이모티콘 뷰가 들어갈 자리")
+            case .rectangle:
+                Text("위젯 관련 뷰가 들어갈 자리")
+            case .none:
+                EmptyView()
+            }
         }
     }
 }
