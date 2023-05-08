@@ -11,8 +11,8 @@ struct DreamBoardView: View {
     
     @State var text = ""
     @State private var showingAlert: Bool = false
-    @State private var cheerText: String = ""
     @State private var confirmAlert: Bool = false
+    @StateObject var cheerModel = dataModel()
     
     var body: some View {
         BgColorGeoView { geo in
@@ -70,7 +70,7 @@ struct DreamBoardView: View {
                                 .foregroundColor(.textGreen)
                         }
                         .alert("나에게 주는 응원 한마디를\n작성해주세요", isPresented: $showingAlert, actions: {
-                            TextField("응원의 한 마디를 작성해보아요", text: $cheerText)
+                            TextField("응원의 한 마디를 작성해보아요", text: $cheerModel.cheerText)
                             
                             Button("완료", action: {
                                 confirmAlert = true
@@ -78,14 +78,14 @@ struct DreamBoardView: View {
                             Button("취소", role: .cancel, action: {})
                         })
                         .alert(isPresented: $confirmAlert, content: {
-                            Alert(title: Text("\(cheerText)으로\n응원을 추가하시겠어요?"),
+                            Alert(title: Text("\(cheerModel.cheerText)으로\n응원을 추가하시겠어요?"),
                                   message: Text("작성하신 응원은 위젯에 표시됩니다."),
                                   primaryButton: .default(Text("확인"), action: {
-                                print("\(cheerText) saved")
-                                text = cheerText
-                            }),
+                                    cheerModel.writeData() // 첫 번째 액션
+                                  }),
                                   secondaryButton: .cancel(Text("취소"), action: {
-                            }))
+                                    // 액션 없음
+                                  }))
                         })
                     }
                 }
