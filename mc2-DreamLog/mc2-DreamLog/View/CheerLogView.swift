@@ -40,7 +40,16 @@ struct CheerList: View {
                 
                 ForEach(model.data, id: \.objectID) { obj in
                     //Extracting data from obj
-                    Text(model.getValue(obj: obj))
+                    let (cheer, writtenDate) = model.getValue(obj: obj)
+                    
+                    VStack(alignment: .leading) {
+                        Text(cheer)
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 8)
+                        Text(writtenDate)
+                            .font(.system(size: 14, weight: .regular))
+                            .foregroundColor(.gray)
+                    }
                 }
                 .onDelete(perform: model.deleteData(indexSet:))
             }
@@ -57,6 +66,7 @@ struct CheerList: View {
 class dataModel: ObservableObject {
     @Published var data: [NSManagedObject] = []
     @Published var cheerText = ""
+    @Published var writtenDateText = ""
     let context = persistentContainer.viewContext
     
     init() {
@@ -79,13 +89,14 @@ class dataModel: ObservableObject {
         let entity = NSEntityDescription.insertNewObject(forEntityName: "CheerData", into: context)
         
         entity.setValue(cheerText, forKey: "cheer")
+        entity.setValue(writtenDateText, forKey: "writtenDate")
         
         do {
             try context.save()
-            
             self.data.append(entity)
             
             cheerText = ""
+            writtenDateText = ""
             
         } catch {
             print(error.localizedDescription)
@@ -111,12 +122,12 @@ class dataModel: ObservableObject {
         }
     }
     
-    func getValue(obj: NSManagedObject) -> String {
+    func getValue(obj: NSManagedObject) -> (cheer: String, writtenDate: String) {
+        let cheer = obj.value(forKey: "cheer") as! String
+        let writtenDate = obj.value(forKey: "writtenDate") as! String
         
-        return obj.value(forKey: "cheer") as! String
+        return (cheer, writtenDate)
     }
-    
-    
 }
 
 

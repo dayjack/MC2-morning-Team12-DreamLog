@@ -81,7 +81,10 @@ struct DreamBoardView: View {
                             Alert(title: Text("\(cheerModel.cheerText)으로\n응원을 추가하시겠어요?"),
                                   message: Text("작성하신 응원은 위젯에 표시됩니다."),
                                   primaryButton: .default(Text("확인"), action: {
+                                cheerModel.writtenDateText = getCurrentDate()
                                     cheerModel.writeData() // 첫 번째 액션
+                                print(getCurrentDate())
+                                print($cheerModel.cheerText)
                                   }),
                                   secondaryButton: .cancel(Text("취소"), action: {
                                     // 액션 없음
@@ -101,6 +104,13 @@ struct DreamBoardView: View {
             }
         }
     }
+    
+    func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: Date())
+    }
+    
 }
 
 struct MainTab1View_Previews: PreviewProvider {
