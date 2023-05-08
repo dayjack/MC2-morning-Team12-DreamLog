@@ -12,6 +12,10 @@ struct TutorialBoardView: View {
     @State var showScroll: Bool = false
     
     @EnvironmentObject var data: TutorialBoardElement
+    @GestureState var startLocation: CGPoint? = nil
+    @EnvironmentObject var FUUID: FocusUUID
+    
+    let backgroundUUID = UUID()
     
     var body: some View {
         BgColorGeoView { geo in
@@ -21,18 +25,21 @@ struct TutorialBoardView: View {
             VStack {
                 // 편집될 뷰로 교체하기
                 ZStack {
-                    Color.gray.opacity(0.1)
+                    Color.white
                        
                     
                     ForEach(data.viewArr, id: \.self) { item in
                         
-                        item.elementView
-                            .resizable()
-                            .scaledToFit()
-                            .offset(x: item.offsetX, y: item.offsetY)
-                            .frame(width: 150)
+                        FixableImageView()
+                            .environmentObject(item)
+                            .environmentObject(data)
+                            .environmentObject(FUUID)
                     }
                 }
+                .onTapGesture {
+                    FUUID.focusUUID = backgroundUUID
+                }
+                
                 Spacer()
                 EditMenuView()
                 HStack {

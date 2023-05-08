@@ -33,9 +33,9 @@ struct EditMenuView: View {
             get: { self.showImagePicker },
             set: {
                 if self.showImagePicker && !$0 {
-                    print("log")
+                    
                     data.viewArr.append(
-                        .init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.elementImage))
+                        .init(imagePosition: CGPoint(x:Double.random(in: 0...300), y:Double.random(in: 0...300)), imageWidth: 200, imageHeight: (elementImage.size.height / elementImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: elementImage))
                     )
                 }
                 self.showImagePicker = $0
@@ -48,6 +48,7 @@ struct EditMenuView: View {
                 Spacer()
                 ForEach(btnNames, id: \.self) { name in
                     Button {
+                        // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
                         showImagePicker = true
                     } label: {
                         Image(systemName: name)

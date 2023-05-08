@@ -22,6 +22,7 @@ struct mc2_DreamLogApp: App {
             } else {
                 TutorialStartView() // TutorialStartView
                     .environmentObject(TutorialBoardElement())
+                    .environmentObject(FocusUUID())
                     .onAppear {
                         sleep(2)
                     }

@@ -7,28 +7,43 @@
 
 import SwiftUI
 
-struct BoardElement: Identifiable, Hashable {
+class BoardElement: Identifiable, Hashable, ObservableObject {
     
     let id = UUID()
     
-    var offsetX: CGFloat = 0
-    var offsetY: CGFloat = 0
-
-    var elementAngle = 0
+    @Published var imagePosition = CGPoint(x: 0, y: 0)
+    @Published var imageWidth:CGFloat = 0
+    @Published var imageHeight:CGFloat = 0
+   
+    @Published var rotateDotPosition: CGPoint = .init(x: 0, y:0)
+    @Published var deleteDotPosition: CGPoint = .init(x: 0, y: 0)
     
-    var elmentScale = 1
+    @Published var angle: Angle = .degrees(0)
+    @Published var angleSum:Double = 0
     
-    var elementView: Image
+//    imageHeight / imageWidth * 100 <- 고정값으로줄
     
-    init(offsetX: CGFloat = 0, offsetY: CGFloat = 0, elementAngle: Int = 0, elmentScale: Int = 1, elementView: Image) {
-        self.offsetX = offsetX
-        self.offsetY = offsetY
-        self.elementAngle = elementAngle
-        self.elmentScale = elmentScale
-        self.elementView = elementView
+    var picture: Image
+    
+    init(imagePosition: CGPoint, imageWidth: CGFloat, imageHeight: CGFloat, angle: Angle, angleSum: Double, picture: Image) {
+        self.imagePosition = imagePosition
+        self.imageWidth = imageWidth
+        self.imageHeight = imageHeight
+        self.rotateDotPosition = CGPoint(x: imagePosition.x + imageWidth/2, y: imagePosition.y + imageHeight/2)
+        self.deleteDotPosition = CGPoint(x: imagePosition.x + imageWidth/2, y: imagePosition.y - imageHeight/2)
+        self.angle = angle
+        self.angleSum = angleSum
+        self.picture = picture
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+    
+    static func == (lhs: BoardElement, rhs: BoardElement) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        }
+        return false
     }
 }
