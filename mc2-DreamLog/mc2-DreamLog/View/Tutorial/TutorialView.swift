@@ -77,12 +77,12 @@ struct TutorialView: View {
                             
                             if !tutorialImage.isEqual(UIImage(named: "DashPlus")!) {
                                 
-                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: self.tutorialImage)))
+                                data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: 0...300), y:Double.random(in: 0...300)), imageWidth: 200, imageHeight: (tutorialImage.size.height / tutorialImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: tutorialImage)))
                                 self.tutorialImage = UIImage(named: "DashPlus")!
                             }
                             
                             if self.tutorialText != ""  {
-                                data.viewArr.append(BoardElement.init(offsetX: Double.random(in: -100...100), offsetY: Double.random(in: -100...100), elementView: Image(uiImage: textToImage(text: self.tutorialText))))
+                                data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: 0...300), y:Double.random(in: 0...300)), imageWidth: 200, imageHeight: (textToImage(text: self.tutorialText).size.height / textToImage(text: self.tutorialText).size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: textToImage(text: self.tutorialText))))
                                 tutorialText = ""
                             }
                             
