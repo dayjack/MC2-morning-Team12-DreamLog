@@ -24,6 +24,10 @@ extension View {
         modifier(TextGrayModifier(fontSize: fontSize))
     }
     
+    func menuButton() -> some View {
+        modifier(MenuButtonModifier())
+    }
+    
     
     /// Text(String)를 image로 변환해준다. 이미 속성이 전부 적용된 텍스트뷰를 이미지로 바꾸는 형식이 아님
     /// - Parameters:
