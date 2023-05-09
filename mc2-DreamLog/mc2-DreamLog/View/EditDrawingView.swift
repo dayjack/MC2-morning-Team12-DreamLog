@@ -46,7 +46,7 @@ struct EditDrawingView: View {
                     Button{
                         // save drawing
                         let capturedImage = DrawingView(canvas: $canvas, isDraw: $isDraw, type: $type, color: $colorArr[colorNum], width: $sliderValue).captureImage()
-                        data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:0, y:0), imageWidth: 200, imageHeight: (capturedImage.size.height / capturedImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: capturedImage)))
+                        data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:0, y:0), imageWidth: (capturedImage.size.width > capturedImage.size.height) ?  200 : (capturedImage.size.width / capturedImage.size.height * 200), imageHeight: (capturedImage.size.width > capturedImage.size.height) ? (capturedImage.size.height / capturedImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: capturedImage)))
                         dismiss()
                         
                     }label: {

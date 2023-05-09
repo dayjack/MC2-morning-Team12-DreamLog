@@ -68,7 +68,7 @@ struct TutorialTextEditView: View {
                                         return
                                     }
                                     /// BoardEditView로 renderImage 전달
-                                    data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:0, y:0), imageWidth: 200, imageHeight: (generatedImage.size.height / generatedImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: generatedImage)))
+                                    data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:0, y:0), imageWidth: (generatedImage.size.width > generatedImage.size.height) ?  200 : (generatedImage.size.width / generatedImage.size.height * 200), imageHeight: (generatedImage.size.width > generatedImage.size.height) ? (generatedImage.size.height / generatedImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: generatedImage)))
                                     /// 보드 뷰로 이동
                                     dismiss()
                                 }
