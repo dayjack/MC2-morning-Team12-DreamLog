@@ -41,6 +41,7 @@
 		83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */; };
 		9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */; };
 		9500AB9D2A09E8620034933C /* ColorPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9C2A09E8620034933C /* ColorPreset.swift */; };
+		9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9E2A09F6800034933C /* EmojiPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingMenuView.swift; sourceTree = "<group>"; };
 		9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextEditView.swift; sourceTree = "<group>"; };
 		9500AB9C2A09E8620034933C /* ColorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreset.swift; sourceTree = "<group>"; };
+		9500AB9E2A09F6800034933C /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				784EB5DA2A0346C70096D427 /* EditMenuView.swift */,
 				784EB5E02A0370E80096D427 /* EditColorView.swift */,
 				438E87852A0881CB00037E11 /* FixableImageView.swift */,
+				9500AB9E2A09F6800034933C /* EmojiPicker.swift */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
+				9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */,
 				782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
 				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
