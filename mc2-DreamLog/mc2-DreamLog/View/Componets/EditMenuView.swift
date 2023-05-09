@@ -126,7 +126,7 @@ extension EditMenuView {
             case .photo:
                 EmptyView()
             case .face:
-                Text("이모티콘 뷰가 들어갈 자리")
+                EmojiPicker()
             case .rectangle:
                 Text("위젯 관련 뷰가 들어갈 자리")
             case .none:
