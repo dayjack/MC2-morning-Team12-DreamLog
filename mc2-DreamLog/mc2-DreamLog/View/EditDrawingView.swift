@@ -10,20 +10,7 @@ import PencilKit
 
 struct EditDrawingView: View {
     
-    @State var colorArr: [Color] = [
-        .black,
-        .red,
-        .orange,
-        .brown,
-        .yellow,
-        .green,
-        .blue,
-        .indigo,
-        .purple,
-        .pink,
-        .cyan,
-        .mint,
-    ]
+    @State var colorArr: [Color] = ColorPreset.colorPallete
     
     @State var btnNames: [String] = [
         "pencil",
