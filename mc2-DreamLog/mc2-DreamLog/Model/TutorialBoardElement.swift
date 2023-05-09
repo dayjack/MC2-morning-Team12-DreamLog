@@ -11,6 +11,7 @@ class TutorialBoardElement : ObservableObject {
     
     @Published var viewArr: [BoardElement] = []
     
+    
     func findOne(one: UUID) -> BoardElement {
         for index in 0...viewArr.count-1 {
             if(viewArr[index].id == one){
