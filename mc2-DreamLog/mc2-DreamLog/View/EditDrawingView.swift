@@ -37,19 +37,17 @@ struct EditDrawingView: View {
     @State var isDraw = true
     @State var type : PKInkingTool.InkType = .pen
     
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var data: TutorialBoardElement
+    
     var body: some View{
         BgColorGeoView{ geo in
-            
-            let width = geo.size.width
-            let height = geo.size.height
-            
             VStack{
                 
                 HStack{
                     Button{
                         // cancel drawring
-
-                        
+                        dismiss()
                     }label: {
                         Text("cancel")
                             .foregroundColor(.textGreen)
@@ -59,8 +57,10 @@ struct EditDrawingView: View {
                     Spacer()
                     
                     Button{
-                      // save drawing
-                        
+                        // save drawing
+                        let capturedImage = DrawingView(canvas: $canvas, isDraw: $isDraw, type: $type, color: $colorArr[colorNum], width: $sliderValue).captureImage()
+                        data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: 0...300), y:Double.random(in: 0...300)), imageWidth: 200, imageHeight: (capturedImage.size.height / capturedImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: capturedImage)))
+                        dismiss()
                         
                     }label: {
                         Image(systemName: "checkmark")
@@ -73,23 +73,15 @@ struct EditDrawingView: View {
                 // Drawing Canvas
                 DrawingView(canvas: $canvas, isDraw: $isDraw, type: $type, color: $colorArr[colorNum], width: $sliderValue)
                 
-                // pen mode
-                if isDraw{
-                    EditDrawingMenuView(sliderValue: $sliderValue, colorNum: $colorNum, colorArr: $colorArr, isDraw: $isDraw)
-                }
-                // eraser mode
-                else{
-                    EditDrawingMenuView(sliderValue: $sliderValue, colorNum: $colorNum, colorArr: $colorArr, isDraw: $isDraw)
-                    
-                }
+                // pen mode ? or eraser mode ?
+                isDraw ? EditDrawingMenuView(sliderValue: $sliderValue, colorNum: $colorNum, colorArr: $colorArr, isDraw: $isDraw) :  EditDrawingMenuView(sliderValue: $sliderValue, colorNum: $colorNum, colorArr: $colorArr, isDraw: $isDraw)
                 
                 // EditDrawingMenu
                 HStack {
+                    // Select Pen
                     Button {
                         if isDraw {}
-                        else{
-                            isDraw.toggle()
-                        }
+                        else{ isDraw.toggle()}
                         
                     } label: {
                         Image(systemName: "pencil")
@@ -101,6 +93,7 @@ struct EditDrawingView: View {
                     }
                     .padding(.bottom, 20)
                     .padding(.leading, 20)
+                    // Select Eraser
                     Button {
                         if isDraw { isDraw.toggle()}
                         else{}
@@ -121,8 +114,6 @@ struct EditDrawingView: View {
     }
     
     
-    
-    
     struct DrawingView: UIViewRepresentable{
         
         @Binding var canvas : PKCanvasView
@@ -132,40 +123,27 @@ struct EditDrawingView: View {
         @Binding var width : Double
         
         var ink : PKInkingTool{
-            PKInkingTool(type, color: UIColor(color), width: width)
-        }
-        
+            PKInkingTool(type, color: UIColor(color), width: width)}
         
         let eraser = PKEraserTool(.bitmap)
         
-        
         func makeUIView(context: Context) -> PKCanvasView {
             canvas.drawingPolicy = .anyInput
-            
             canvas.tool = isDraw ? ink : eraser
             
-            return canvas
-        }
+            return canvas}
         
         func updateUIView(_ uiView: PKCanvasView, context: Context) {
-            
-            uiView.tool = isDraw ? ink : eraser
-        }
+            uiView.tool = isDraw ? ink : eraser}
         
-//        이미지로 바꾸고 싶은데 잘 되지 않음.
-//        func saveCanvasAsUIImage(canvasView: PKCanvasView) -> UIImage {
-//            let renderer = UIGraphicsImageRenderer(bounds: canvasView.bounds)
-//            return renderer.image { rendererContext in
-//                canvasView.layer.render(in: rendererContext.cgContext)
-//            }
-//        }
-//
-//
-//        func captureImage() -> UIImage {
-//            let uiImage = saveCanvasAsUIImage(canvasView: canvas)
-//            return uiImage
-        }
+        func saveCanvasAsUIImage(canvasView: PKCanvasView) -> UIImage {
+            return canvasView.drawing.image(from: CGRect(x: canvasView.drawing.bounds.minX, y: canvasView.drawing.bounds.minY, width: canvasView.drawing.bounds.maxX - canvasView.drawing.bounds.minX, height: canvasView.drawing.bounds.maxY - canvasView.drawing.bounds.minY), scale: 1.0)}
+        
+        func captureImage() -> UIImage {
+            let uiImage = saveCanvasAsUIImage(canvasView: canvas)
+            return uiImage}
     }
+}
 
 
 struct EditDrawingView_Previews: PreviewProvider {
