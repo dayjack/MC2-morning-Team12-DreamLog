@@ -11,26 +11,7 @@ struct EditColorView: View {
     
     @State private var sliderValue = 3.0
     @State var colorNum = 0
-    let colorArr: [Color] = [
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink,
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink
-    ]
+    let colorArr: [Color] = ColorPreset.colorPallete
     
     var body: some View {
         VStack {

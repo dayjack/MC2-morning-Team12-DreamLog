@@ -28,26 +28,7 @@ struct TutorialTextEditView: View {
             engName: "JalnanOTF"),
     ]
     
-    let colorArr: [Color] = [
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink,
-        .blue,
-        .purple,
-        .brown,
-        .cyan,
-        .green,
-        .indigo,
-        .mint,
-        .orange,
-        .pink
-    ]
+    let colorArr: [Color] = ColorPreset.colorPallete
     
     @State var colorNum = 0
     @State private var fullText: String = ""
