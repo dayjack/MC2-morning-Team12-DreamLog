@@ -14,7 +14,7 @@ struct DreamBoardView: View {
     @State private var showShareSheet = false
     @State private var confirmAlert: Bool = false
     @StateObject var cheerModel = dataModel()
-    @State private var boardImages: [UIImage] = [UIImage(named: "BoardDummy")!]
+    @State private var boardImages: [UIImage] = [UIImage(named: "BoardDummy")!, UIImage(named: "TutoSheet2")!]
     
     var body: some View {
         BgColorGeoView { geo in
@@ -26,11 +26,19 @@ struct DreamBoardView: View {
             VStack {
                 
                 VStack(spacing: 0) {
-                    Image(uiImage: boardImages[0])
-                        .resizable()
-                    //                        .scaledToFill()
-                        .frame(height: height - 200)
-                        .scaledToFill()
+                    
+                    TabView {
+                        ForEach(boardImages, id: \.self) { uiimage in
+                            Image(uiImage: uiimage)
+                                .resizable()
+                                .frame(height: height - 200)
+//                                .scaledToFill()
+                                .scaledToFit()
+                        }
+                    }
+                    .tabViewStyle(PageTabViewStyle())
+                    
+                   
                     Text(text)
                         .grayText(fontSize: 19)
                         .fontWeight(.semibold)
