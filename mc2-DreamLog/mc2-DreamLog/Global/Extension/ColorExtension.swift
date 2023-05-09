@@ -22,6 +22,32 @@ extension Color {
     // 앱 배경 색깔
     static let bgColor = Color(hex: "#FFFBF6")
     
+    /// Color Pallete
+    static let redStrong = Color(hex: "E10000")
+    static let redLight = Color(hex: "F68383")
+    static let orangeStrong = Color(hex: "FF5C00")
+    static let orangeLight = Color(hex: "FFAF82")
+    static let yellowStrong = Color(hex: "FFCC00")
+    static let yellowLight = Color(hex: "FFE477")
+    static let yellowGreenStrong = Color(hex: "CCE600")
+    static let yellowGreenLight = Color(hex: "E2F261")
+    static let greenStrong = Color(hex: "66B300")
+    static let greenLight = Color(hex: "A9E55A")
+    static let deepGreenStrong = Color(hex: "229100")
+    static let deepGreenLight = Color(hex: "ACE39A")
+    static let mintStrong = Color(hex: "00CC99")
+    static let mintLight = Color(hex: "98F0DA")
+    static let skyBlueStrong = Color(hex: "00E0F3")
+    static let skyBlueLight = Color(hex: "95EBF2")
+    static let blueStrong = Color(hex: "0040B3")
+    static let blueLight = Color(hex: "82AEFF")
+    static let purpleStrong = Color(hex: "8200FF")
+    static let purpleLight = Color(hex: "C4A3E3")
+    
+    
+    
+    
+    
     init(hex: String) {
         let scanner = Scanner(string: hex)
         _ = scanner.scanString("#")

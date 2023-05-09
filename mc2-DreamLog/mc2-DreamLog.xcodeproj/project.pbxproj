@@ -40,6 +40,7 @@
 		83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */; };
 		83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */; };
 		9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */; };
+		9500AB9D2A09E8620034933C /* ColorPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9C2A09E8620034933C /* ColorPreset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingView.swift; sourceTree = "<group>"; };
 		83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingMenuView.swift; sourceTree = "<group>"; };
 		9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextEditView.swift; sourceTree = "<group>"; };
+		9500AB9C2A09E8620034933C /* ColorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				784EB5C52A0345630096D427 /* TutorialBoardElement.swift */,
 				782E9AF02A0379CC0025FD48 /* BoardElement.swift */,
 				438E87872A0882AB00037E11 /* FocusUUID.swift */,
+				9500AB9C2A09E8620034933C /* ColorPreset.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				784EB5C62A0345630096D427 /* TutorialBoardElement.swift in Sources */,
 				784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */,
 				784EB5D42A03462F0096D427 /* TutorialCalendarView.swift in Sources */,
+				9500AB9D2A09E8620034933C /* ColorPreset.swift in Sources */,
 				784EB5B92A03423B0096D427 /* ButtonBrownModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
