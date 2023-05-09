@@ -76,9 +76,18 @@ struct EditMenuView: View {
                             editState = btnDictionary[btnNames[index]]!
                             showImagePicker = true
                         case 3:
-                            editState = btnDictionary[btnNames[index]]!
+                            if editState != btnDictionary[btnNames[index]]! {
+                                editState = btnDictionary[btnNames[index]]!
+                            } else {
+                                stateNone()
+                            }
+                            
                         case 4:
-                            editState = btnDictionary[btnNames[index]]!
+                            if editState != btnDictionary[btnNames[index]]! {
+                                editState = btnDictionary[btnNames[index]]!
+                            } else {
+                                stateNone()
+                            }
                         default:
                             editState = btnDictionary[btnNames[index]]!
                         }
