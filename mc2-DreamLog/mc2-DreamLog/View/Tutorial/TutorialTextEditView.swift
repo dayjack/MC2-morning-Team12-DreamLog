@@ -15,6 +15,8 @@ struct FontName : Hashable {
 struct TutorialTextEditView: View {
     
     @Environment(\.displayScale) var displayScale
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var data: TutorialBoardElement
     
     let fontList = ["JalnanOTF", "Pilseung Gothic Regular"]
     let fontArr: [FontName] = [
@@ -52,7 +54,7 @@ struct TutorialTextEditView: View {
     @State var fontSize: Double = 20.0
     @State var fontColor: Color = .black
     @State var selectedFont = "Pilseung Gothic Regular"
-    @State var renderedImage: Image = Image("sticker_fire")
+    @State var renderedImage: UIImage?
     
 
     var body: some View {
@@ -72,15 +74,22 @@ struct TutorialTextEditView: View {
                             Text("cancel")
                                 .onTapGesture {
                                     /// BoardEditView로 이동
+                                    dismiss()
                                 }
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Text(.init(systemName: "checkmark"))
                                 .onTapGesture {
-                                    /// 이미지 렌더 후
-                                    /// BoardEditView로 renderImage 전달
+                                    /// 이미지 렌더
                                     self.renderImage(text: fullText)
+                                    guard let generatedImage = renderedImage else{
+                                        return
+                                    }
+                                    /// BoardEditView로 renderImage 전달
+                                    data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: 0...300), y:Double.random(in: 0...300)), imageWidth: 200, imageHeight: (generatedImage.size.height / generatedImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: generatedImage)))
+                                    /// 보드 뷰로 이동
+                                    dismiss()
                                 }
                         }
                         
@@ -169,7 +178,7 @@ extension TutorialTextEditView {
         
         renderer.scale = displayScale
         if let uiImage = renderer.uiImage {
-            renderedImage = Image(uiImage: uiImage)
+            renderedImage = uiImage
         }
     }
 }
