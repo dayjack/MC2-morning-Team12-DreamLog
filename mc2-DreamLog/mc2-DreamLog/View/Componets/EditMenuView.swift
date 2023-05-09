@@ -87,7 +87,7 @@ struct EditMenuView: View {
                     } label: {
                         Image(systemName: btnNames[index])
                             .menuButton()
-                            .foregroundColor(editState == btnDictionary[btnNames[index]]! ? .textBrown : .textGray)
+                            .foregroundColor(editState == btnDictionary[btnNames[index]]! ? .textGreen : .textGray)
                     }
                 }
                 .padding(.bottom, 20)
@@ -98,10 +98,10 @@ struct EditMenuView: View {
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$elementImage)
         }
         .fullScreenCover(isPresented: $showTextEditView, onDismiss: stateNone) {
-            Text("showTextEdit")
+            TutorialTextEditView()
         }
         .fullScreenCover(isPresented: $showEditDrawingView, onDismiss: stateNone) {
-            Text("showEditDrawing")
+            EditDrawingView()
         }
     }
 }
