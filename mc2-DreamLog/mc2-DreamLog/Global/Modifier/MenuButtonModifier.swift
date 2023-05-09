@@ -11,7 +11,7 @@ struct MenuButtonModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .foregroundColor(.secondary)
+//            .foregroundColor(.secondary)
             .padding()
             .background(.white)
             .clipShape(Circle())

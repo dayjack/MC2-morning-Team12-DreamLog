@@ -16,6 +16,9 @@ import SwiftUI
 struct EditMenuView: View {
     
     @State var showImagePicker = false
+    @State var showTextEditView = false
+    @State var showEditDrawingView = false
+    
     @State var elementImage = UIImage()
     @EnvironmentObject var data: TutorialBoardElement
     @State var editState: EditState = .none
@@ -26,6 +29,14 @@ struct EditMenuView: View {
         "photo",
         "face.smiling",
         "rectangle"
+    ]
+    
+    @State var btnDictionary: [String : EditState] = [
+        "character" : .character,
+        "paintbrush.pointed" : .paintbrush,
+        "photo" : .photo,
+        "face.smiling" : .face,
+        "rectangle" : .rectangle
     ]
     
     enum EditState {
@@ -51,35 +62,46 @@ struct EditMenuView: View {
             editview(editState: self.editState)
             HStack {
                 Spacer()
-                ForEach(btnNames, id: \.self) { name in
+                ForEach(0..<5, id: \.self) { index in
                     Button {
                         // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
-                        switch name {
-                        case "character":
-                            editState = .character
-                        case "paintbrush.pointed":
-                            editState = .paintbrush
-                        case "photo":
+                        switch index {
+                        case 0:
+                            editState = btnDictionary[btnNames[index]]!
+                            showTextEditView = true
+                        case 1:
+                            editState = btnDictionary[btnNames[index]]!
+                            showEditDrawingView = true
+                        case 2:
+                            editState = btnDictionary[btnNames[index]]!
                             showImagePicker = true
-                            editState = .photo
-                        case "face.smiling":
-                            editState = .face
-                        case "rectangle":
-                            editState = .rectangle
+                        case 3:
+                            editState = btnDictionary[btnNames[index]]!
+                        case 4:
+                            editState = btnDictionary[btnNames[index]]!
                         default:
-                            editState = .none
+                            editState = btnDictionary[btnNames[index]]!
                         }
+                        
+                        
                     } label: {
-                        Image(systemName: name)
+                        Image(systemName: btnNames[index])
                             .menuButton()
+                            .foregroundColor(editState == btnDictionary[btnNames[index]]! ? .textBrown : .textGray)
                     }
                 }
                 .padding(.bottom, 20)
                 Spacer()
             }
         }
-        .sheet(isPresented: binding) {
+        .sheet(isPresented: binding,onDismiss: stateNone) {
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$elementImage)
+        }
+        .fullScreenCover(isPresented: $showTextEditView, onDismiss: stateNone) {
+            Text("showTextEdit")
+        }
+        .fullScreenCover(isPresented: $showEditDrawingView, onDismiss: stateNone) {
+            Text("showEditDrawing")
         }
     }
 }
@@ -111,5 +133,11 @@ extension EditMenuView {
                 EmptyView()
             }
         }
+    }
+}
+
+extension EditMenuView {
+    func stateNone() {
+        editState = .none
     }
 }
