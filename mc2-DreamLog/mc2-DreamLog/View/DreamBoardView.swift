@@ -11,8 +11,10 @@ struct DreamBoardView: View {
     
     @State var text = ""
     @State private var showingAlert: Bool = false
+    @State private var showShareSheet = false
     @State private var confirmAlert: Bool = false
     @StateObject var cheerModel = dataModel()
+    @State private var boardImage: UIImage = UIImage(named: "BoardDummy")!
     
     var body: some View {
         BgColorGeoView { geo in
@@ -24,18 +26,19 @@ struct DreamBoardView: View {
             VStack {
                 
                 VStack(spacing: 0) {
-                    Image("BoardDummy")
+                    
+                    Image(uiImage: boardImage)
                         .resizable()
-//                        .scaledToFill()
                         .frame(height: height - 200)
                         .scaledToFill()
+                   
                     Text(text)
                         .grayText(fontSize: 19)
                         .fontWeight(.semibold)
                         .frame(width: abs(width - 20), height: 43, alignment: .center)
                         .padding(.top, 10)
                         .background(.white)
-                        
+                    
                 }
                 .frame(width: abs(width - 20))
                 .padding(.horizontal, 10)
@@ -46,7 +49,11 @@ struct DreamBoardView: View {
                     Text("D-340")
                         .fontWeight(.bold)
                     Spacer()
-                    Image(systemName: "square.and.arrow.up")
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
                     Image(systemName: "pencil")
                 }
                 .font(.system(size: 24))
@@ -82,13 +89,13 @@ struct DreamBoardView: View {
                                   message: Text("작성하신 응원은 위젯에 표시됩니다."),
                                   primaryButton: .default(Text("확인"), action: {
                                 cheerModel.writtenDateText = getCurrentDate()
-                                    cheerModel.writeData() // 첫 번째 액션
+                                cheerModel.writeData() // 첫 번째 액션
                                 print(getCurrentDate())
                                 print($cheerModel.cheerText)
-                                  }),
+                            }),
                                   secondaryButton: .cancel(Text("취소"), action: {
-                                    // 액션 없음
-                                  }))
+                                // 액션 없음
+                            }))
                         })
                     }
                 }
@@ -102,6 +109,10 @@ struct DreamBoardView: View {
                 )
                 .padding(.bottom, 20)
             }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            // View to show the share sheet
+            ShareSheet(activityItems: [boardImage])
         }
     }
     
