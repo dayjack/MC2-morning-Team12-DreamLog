@@ -15,6 +15,7 @@ struct FixableImageView: View {
     
     @GestureState var startLocation: CGPoint? = nil
     
+    
     var body: some View {
         ZStack{
             thisElement.picture
@@ -26,14 +27,14 @@ struct FixableImageView: View {
                     
                     if FUUID.focusUUID == thisElement.id {
                         Rectangle()
-//                            .foregroundColor(.gray)
+//                          .foregroundColor(.gray)
                             .strokeBorder(style: StrokeStyle(lineWidth: 1, dash: [10]))
                     }
                         
                 }.foregroundColor(.gray.opacity(0.5))
                 .zIndex(Double(environmentElementList.findIndex(one: thisElement.id)))
                 .rotationEffect(thisElement.angle)
-                .position(x: thisElement.imagePosition.x, y: thisElement.imagePosition.y)
+                .offset(x: thisElement.imagePosition.x, y: thisElement.imagePosition.y)
                 
                 .gesture(
                     FUUID.focusUUID == thisElement.id ? moveDrag : nil
@@ -44,6 +45,7 @@ struct FixableImageView: View {
                     let tempElement = environmentElementList.findOne(one: thisElement.id)
                     environmentElementList.removeOne(one: thisElement.id)
                     environmentElementList.viewArr.append(tempElement)
+                    
                     
                 }
 //                .onLongPressGesture(perform: {
@@ -58,7 +60,7 @@ struct FixableImageView: View {
                 Image(systemName: "x.circle.fill")
                     .frame(width: 20, height: 20)
                     .foregroundColor(.red)
-                    .position(x: thisElement.deleteDotPosition.x, y: thisElement.deleteDotPosition.y)
+                    .offset(x: thisElement.deleteDotPosition.x, y: thisElement.deleteDotPosition.y)
                     .zIndex(Double(environmentElementList.findIndex(one: thisElement.id))+1)
                     .onTapGesture {
                         environmentElementList.removeOne(one: thisElement.id)
@@ -67,7 +69,7 @@ struct FixableImageView: View {
                 Image(systemName: "arrow.counterclockwise.circle.fill")
                     .frame(width: 20, height: 20)
                     .foregroundColor(.black)
-                    .position(x: thisElement.rotateDotPosition.x, y: thisElement.rotateDotPosition.y)
+                    .offset(x: thisElement.rotateDotPosition.x, y: thisElement.rotateDotPosition.y)
                     .zIndex(Double(environmentElementList.findIndex(one: thisElement.id))+1)
                     .gesture(
                         resizeAndRotateDrag

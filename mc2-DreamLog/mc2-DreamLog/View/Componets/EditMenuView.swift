@@ -51,7 +51,7 @@ struct EditMenuView: View {
                 if self.showImagePicker && !$0 {
                     
                     data.viewArr.append(
-                        .init(imagePosition: CGPoint(x:Double.random(in: 0...300), y:Double.random(in: 0...300)), imageWidth: 200, imageHeight: (elementImage.size.height / elementImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: elementImage))
+                        .init(imagePosition: CGPoint(x:0, y:0), imageWidth: 200, imageHeight: (elementImage.size.height / elementImage.size.width * 200), angle: .degrees(0), angleSum: 0, picture: Image(uiImage: elementImage))
                     )
                 }
                 self.showImagePicker = $0
