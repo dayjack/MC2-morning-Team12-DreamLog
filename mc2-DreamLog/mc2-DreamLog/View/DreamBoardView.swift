@@ -11,10 +11,11 @@ struct DreamBoardView: View {
     
     @State var text = ""
     @State private var showingAlert: Bool = false
-    @State private var showShareSheet = false
     @State private var confirmAlert: Bool = false
     @StateObject var cheerModel = dataModel()
     @State private var boardImage: UIImage = UIImage(named: "BoardDummy")!
+    
+    var photo: TransferableUIImage = .init(uiimage: UIImage(named: "BoardDummy")!, caption: "드림보드를 공유해보세요🚀")
     
     var body: some View {
         BgColorGeoView { geo in
@@ -31,7 +32,7 @@ struct DreamBoardView: View {
                         .resizable()
                         .frame(height: height - 200)
                         .scaledToFill()
-                   
+                    
                     Text(text)
                         .grayText(fontSize: 19)
                         .fontWeight(.semibold)
@@ -49,11 +50,13 @@ struct DreamBoardView: View {
                     Text("D-340")
                         .fontWeight(.bold)
                     Spacer()
-                    Button {
-                        showShareSheet = true
-                    } label: {
-                        Image(systemName: "square.and.arrow.up")
-                    }
+                    ShareLink(item: photo, preview: SharePreview(
+                        photo.caption,
+                        image: photo.image)) {
+                            Label("", systemImage: "square.and.arrow.up")
+                            
+                        }
+                    
                     Image(systemName: "pencil")
                 }
                 .font(.system(size: 24))
@@ -109,10 +112,6 @@ struct DreamBoardView: View {
                 )
                 .padding(.bottom, 20)
             }
-        }
-        .sheet(isPresented: $showShareSheet) {
-            // View to show the share sheet
-            ShareSheet(activityItems: [boardImage])
         }
     }
     
