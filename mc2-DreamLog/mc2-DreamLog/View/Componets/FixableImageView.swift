@@ -34,7 +34,7 @@ struct FixableImageView: View {
                 }.foregroundColor(.gray.opacity(0.5))
                 .zIndex(Double(environmentElementList.findIndex(one: thisElement.id)))
                 .rotationEffect(thisElement.angle)
-                .offset(x: thisElement.imagePosition.x, y: thisElement.imagePosition.y)
+                .position(x: thisElement.imagePosition.x, y: thisElement.imagePosition.y)
                 
                 .gesture(
                     FUUID.focusUUID == thisElement.id ? moveDrag : nil
@@ -60,7 +60,7 @@ struct FixableImageView: View {
                 Image(systemName: "x.circle.fill")
                     .frame(width: 20, height: 20)
                     .foregroundColor(.red)
-                    .offset(x: thisElement.deleteDotPosition.x, y: thisElement.deleteDotPosition.y)
+                    .position(x: thisElement.deleteDotPosition.x, y: thisElement.deleteDotPosition.y)
                     .zIndex(Double(environmentElementList.findIndex(one: thisElement.id))+1)
                     .onTapGesture {
                         environmentElementList.removeOne(one: thisElement.id)
@@ -69,7 +69,7 @@ struct FixableImageView: View {
                 Image(systemName: "arrow.counterclockwise.circle.fill")
                     .frame(width: 20, height: 20)
                     .foregroundColor(.black)
-                    .offset(x: thisElement.rotateDotPosition.x, y: thisElement.rotateDotPosition.y)
+                    .position(x: thisElement.rotateDotPosition.x, y: thisElement.rotateDotPosition.y)
                     .zIndex(Double(environmentElementList.findIndex(one: thisElement.id))+1)
                     .gesture(
                         resizeAndRotateDrag
@@ -98,7 +98,9 @@ struct FixableImageView: View {
                 let newAngle = atan2(gesture.location.y - thisElement.imagePosition.y, gesture.location.x - thisElement.imagePosition.x)
                 
                 thisElement.angleSum += (-(originalAngle - newAngle) * 180 / CGFloat.pi)
+                print(thisElement.angleSum)
                 thisElement.angle = .degrees(thisElement.angleSum)
+                
                 
                 thisElement.rotateDotPosition.x = cos(thisElement.angleSum / 180 * Double.pi) * (thisElement.imageWidth/2) - sin(thisElement.angleSum / 180 * Double.pi) * (thisElement.imageHeight/2) + thisElement.imagePosition.x
                 thisElement.rotateDotPosition.y = sin(thisElement.angleSum / 180 * Double.pi) * (thisElement.imageWidth/2) + cos(thisElement.angleSum / 180 * Double.pi) * (thisElement.imageHeight/2) + thisElement.imagePosition.y
