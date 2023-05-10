@@ -43,6 +43,8 @@
 		9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */; };
 		9500AB9D2A09E8620034933C /* ColorPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9C2A09E8620034933C /* ColorPreset.swift */; };
 		9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9E2A09F6800034933C /* EmojiPicker.swift */; };
+		9570414A2A0B625E000633CD /* WidgetSizeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957041492A0B625E000633CD /* WidgetSizeButtonsView.swift */; };
+		9570414C2A0B6A67000633CD /* WidgetAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570414B2A0B6A67000633CD /* WidgetAreaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextEditView.swift; sourceTree = "<group>"; };
 		9500AB9C2A09E8620034933C /* ColorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreset.swift; sourceTree = "<group>"; };
 		9500AB9E2A09F6800034933C /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
+		957041492A0B625E000633CD /* WidgetSizeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizeButtonsView.swift; sourceTree = "<group>"; };
+		9570414B2A0B6A67000633CD /* WidgetAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAreaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,8 @@
 				784EB5DA2A0346C70096D427 /* EditMenuView.swift */,
 				438E87852A0881CB00037E11 /* FixableImageView.swift */,
 				9500AB9E2A09F6800034933C /* EmojiPicker.swift */,
+				957041492A0B625E000633CD /* WidgetSizeButtonsView.swift */,
+				9570414B2A0B6A67000633CD /* WidgetAreaView.swift */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */,
 				784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */,
 				167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */,
+				9570414C2A0B6A67000633CD /* WidgetAreaView.swift in Sources */,
 				438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */,
 				784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */,
 				784EB5DB2A0346C70096D427 /* EditMenuView.swift in Sources */,
@@ -304,6 +311,7 @@
 				83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */,
 				784EB5D92A03467B0096D427 /* ImagePicker.swift in Sources */,
 				784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */,
+				9570414A2A0B625E000633CD /* WidgetSizeButtonsView.swift in Sources */,
 				784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */,
 				784EB5D22A0346160096D427 /* TuturialBoardView.swift in Sources */,
 				1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */,
