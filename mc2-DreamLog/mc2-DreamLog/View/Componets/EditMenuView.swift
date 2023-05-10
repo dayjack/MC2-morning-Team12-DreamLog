@@ -14,6 +14,8 @@
 import SwiftUI
 
 struct EditMenuView: View {
+    /// widget 사이즈에 따라 값이 달라짐
+    @Binding var widgetSize: WidgetSize
     
     @State var showImagePicker = false
     @State var showTextEditView = false
@@ -88,6 +90,8 @@ struct EditMenuView: View {
                             } else {
                                 stateNone()
                             }
+                            /// widgetArea를 숨기고 싶을 때 아래 위젯 버튼 클릭시 보이지 않음
+                            widgetSize = .none
                         default:
                             editState = btnDictionary[btnNames[index]]!
                         }
@@ -118,13 +122,13 @@ struct EditMenuView: View {
     }
 }
 
-struct EditBar_Previews: PreviewProvider {
-    static var previews: some View {
-        MultiPreview {
-            EditMenuView()
-        }
-    }
-}
+//struct EditBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultiPreview {
+//            EditMenuView()
+//        }
+//    }
+//}
 
 extension EditMenuView {
     
@@ -143,7 +147,8 @@ extension EditMenuView {
             case .face:
                 EmojiPicker()
             case .rectangle:
-                Text("위젯 관련 뷰가 들어갈 자리")
+                /// WidgetSizeButtonsView에서 widget 사이즈 변동하기 때문에 Binding
+                WidgetSizeButtonsView(widgetSize: $widgetSize)
                     .frame(height: 60)
             case .none:
                 VStack{}

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TutorialBoardView: View {
-    
+    /// widget 사이즈 보여줌
+    @State var widgetSize = WidgetSize.none
     @State var showScroll: Bool = false
     
     @EnvironmentObject var data: TutorialBoardElement
@@ -35,6 +36,14 @@ struct TutorialBoardView: View {
                             .environmentObject(data)
                             .environmentObject(FUUID)
                     }
+                    /// widgetSize가 .none인 경우에는 보여지지 않음
+                    if widgetSize != .none {
+                        WidgetAreaView(
+                            boardWidth: width,
+                            boardHeight: boardHeight,
+                            widgetSize: $widgetSize
+                        )
+                    }
                 }
                 .frame(height: boardHeight)
                 .padding(.bottom, 10)
@@ -42,8 +51,8 @@ struct TutorialBoardView: View {
                     FUUID.focusUUID = backgroundUUID
                 }
                 
-                
-                EditMenuView()
+                /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
+                EditMenuView(widgetSize: $widgetSize)
                 HStack {
                     Button {
                         showScroll.toggle()
