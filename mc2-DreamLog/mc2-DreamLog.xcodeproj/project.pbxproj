@@ -15,6 +15,7 @@
 		167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 167435602A09021D00891AAB /* CoreData.xcdatamodeld */; };
 		438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87852A0881CB00037E11 /* FixableImageView.swift */; };
 		438E87882A0882AB00037E11 /* FocusUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87872A0882AB00037E11 /* FocusUUID.swift */; };
+		781EC7C22A0B3C7B00C47893 /* TransferableUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */; };
 		782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E9AF02A0379CC0025FD48 /* BoardElement.swift */; };
 		784EB5B92A03423B0096D427 /* ButtonBrownModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5B82A03423B0096D427 /* ButtonBrownModifier.swift */; };
 		784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5BA2A0342670096D427 /* ButtonWhiteBoldModifier.swift */; };
@@ -35,7 +36,6 @@
 		784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */; };
 		784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5DE2A0346FA0096D427 /* MultiPreview.swift */; };
 		784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784EB5E02A0370E80096D427 /* EditColorView.swift */; };
-		788792E32A0A071D003C682E /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788792E22A0A071D003C682E /* ShareSheet.swift */; };
 		78B0160D2A08C2060069ED6F /* MenuButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0160C2A08C2060069ED6F /* MenuButtonModifier.swift */; };
 		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
 		83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */; };
@@ -55,6 +55,7 @@
 		167435612A09021D00891AAB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		438E87852A0881CB00037E11 /* FixableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixableImageView.swift; sourceTree = "<group>"; };
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
+		781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		782E9AF02A0379CC0025FD48 /* BoardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardElement.swift; sourceTree = "<group>"; };
 		784EB5B82A03423B0096D427 /* ButtonBrownModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBrownModifier.swift; sourceTree = "<group>"; };
 		784EB5BA2A0342670096D427 /* ButtonWhiteBoldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWhiteBoldModifier.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		784EB5DC2A0346E20096D427 /* BgColorGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgColorGeoView.swift; sourceTree = "<group>"; };
 		784EB5DE2A0346FA0096D427 /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		784EB5E02A0370E80096D427 /* EditColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditColorView.swift; sourceTree = "<group>"; };
-		788792E22A0A071D003C682E /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		7891C6712A02802F006B5109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78B0160C2A08C2060069ED6F /* MenuButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonModifier.swift; sourceTree = "<group>"; };
 		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -156,6 +156,7 @@
 				782E9AF02A0379CC0025FD48 /* BoardElement.swift */,
 				438E87872A0882AB00037E11 /* FocusUUID.swift */,
 				9500AB9C2A09E8620034933C /* ColorPreset.swift */,
+				781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,7 +198,6 @@
 				784EB5DA2A0346C70096D427 /* EditMenuView.swift */,
 				438E87852A0881CB00037E11 /* FixableImageView.swift */,
 				9500AB9E2A09F6800034933C /* EmojiPicker.swift */,
-				788792E22A0A071D003C682E /* ShareSheet.swift */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -309,10 +309,10 @@
 				1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */,
 				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,
+				781EC7C22A0B3C7B00C47893 /* TransferableUIImage.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
 				9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */,
 				782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */,
-				788792E32A0A071D003C682E /* ShareSheet.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
 				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
 				784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */,
@@ -453,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mc2-DreamLog/Preview Content\"";
-				DEVELOPMENT_TEAM = JMM62MZQM5;
+				DEVELOPMENT_TEAM = UG6UT639QH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mc2-DreamLog/Info.plist";
@@ -482,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mc2-DreamLog/Preview Content\"";
-				DEVELOPMENT_TEAM = JMM62MZQM5;
+				DEVELOPMENT_TEAM = UG6UT639QH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mc2-DreamLog/Info.plist";
