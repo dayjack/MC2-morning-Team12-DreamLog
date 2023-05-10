@@ -21,8 +21,8 @@ struct TutorialBoardView: View {
         BgColorGeoView { geo in
             
             let width = geo.size.width
-            //                let height = geo.size.height
-            VStack {
+            let boardHeight = geo.size.height - 220
+            VStack(spacing: 0) {
                 // 편집될 뷰로 교체하기
                 ZStack {
                     Color.white
@@ -36,11 +36,13 @@ struct TutorialBoardView: View {
                             .environmentObject(FUUID)
                     }
                 }
+                .frame(height: boardHeight)
+                .padding(.bottom, 10)
                 .onTapGesture {
                     FUUID.focusUUID = backgroundUUID
                 }
                 
-                Spacer()
+                
                 EditMenuView()
                 HStack {
                     Button {
