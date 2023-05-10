@@ -32,7 +32,7 @@ struct EmojiPicker: View {
                     Image(emoji)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 80)
+                        .frame(height: 60)
                         .onTapGesture {
                             guard let image = UIImage(named: emoji) else {
                                 return

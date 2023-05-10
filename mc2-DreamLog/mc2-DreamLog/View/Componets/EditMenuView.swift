@@ -58,10 +58,10 @@ struct EditMenuView: View {
             }
         )
         
-        VStack{
+        VStack(spacing: 0){
             editview(editState: self.editState)
             HStack {
-                Spacer()
+                
                 ForEach(0..<5, id: \.self) { index in
                     Button {
                         // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
@@ -95,12 +95,15 @@ struct EditMenuView: View {
                         
                     } label: {
                         Image(systemName: btnNames[index])
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20,height: 20)
                             .menuButton()
                             .foregroundColor(editState == btnDictionary[btnNames[index]]! ? .textGreen : .textGray)
                     }
                 }
-                .padding(.bottom, 20)
-                Spacer()
+                .padding(.vertical, 10)
+                
             }
         }
         .sheet(isPresented: binding,onDismiss: stateNone) {
@@ -129,17 +132,22 @@ extension EditMenuView {
         return HStack {
             switch editState {
             case .character:
-                EmptyView()
+                VStack{}
+                    .frame(height: 60)
             case .paintbrush:
-                EmptyView()
+                VStack{}
+                    .frame(height: 60)
             case .photo:
-                EmptyView()
+                VStack{}
+                    .frame(height: 60)
             case .face:
                 EmojiPicker()
             case .rectangle:
                 Text("위젯 관련 뷰가 들어갈 자리")
+                    .frame(height: 60)
             case .none:
-                EmptyView()
+                VStack{}
+                    .frame(height: 60)
             }
         }
     }
