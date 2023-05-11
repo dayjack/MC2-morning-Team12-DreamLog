@@ -687,12 +687,12 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UG6UT639QH;
+				DEVELOPMENT_TEAM = JMM62MZQM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamBoardWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DreamBoardWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -715,12 +715,12 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UG6UT639QH;
+				DEVELOPMENT_TEAM = JMM62MZQM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamBoardWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DreamBoardWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

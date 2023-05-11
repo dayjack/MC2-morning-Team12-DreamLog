@@ -38,7 +38,7 @@ struct EmojiPicker: View {
                             guard let image = UIImage(named: emoji) else {
                                 return
                             }
-                            data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height / 2), imageWidth: (image.size.width > image.size.height) ?  200 : (image.size.width / image.size.height * 200), imageHeight: (image.size.width > image.size.height) ? (image.size.height / image.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: image)))
+                            data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:data.TutorialBoardWidthCenter , y: data.TutorialBoardHeightCenter), imageWidth: (image.size.width > image.size.height) ?  200 : (image.size.width / image.size.height * 200), imageHeight: (image.size.width > image.size.height) ? (image.size.height / image.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: image)))
                             FUUID.focusUUID = data.viewArr.last!.id
                         }
                 }
