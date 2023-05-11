@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ColorPreset {
     static let colorPallete: [Color] = [
-        Color.Black,
-        Color.White,
+        Color.black,
+        Color.white,
         Color.redStrong,
         Color.redLight,
         Color.orangeStrong,

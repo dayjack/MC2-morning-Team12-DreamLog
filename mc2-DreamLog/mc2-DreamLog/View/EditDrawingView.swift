@@ -7,21 +7,36 @@
 import SwiftUI
 import PencilKit
 
-enum penType {
-    case pen
-    case pencil
-    case marker
-    case eraser
-}
-
 struct EditDrawingView: View {
     
     @State var colorArr: [Color] = ColorPreset.colorPallete
     
     @State var btnNames: [String] = [
+        "paintbrush.pointed",
         "pencil",
-        "eraser"
+        "highlighter",
+        "eraser",
+        "arrow.uturn.backward",
+        "arrow.uturn.forward"
     ]
+    
+    @State var buttonDictionary: [String : penType] = [
+        "paintbrush.pointed" : .pen,
+        "pencil" : .pencil,
+        "highlighter" : .marker,
+        "eraser" : .eraser,
+        "arrow.uturn.backward" : .undo,
+        "arrow.uturn.forward" : .redo
+    ]
+    
+    enum penType {
+        case pen
+        case pencil
+        case marker
+        case eraser
+        case undo
+        case redo
+    }
     
     @State var sliderValue = 1.0
     @State var colorNum = 0
@@ -38,7 +53,6 @@ struct EditDrawingView: View {
     var body: some View{
         BgColorGeoView{ geo in
             VStack{
-                
                 HStack{
                     Button{
                         // cancel drawring
@@ -69,114 +83,50 @@ struct EditDrawingView: View {
                 // Drawing Canvas
                 DrawingView(canvas: $canvas, isDraw: $isDraw, type: $type, color: $colorArr[colorNum], width: $sliderValue)
                 
-                // pen mode ? or eraser mode ?
+                // show color preset? == pen mode or eraser mode ?
                 isDraw ? EditDrawingMenuView(sliderValue: $sliderValue, colorNum: $colorNum, colorArr: $colorArr, isDraw: $isDraw) :  EditDrawingMenuView(sliderValue: $sliderValue, colorNum: $colorNum, colorArr: $colorArr, isDraw: $isDraw)
                 
                 // EditDrawingMenu
                 HStack {
-                    // Select Pen
-                    Button {
-                        guard curPenType == .pen else {
-                            curPenType = .pen
-                            type = .pen
-                            isDraw = true
-                            return
+                    ForEach(0..<btnNames.count, id: \.self){ index in
+                        Button{
+                            switch index {
+                            case 0:
+                                curPenType = buttonDictionary[btnNames[index]]!
+                                type = .pen
+                                isDraw = true
+                            case 1:
+                                curPenType = buttonDictionary[btnNames[index]]!
+                                type = .pencil
+                                isDraw = true
+                            case 2:
+                                curPenType = buttonDictionary[btnNames[index]]!
+                                type = .marker
+                                isDraw = true
+                            case 3:
+                                curPenType = buttonDictionary[btnNames[index]]!
+                                isDraw = false
+                            case 4:
+                                curPenType = curPenType
+                                let undoManager = canvas.undoManager
+                                undoManager?.undo()
+                            case 5:
+                                curPenType = curPenType
+                                let undoManager = canvas.undoManager
+                                undoManager?.redo()
+                            default :
+                                print("there is no button")
+                            }
+                        } label: {
+                            Image(systemName: btnNames[index])
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20,height: 20)
+                                .menuButton()
+                                .foregroundColor(
+                                    curPenType == buttonDictionary[btnNames[index]] ? .textGreen : .textGray)
                         }
-                        curPenType = .pen
-                        type = .pen
-                        isDraw = true
-                    } label: {
-                        Image(systemName: "paintbrush.pointed")
-                            .foregroundColor(
-                                curPenType == .pen ? .textGreen : .secondary
-                            )
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
                     }
-                    .padding(.bottom, 20)
-                    .padding(.leading, 20)
-                    // Select pencil
-                    Button {
-                        guard curPenType == .pencil else {
-                            curPenType = .pencil
-                            type = .pencil
-                            isDraw = true
-                            return }
-                    } label: {
-                        Image(systemName: "pencil")
-                            .foregroundColor(
-                                curPenType == .pencil ? .textGreen : .secondary
-                            )
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                    }
-                    .padding(.bottom, 20)
-                    // select marker
-                    Button {
-                        guard curPenType == .marker else {
-                            curPenType = .marker
-                            type = .marker
-                            isDraw = true
-                            return }
-                    } label: {
-                        Image(systemName: "highlighter")
-                            .foregroundColor(
-                                curPenType == .marker ? .textGreen : .secondary
-                            )
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                    }
-                    .padding(.bottom, 20)
-                    // Select Eraser
-                    Button {
-                        guard curPenType == .eraser else {
-                            curPenType = .eraser
-                            isDraw = false
-                            return }
-                    } label: {
-                        Image(systemName: "eraser")
-                            .foregroundColor(isDraw ? .secondary : .textGreen)
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                    }
-                    .padding(.bottom, 20)
-                    Spacer()
-                    // Undo
-                    Button {
-                        var undoManager = canvas.undoManager
-                        undoManager?.undo()
-                    } label: {
-                        Image(systemName: "arrow.uturn.backward")
-                            .foregroundColor(.secondary)
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                    }
-                    .padding(.bottom, 20)
-                    
-                    // Redo
-                    Button {
-                        var undoManager = canvas.undoManager
-                        undoManager?.redo()
-                    } label: {
-                        Image(systemName: "arrow.uturn.forward")
-                            .foregroundColor(.secondary)
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                    }
-                    .padding(.bottom, 20)
-                    .padding(.trailing, 20)
                 }
             }
         }

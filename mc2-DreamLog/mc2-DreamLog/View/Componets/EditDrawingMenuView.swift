@@ -19,7 +19,6 @@ struct EditDrawingMenuView: View {
         
         ScrollView(.horizontal,showsIndicators: false) {
             HStack {
-                
                 if isDraw
                 {
                     ForEach(0..<colorArr.count, id: \.self) { colorIndex in

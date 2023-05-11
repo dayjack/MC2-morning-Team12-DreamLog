@@ -25,8 +25,8 @@ extension Color {
     static let shadowGray = Color(hex: "#B1B1B1").opacity(0.5)
     
     /// Color Pallete
-    static let Black = Color(hex: "000000")
-    static let White = Color(hex: "FFFFFF")
+    static let black = Color(hex: "000000")
+    static let white = Color(hex: "FFFFFF")
     static let redStrong = Color(hex: "E10000")
     static let redLight = Color(hex: "F68383")
     static let orangeStrong = Color(hex: "FF5C00")
