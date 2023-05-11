@@ -26,6 +26,12 @@ struct TutorialTextEditView: View {
         FontName(
             korName: "여기어때",
             engName: "JalnanOTF"),
+        FontName(
+            korName: "흘돋체",
+            engName: "GabiaHeuldot"),
+        FontName(
+            korName: "더잠실",
+            engName: "The Jamsil OTF 4 Medium"),
     ]
     
     let colorArr: [Color] = ColorPreset.colorPallete
