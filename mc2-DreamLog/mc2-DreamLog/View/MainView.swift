@@ -16,19 +16,19 @@ struct MainView: View {
                 TabView(selection: $selection) {
                     DreamBoardView()
                         .tabItem {
-                            Image(systemName: "menucard")
+                            Image(systemName: "list.clipboard")
                             Text("비전보드")
                         }
                         .tag(0)
                     Text("Another Tab")
                         .tabItem {
-                            Image(systemName: "2.square.fill")
+                            Image(systemName: "sparkles.rectangle.stack")
                             Text("비전로그")
                         }
                         .tag(1)
                     CheerLogView()
                         .tabItem {
-                            Image(systemName: "3.square.fill")
+                            Image(systemName: "tray.full")
                             Text("응원로그")
                         }
                         .tag(2)
