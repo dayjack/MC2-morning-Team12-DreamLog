@@ -81,7 +81,7 @@ struct FixableImageView: View {
     var resizeAndRotateDrag: some Gesture {
         DragGesture()
             .onChanged { gesture in
-                
+                print(environmentElementList.viewArr.count)
                 var centerToNewPositionDistance = sqrt(pow(gesture.location.x - thisElement.imagePosition.x, 2) + pow(gesture.location.y - thisElement.imagePosition.y, 2))
                 var imageDiagonal = sqrt(pow(thisElement.imageWidth,2) + pow(thisElement.imageHeight,2))
                 
@@ -98,7 +98,6 @@ struct FixableImageView: View {
                 let newAngle = atan2(gesture.location.y - thisElement.imagePosition.y, gesture.location.x - thisElement.imagePosition.x)
                 
                 thisElement.angleSum += (-(originalAngle - newAngle) * 180 / CGFloat.pi)
-                print(thisElement.angleSum)
                 thisElement.angle = .degrees(thisElement.angleSum)
                 
                 
