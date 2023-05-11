@@ -10,6 +10,12 @@ import CoreData
 
 @main
 struct mc2_DreamLogApp: App {
+    
+    init() {
+        Font.registerFonts(fontName: "Pilseung Gothic Regular")
+        Font.registerFonts(fontName: "JalnanOTF")
+    }
+    
     var body: some Scene {
         WindowGroup {
             if UserDefaults.standard.bool(forKey: "gotoMain") {
