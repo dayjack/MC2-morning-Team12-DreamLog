@@ -75,7 +75,7 @@ struct TutorialTextEditView: View {
                                         return
                                     }
                                     /// BoardEditView로 renderImage 전달
-                                    data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height / 2), imageWidth: (generatedImage.size.width > generatedImage.size.height) ?  200 : (generatedImage.size.width / generatedImage.size.height * 200), imageHeight: (generatedImage.size.width > generatedImage.size.height) ? (generatedImage.size.height / generatedImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: generatedImage)))
+                                    data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:data.TutorialBoardWidthCenter , y: data.TutorialBoardHeightCenter), imageWidth: (generatedImage.size.width > generatedImage.size.height) ?  200 : (generatedImage.size.width / generatedImage.size.height * 200), imageHeight: (generatedImage.size.width > generatedImage.size.height) ? (generatedImage.size.height / generatedImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: generatedImage)))
                                     /// 보드 뷰로 이동
                                     FUUID.focusUUID = data.viewArr.last!.id
                                     dismiss()

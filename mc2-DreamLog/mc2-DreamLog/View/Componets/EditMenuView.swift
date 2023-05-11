@@ -55,7 +55,7 @@ struct EditMenuView: View {
                     
                     if elementImage.size.width != 0 {
                         data.viewArr.append(
-                            .init(imagePosition: CGPoint(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height / 2), imageWidth: (elementImage.size.width > elementImage.size.height) ?  200 : (elementImage.size.width / elementImage.size.height * 200), imageHeight: (elementImage.size.width > elementImage.size.height) ? (elementImage.size.height / elementImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: elementImage))
+                            .init(imagePosition: CGPoint(x:data.TutorialBoardWidthCenter , y: data.TutorialBoardHeightCenter), imageWidth: (elementImage.size.width > elementImage.size.height) ?  200 : (elementImage.size.width / elementImage.size.height * 200), imageHeight: (elementImage.size.width > elementImage.size.height) ? (elementImage.size.height / elementImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: elementImage))
                         )
                         FUUID.focusUUID = data.viewArr.last!.id
                     }

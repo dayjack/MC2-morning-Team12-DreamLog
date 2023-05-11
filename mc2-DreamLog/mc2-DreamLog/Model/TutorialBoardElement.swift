@@ -10,7 +10,8 @@ import SwiftUI
 class TutorialBoardElement : ObservableObject {
     
     @Published var viewArr: [BoardElement] = []
-    
+    var TutorialBoardWidthCenter: CGFloat = 0
+    var TutorialBoardHeightCenter: CGFloat = 0
     
     func findOne(one: UUID) -> BoardElement {
         for index in 0...viewArr.count-1 {
