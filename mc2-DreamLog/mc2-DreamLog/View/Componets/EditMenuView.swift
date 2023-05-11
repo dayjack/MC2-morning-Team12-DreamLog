@@ -23,6 +23,7 @@ struct EditMenuView: View {
     
     @State var elementImage = UIImage()
     @EnvironmentObject var data: TutorialBoardElement
+    @EnvironmentObject var FUUID: FocusUUID
     @State var editState: EditState = .none
     
     @State var btnNames: [String] = [
@@ -56,6 +57,7 @@ struct EditMenuView: View {
                         data.viewArr.append(
                             .init(imagePosition: CGPoint(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height / 2), imageWidth: (elementImage.size.width > elementImage.size.height) ?  200 : (elementImage.size.width / elementImage.size.height * 200), imageHeight: (elementImage.size.width > elementImage.size.height) ? (elementImage.size.height / elementImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: elementImage))
                         )
+                        FUUID.focusUUID = data.viewArr.last!.id
                     }
                     
                 }
@@ -69,6 +71,7 @@ struct EditMenuView: View {
                 
                 ForEach(0..<5, id: \.self) { index in
                     Button {
+                        FUUID.focusUUID = UUID()
                         // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
                         switch index {
                         case 0:
@@ -86,7 +89,6 @@ struct EditMenuView: View {
                             } else {
                                 stateNone()
                             }
-                            
                         case 4:
                             if editState != btnDictionary[btnNames[index]]! {
                                 editState = btnDictionary[btnNames[index]]!
