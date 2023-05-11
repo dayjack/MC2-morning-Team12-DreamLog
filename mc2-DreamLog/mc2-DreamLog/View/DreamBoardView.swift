@@ -13,9 +13,12 @@ struct DreamBoardView: View {
     @State private var showingAlert: Bool = false
     @State private var confirmAlert: Bool = false
     @StateObject var cheerModel = dataModel()
-    @State private var boardImage: UIImage = UIImage(named: "BoardDummy")!
+//    @State private var boardImage: UIImage = !
+    @State private var boardImage: UIImage = Tab1Model.instance.image ?? UIImage(named: "BoardDummy")!
     
-    var photo: TransferableUIImage = .init(uiimage: UIImage(named: "BoardDummy")!, caption: "드림보드를 공유해보세요🚀")
+    var photo: TransferableUIImage {
+        return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
+    }
     
     var body: some View {
         BgColorGeoView { geo in
@@ -29,9 +32,7 @@ struct DreamBoardView: View {
                 VStack(spacing: 0) {
                     
                     Image(uiImage: boardImage)
-                        .resizable()
-                        .frame(height: height - 200)
-                        .scaledToFill()
+                        
                     
                     Text(text)
                         .grayText(fontSize: 19)
@@ -39,10 +40,9 @@ struct DreamBoardView: View {
                         .frame(width: abs(width - 20), height: 43, alignment: .center)
                         .padding(.top, 10)
                         .background(.white)
-                    
+                        .frame(width: abs(width - 20))
                 }
-                .frame(width: abs(width - 20))
-                .padding(.horizontal, 10)
+                
                 
                 HStack {
                     Text("I")
