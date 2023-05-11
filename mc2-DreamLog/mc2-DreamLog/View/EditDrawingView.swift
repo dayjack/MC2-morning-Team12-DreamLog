@@ -95,6 +95,47 @@ struct EditDrawingView: View {
                     }
                     .padding(.bottom, 20)
                     Spacer()
+                    
+                    // remove All
+                    Button {
+                        canvas.drawing.strokes.removeAll()
+                    } label: {
+                        Image(systemName: "eraser")
+                            .foregroundColor(isDraw ? .secondary : .textGreen)
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
+                    .padding(.bottom, 20)
+                    
+                    // Undo
+                    Button {
+                        var undoManager = canvas.undoManager
+                        undoManager?.undo()
+                    } label: {
+                        Image(systemName: "eraser")
+                            .foregroundColor(isDraw ? .secondary : .textGreen)
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
+                    .padding(.bottom, 20)
+                    
+                    // Redo
+                    Button {
+                        var undoManager = canvas.undoManager
+                        undoManager?.redo()
+                    } label: {
+                        Image(systemName: "eraser")
+                            .foregroundColor(isDraw ? .secondary : .textGreen)
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
+                    .padding(.bottom, 20)
                 }
             }
         }
