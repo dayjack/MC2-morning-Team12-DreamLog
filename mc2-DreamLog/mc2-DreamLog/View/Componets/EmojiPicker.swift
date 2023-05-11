@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EmojiPicker: View {
     @EnvironmentObject var data: TutorialBoardElement
+    @EnvironmentObject var FUUID: FocusUUID
     
     let emojiList: [String] = [
         "sticker_fire",
@@ -38,6 +39,7 @@ struct EmojiPicker: View {
                                 return
                             }
                             data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height / 2), imageWidth: (image.size.width > image.size.height) ?  200 : (image.size.width / image.size.height * 200), imageHeight: (image.size.width > image.size.height) ? (image.size.height / image.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: image)))
+                            FUUID.focusUUID = data.viewArr.last!.id
                         }
                 }
             }

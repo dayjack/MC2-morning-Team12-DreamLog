@@ -26,6 +26,7 @@ struct EditDrawingView: View {
     
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var data: TutorialBoardElement
+    @EnvironmentObject var FUUID: FocusUUID
     
     var body: some View{
         BgColorGeoView{ geo in
@@ -47,6 +48,7 @@ struct EditDrawingView: View {
                         // save drawing
                         let capturedImage = DrawingView(canvas: $canvas, isDraw: $isDraw, type: $type, color: $colorArr[colorNum], width: $sliderValue).captureImage()
                         data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height / 2), imageWidth: (capturedImage.size.width > capturedImage.size.height) ?  200 : (capturedImage.size.width / capturedImage.size.height * 200), imageHeight: (capturedImage.size.width > capturedImage.size.height) ? (capturedImage.size.height / capturedImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: capturedImage)))
+                        FUUID.focusUUID = data.viewArr.last!.id
                         dismiss()
                         
                     }label: {
