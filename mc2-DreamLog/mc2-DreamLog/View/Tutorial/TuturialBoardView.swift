@@ -37,20 +37,24 @@ struct TutorialBoardView: View {
                 
                 /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
                 EditMenuView(widgetSize: $widgetSize)
+                    
                 HStack {
                     Button {
+                        FUUID.focusUUID = backgroundUUID
                         showScroll.toggle()
                     } label: {
                         Text("샘플보기")
                             .frame(width: abs(width - 40) / 2,height: 60)
                             .whiteWithBorderButton()
                     }
+
                     NavigationLink(value: goToCalender) {
                         Text("완료")
                             .frame(width: abs(width - 40) / 2,height: 60)
                             .brownButton(isActive: true)
                             .onTapGesture {
                                 /// 이미지 캡쳐 기능 구현
+                                FUUID.focusUUID = backgroundUUID
                                 generateImage(geo: geo)
                                 goToCalender = true
                             }
