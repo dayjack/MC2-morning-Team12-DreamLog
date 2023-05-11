@@ -50,6 +50,7 @@
 		957041532A0C72A3000633CD /* Pilseung Gothic Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */; };
 		957041672A0C777C000633CD /* GabiaHeuldot.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041652A0C777C000633CD /* GabiaHeuldot.otf */; };
 		957041682A0C777C000633CD /* The Jamsil OTF 4 Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */; };
+		9570416C2A0C856D000633CD /* Tab1Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570416B2A0C856D000633CD /* Tab1Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pilseung Gothic Regular.otf"; sourceTree = "<group>"; };
 		957041652A0C777C000633CD /* GabiaHeuldot.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GabiaHeuldot.otf; sourceTree = "<group>"; };
 		957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Jamsil OTF 4 Medium.otf"; sourceTree = "<group>"; };
+		9570416B2A0C856D000633CD /* Tab1Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				438E87872A0882AB00037E11 /* FocusUUID.swift */,
 				9500AB9C2A09E8620034933C /* ColorPreset.swift */,
 				781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */,
+				9570416B2A0C856D000633CD /* Tab1Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				9570414E2A0C7150000633CD /* FontExtension.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,
+				9570416C2A0C856D000633CD /* Tab1Model.swift in Sources */,
 				781EC7C22A0B3C7B00C47893 /* TransferableUIImage.swift in Sources */,
 				166972642A015A4600702B59 /* ContentView.swift in Sources */,
 				9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */,
