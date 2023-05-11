@@ -20,7 +20,7 @@ struct MainView: View {
                             Text("비전보드")
                         }
                         .tag(0)
-                    Text("Another Tab")
+                    DreamLogView()
                         .tabItem {
                             Image(systemName: "sparkles.rectangle.stack")
                             Text("비전로그")

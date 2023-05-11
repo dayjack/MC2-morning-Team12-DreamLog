@@ -60,6 +60,7 @@
 		957041672A0C777C000633CD /* GabiaHeuldot.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041652A0C777C000633CD /* GabiaHeuldot.otf */; };
 		957041682A0C777C000633CD /* The Jamsil OTF 4 Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */; };
 		9570416C2A0C856D000633CD /* Tab1Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570416B2A0C856D000633CD /* Tab1Model.swift */; };
+		9570416E2A0CBDB4000633CD /* DreamLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570416D2A0CBDB4000633CD /* DreamLogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		957041652A0C777C000633CD /* GabiaHeuldot.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GabiaHeuldot.otf; sourceTree = "<group>"; };
 		957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Jamsil OTF 4 Medium.otf"; sourceTree = "<group>"; };
 		9570416B2A0C856D000633CD /* Tab1Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Model.swift; sourceTree = "<group>"; };
+		9570416D2A0CBDB4000633CD /* DreamLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamLogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				784EB5C82A0345A20096D427 /* MainView.swift */,
 				1635FA852A03AB490056C2CB /* CheerLogView.swift */,
 				784EB5CA2A0345B90096D427 /* DreamBoardView.swift */,
+				9570416D2A0CBDB4000633CD /* DreamLogView.swift */,
 				83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */,
 				784EB5D72A0346630096D427 /* Componets */,
 				784EB5CC2A0345CB0096D427 /* Tutorial */,
@@ -445,6 +448,7 @@
 				784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */,
 				784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */,
 				167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */,
+				9570416E2A0CBDB4000633CD /* DreamLogView.swift in Sources */,
 				9570414C2A0B6A67000633CD /* WidgetAreaView.swift in Sources */,
 				438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */,
 				784EB5BB2A0342670096D427 /* ButtonWhiteBoldModifier.swift in Sources */,
@@ -692,7 +696,7 @@
 				INFOPLIST_FILE = DreamBoardWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DreamBoardWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,7 +724,7 @@
 				INFOPLIST_FILE = DreamBoardWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DreamBoardWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
