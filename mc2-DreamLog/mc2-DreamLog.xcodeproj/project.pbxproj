@@ -48,6 +48,8 @@
 		9570414E2A0C7150000633CD /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570414D2A0C7150000633CD /* FontExtension.swift */; };
 		957041522A0C72A3000633CD /* JalnanOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041502A0C72A3000633CD /* JalnanOTF.otf */; };
 		957041532A0C72A3000633CD /* Pilseung Gothic Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */; };
+		957041672A0C777C000633CD /* GabiaHeuldot.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041652A0C777C000633CD /* GabiaHeuldot.otf */; };
+		957041682A0C777C000633CD /* The Jamsil OTF 4 Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,8 @@
 		9570414D2A0C7150000633CD /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		957041502A0C72A3000633CD /* JalnanOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JalnanOTF.otf; sourceTree = "<group>"; };
 		957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pilseung Gothic Regular.otf"; sourceTree = "<group>"; };
+		957041652A0C777C000633CD /* GabiaHeuldot.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GabiaHeuldot.otf; sourceTree = "<group>"; };
+		957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Jamsil OTF 4 Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,10 +242,20 @@
 		9570414F2A0C7240000633CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				957041642A0C776D000633CD /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		957041642A0C776D000633CD /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				957041652A0C777C000633CD /* GabiaHeuldot.otf */,
+				957041662A0C777C000633CD /* The Jamsil OTF 4 Medium.otf */,
 				957041502A0C72A3000633CD /* JalnanOTF.otf */,
 				957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */,
 			);
-			path = Resources;
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,7 +319,9 @@
 				957041522A0C72A3000633CD /* JalnanOTF.otf in Resources */,
 				957041532A0C72A3000633CD /* Pilseung Gothic Regular.otf in Resources */,
 				166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */,
+				957041682A0C777C000633CD /* The Jamsil OTF 4 Medium.otf in Resources */,
 				166972662A015A4800702B59 /* Assets.xcassets in Resources */,
+				957041672A0C777C000633CD /* GabiaHeuldot.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@ struct mc2_DreamLogApp: App {
     init() {
         Font.registerFonts(fontName: "Pilseung Gothic Regular")
         Font.registerFonts(fontName: "JalnanOTF")
+        Font.registerFonts(fontName: "GabiaHeuldot")
+        Font.registerFonts(fontName: "The Jamsil OTF 4 Medium")
     }
     
     var body: some Scene {
