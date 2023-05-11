@@ -7,6 +7,12 @@
 import SwiftUI
 import PencilKit
 
+enum penType {
+    case pen
+    case pencil
+    case marker
+    case eraser
+}
 
 struct EditDrawingView: View {
     
@@ -22,6 +28,7 @@ struct EditDrawingView: View {
     @State var color : Color = .black
     @State var canvas = PKCanvasView()
     @State var isDraw = true
+    @State var curPenType = penType.pen
     @State var type : PKInkingTool.InkType = .pen
     
     @Environment(\.dismiss) private var dismiss
@@ -67,12 +74,20 @@ struct EditDrawingView: View {
                 HStack {
                     // Select Pen
                     Button {
-                        if isDraw {}
-                        else{ isDraw.toggle()}
-                        
+                        guard curPenType == .pen else {
+                            curPenType = .pen
+                            type = .pen
+                            isDraw = true
+                            return
+                        }
+                        curPenType = .pen
+                        type = .pen
+                        isDraw = true
                     } label: {
-                        Image(systemName: "pencil")
-                            .foregroundColor(isDraw ?  .textGreen : .secondary)
+                        Image(systemName: "paintbrush.pointed")
+                            .foregroundColor(
+                                curPenType == .pen ? .textGreen : .secondary
+                            )
                             .padding()
                             .background(.white)
                             .clipShape(Circle())
@@ -80,11 +95,48 @@ struct EditDrawingView: View {
                     }
                     .padding(.bottom, 20)
                     .padding(.leading, 20)
+                    // Select pencil
+                    Button {
+                        guard curPenType == .pencil else {
+                            curPenType = .pencil
+                            type = .pencil
+                            isDraw = true
+                            return }
+                    } label: {
+                        Image(systemName: "pencil")
+                            .foregroundColor(
+                                curPenType == .pencil ? .textGreen : .secondary
+                            )
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
+                    .padding(.bottom, 20)
+                    // select marker
+                    Button {
+                        guard curPenType == .marker else {
+                            curPenType = .marker
+                            type = .marker
+                            isDraw = true
+                            return }
+                    } label: {
+                        Image(systemName: "highlighter")
+                            .foregroundColor(
+                                curPenType == .marker ? .textGreen : .secondary
+                            )
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
+                    .padding(.bottom, 20)
                     // Select Eraser
                     Button {
-                        if isDraw { isDraw.toggle()}
-                        else{}
-                        
+                        guard curPenType == .eraser else {
+                            curPenType = .eraser
+                            isDraw = false
+                            return }
                     } label: {
                         Image(systemName: "eraser")
                             .foregroundColor(isDraw ? .secondary : .textGreen)
@@ -95,27 +147,13 @@ struct EditDrawingView: View {
                     }
                     .padding(.bottom, 20)
                     Spacer()
-                    
-                    // remove All
-                    Button {
-                        canvas.drawing.strokes.removeAll()
-                    } label: {
-                        Image(systemName: "eraser")
-                            .foregroundColor(isDraw ? .secondary : .textGreen)
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
-                    }
-                    .padding(.bottom, 20)
-                    
                     // Undo
                     Button {
                         var undoManager = canvas.undoManager
                         undoManager?.undo()
                     } label: {
-                        Image(systemName: "eraser")
-                            .foregroundColor(isDraw ? .secondary : .textGreen)
+                        Image(systemName: "arrow.uturn.backward")
+                            .foregroundColor(.secondary)
                             .padding()
                             .background(.white)
                             .clipShape(Circle())
@@ -128,14 +166,15 @@ struct EditDrawingView: View {
                         var undoManager = canvas.undoManager
                         undoManager?.redo()
                     } label: {
-                        Image(systemName: "eraser")
-                            .foregroundColor(isDraw ? .secondary : .textGreen)
+                        Image(systemName: "arrow.uturn.forward")
+                            .foregroundColor(.secondary)
                             .padding()
                             .background(.white)
                             .clipShape(Circle())
                             .shadow(radius: 2)
                     }
                     .padding(.bottom, 20)
+                    .padding(.trailing, 20)
                 }
             }
         }
@@ -158,7 +197,6 @@ struct EditDrawingView: View {
         func makeUIView(context: Context) -> PKCanvasView {
             canvas.drawingPolicy = .anyInput
             canvas.tool = isDraw ? ink : eraser
-            
             return canvas}
         
         func updateUIView(_ uiView: PKCanvasView, context: Context) {
