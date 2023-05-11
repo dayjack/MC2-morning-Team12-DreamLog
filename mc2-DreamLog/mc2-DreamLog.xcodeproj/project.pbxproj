@@ -46,6 +46,8 @@
 		9570414A2A0B625E000633CD /* WidgetSizeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957041492A0B625E000633CD /* WidgetSizeButtonsView.swift */; };
 		9570414C2A0B6A67000633CD /* WidgetAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570414B2A0B6A67000633CD /* WidgetAreaView.swift */; };
 		9570414E2A0C7150000633CD /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570414D2A0C7150000633CD /* FontExtension.swift */; };
+		957041522A0C72A3000633CD /* JalnanOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041502A0C72A3000633CD /* JalnanOTF.otf */; };
+		957041532A0C72A3000633CD /* Pilseung Gothic Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		957041492A0B625E000633CD /* WidgetSizeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizeButtonsView.swift; sourceTree = "<group>"; };
 		9570414B2A0B6A67000633CD /* WidgetAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAreaView.swift; sourceTree = "<group>"; };
 		9570414D2A0C7150000633CD /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		957041502A0C72A3000633CD /* JalnanOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JalnanOTF.otf; sourceTree = "<group>"; };
+		957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pilseung Gothic Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 		78C24FD32A0242540070906B /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				9570414F2A0C7240000633CD /* Resources */,
 				784EB5B72A03421C0096D427 /* Modifier */,
 				78C24FD42A02425E0070906B /* Extension */,
 			);
@@ -228,6 +233,15 @@
 				9570414D2A0C7150000633CD /* FontExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9570414F2A0C7240000633CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				957041502A0C72A3000633CD /* JalnanOTF.otf */,
+				957041512A0C72A3000633CD /* Pilseung Gothic Regular.otf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +302,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				957041522A0C72A3000633CD /* JalnanOTF.otf in Resources */,
+				957041532A0C72A3000633CD /* Pilseung Gothic Regular.otf in Resources */,
 				166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */,
 				166972662A015A4800702B59 /* Assets.xcassets in Resources */,
 			);
