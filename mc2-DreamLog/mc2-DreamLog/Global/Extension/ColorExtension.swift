@@ -23,6 +23,8 @@ extension Color {
     static let bgColor = Color(hex: "#FFFBF6")
     
     /// Color Pallete
+    static let Black = Color(hex: "000000")
+    static let White = Color(hex: "FFFFFF")
     static let redStrong = Color(hex: "E10000")
     static let redLight = Color(hex: "F68383")
     static let orangeStrong = Color(hex: "FF5C00")
