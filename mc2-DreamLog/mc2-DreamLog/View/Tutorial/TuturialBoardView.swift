@@ -11,10 +11,12 @@ struct TutorialBoardView: View {
     /// widget 사이즈 보여줌
     @State var widgetSize = WidgetSize.none
     @State var showScroll: Bool = false
+    @State var goToCalender = false
     
     @EnvironmentObject var data: TutorialBoardElement
     @GestureState var startLocation: CGPoint? = nil
     @EnvironmentObject var FUUID: FocusUUID
+    
     
     let backgroundUUID = UUID()
     
@@ -22,34 +24,16 @@ struct TutorialBoardView: View {
         BgColorGeoView { geo in
             
             let width = geo.size.width
-            let boardHeight = geo.size.height - 220
+            
             VStack(spacing: 0) {
                 // 편집될 뷰로 교체하기
-                ZStack {
-                    Color.white
-                       
-                    
-                    ForEach(data.viewArr, id: \.self) { item in
-                        
-                        FixableImageView()
-                            .environmentObject(item)
-                            .environmentObject(data)
-                            .environmentObject(FUUID)
-                    }
-                    /// widgetSize가 .none인 경우에는 보여지지 않음
-                    if widgetSize != .none {
-                        WidgetAreaView(
-                            boardWidth: width,
-                            boardHeight: boardHeight,
-                            widgetSize: $widgetSize
-                        )
-                    }
-                }
-                .frame(height: boardHeight)
+                
+                zstackView(geo: geo)
                 .padding(.bottom, 10)
                 .onTapGesture {
                     FUUID.focusUUID = backgroundUUID
                 }
+                
                 
                 /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
                 EditMenuView(widgetSize: $widgetSize)
@@ -61,13 +45,20 @@ struct TutorialBoardView: View {
                             .frame(width: abs(width - 40) / 2,height: 60)
                             .whiteWithBorderButton()
                     }
-                    NavigationLink {
-                        TutorialCalendarView()
-                    } label: {
+                    NavigationLink(value: goToCalender) {
                         Text("완료")
                             .frame(width: abs(width - 40) / 2,height: 60)
                             .brownButton(isActive: true)
+                            .onTapGesture {
+                                /// 이미지 캡쳐 기능 구현
+                                generateImage(geo: geo)
+                                goToCalender = true
+                            }
                     }
+                    .navigationDestination(isPresented: $goToCalender) {
+                        TutorialCalendarView()
+                    }
+
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -88,7 +79,15 @@ struct TutorialBoardView: View {
             }
         }
     }
+    
+    func generateImage(geo: GeometryProxy) {
+        guard let uiImage = ImageRenderer(content: zstackView(geo: geo)).uiImage else {
+            return
+        }
+        Tab1Model.instance.image = uiImage
+    }
 }
+
 
 struct DreamLogTutorialView_Previews: PreviewProvider {
     static var previews: some View {
@@ -100,3 +99,33 @@ struct DreamLogTutorialView_Previews: PreviewProvider {
 }
 
 
+extension TutorialBoardView {
+    
+    func zstackView(geo: GeometryProxy) -> some View {
+        let width = geo.size.width
+        let boardHeight = geo.size.height - 250
+        
+        return ZStack {
+            Color.white
+               
+            
+            ForEach(data.viewArr, id: \.self) { item in
+                
+                FixableImageView()
+                    .environmentObject(item)
+                    .environmentObject(data)
+                    .environmentObject(FUUID)
+            }
+            /// widgetSize가 .none인 경우에는 보여지지 않음
+            if widgetSize != .none {
+                WidgetAreaView(
+                    boardWidth: width,
+                    boardHeight: boardHeight,
+                    widgetSize: $widgetSize
+                )
+            }
+        }
+        .frame(width: width,height: boardHeight)
+        
+    }
+}
