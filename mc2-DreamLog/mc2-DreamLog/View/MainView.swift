@@ -23,13 +23,13 @@ struct MainView: View {
                     Text("Another Tab")
                         .tabItem {
                             Image(systemName: "2.square.fill")
-                            Text("Second")
+                            Text("비전로그")
                         }
                         .tag(1)
                     CheerLogView()
                         .tabItem {
                             Image(systemName: "3.square.fill")
-                            Text("Third")
+                            Text("응원로그")
                         }
                         .tag(2)
                 }
