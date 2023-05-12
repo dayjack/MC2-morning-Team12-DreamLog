@@ -31,6 +31,7 @@ struct DreamLogView: View {
                             Button {
                                 print("====onTapGesture=====")
                                 index = idx
+                                getDateLogString(index: 0)
                                 showDetailView = true
                             } label: {
                                 Image(uiImage: ImageFileManager.shared.getSavedImage(named: data.imagePath)!)
@@ -40,11 +41,11 @@ struct DreamLogView: View {
                             }
                             VStack(spacing: 0) {
                                 Spacer()
-                                Text(data.time)
+                                Text(getDateLogString(index: idx))
                                     .frame(height: 50)
                                     .frame(maxWidth: .infinity)
                                     .background(Color.white)
-                                    .font(Font.system(size: 20, weight: Font.Weight.bold))
+                                    .font(Font.system(size: 14, weight: Font.Weight.bold))
                                     .foregroundColor(Color.gray)
                             }
                             
@@ -72,10 +73,18 @@ struct DreamLogView: View {
                             .padding(.top)
                         Spacer()
                             .frame(height: 20)
+                        Button {
+//                            DBHelper.shared.deleteDreamLogData(id: boardList[index].id)
+//                            boardList.remove(at: index)
+                            showDetailView = false
+                        } label: {
+                            Text("삭제하기")
+                        }
+
                         Image(uiImage: self.detailLogImage)
                         VStack(spacing: 0) {
                             Spacer()
-                            Text(self.detailLogTime)
+                            Text(getDateLogString(index: index))
                                 .frame(height: 50)
                                 .frame(maxWidth: .infinity)
                                 .font(Font.system(size: 18, weight: Font.Weight.bold))
@@ -99,5 +108,44 @@ struct DreamLogView: View {
 struct DreamLogView_Previews: PreviewProvider {
     static var previews: some View {
         DreamLogView()
+    }
+}
+
+extension DreamLogView {
+    
+    
+    func getDateLogString(index: Int) -> String {
+        
+        if index == boardList.count - 1 {
+            
+            let text = dateConverter(inputDateString: boardList[index].time) + " 에 처음 만든 드림보드"
+            print(text)
+            return text
+            
+        }
+        
+        let lastTimeString = dateConverter(inputDateString: boardList[index + 1].time)
+        let currnetTimeString = dateConverter(inputDateString: boardList[index].time)
+        
+        let text = lastTimeString + " 부터 " + currnetTimeString + "까지의 드림보드"
+        return text
+    }
+    
+    func dateConverter(inputDateString: String) -> String {
+        
+        var dateString = inputDateString
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: dateString)
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateString = dateFormatter.string(from: date!)
+
+        let calendar = Calendar.current
+        let updatedDate = calendar.date(byAdding: .hour, value: 9, to: date!)
+
+        let updatedDateString = dateFormatter.string(from: updatedDate!)
+        
+        return updatedDateString
     }
 }

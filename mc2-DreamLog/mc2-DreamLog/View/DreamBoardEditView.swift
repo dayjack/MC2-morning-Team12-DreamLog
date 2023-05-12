@@ -58,7 +58,8 @@ struct DreamBoardEditView: View {
                             FUUID.focusUUID = backgroundUUID
                             generateImage(geo: geo)
                             // 데이터
-                            DBHelper.shared.dropTable(tableName: "Element")
+//                            DBHelper.shared.dropTable(tableName: "Element")
+                            DBHelper.shared.dropTableWithoutRemove()
                             DBHelper.shared.createElementTable()
                             
                             for item in data.viewArr {

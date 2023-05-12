@@ -26,6 +26,7 @@ struct mc2_DreamLogApp: App {
                         .onAppear {
                             sleep(2)
                             _ = DBHelper.shared.createDB()
+//                            DBHelper.shared.dropTable(tableName: "Element")
                         }
                         .environment(\.managedObjectContext, persistentContainer.viewContext)
                 }

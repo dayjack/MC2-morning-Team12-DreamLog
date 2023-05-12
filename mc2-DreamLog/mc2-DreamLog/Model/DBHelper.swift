@@ -338,6 +338,24 @@ CREATE TABLE IF NOT EXISTS DreamLog (
         return
     }
     
+    func dropTableWithoutRemove() {
+        let queryString = "DROP TABLE Element"
+        var statement: OpaquePointer?
+        
+        if sqlite3_prepare(db, queryString, -1, &statement, nil) != SQLITE_OK {
+            onSQLErrorPrintErrorMessage(db)
+            return
+        }
+        
+        // 쿼리 실행.
+        if sqlite3_step(statement) != SQLITE_DONE {
+            onSQLErrorPrintErrorMessage(db)
+            return
+        }
+        
+        print("drop table has been successfully done")
+    }
+    
     
     func dropTable(tableName: String) {
         
