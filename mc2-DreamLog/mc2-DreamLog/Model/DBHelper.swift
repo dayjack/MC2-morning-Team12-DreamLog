@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS DreamLog (
     
     func readDreamLogData() -> [DreamLogModel] {
         
-        let query: String = "select * from DreamLog;"
+        let query: String = "select * from DreamLog ORDER BY id DESC;"
         var statement: OpaquePointer? = nil
         
         // 아래는 [MyModel]? 이 되면 값이 안 들어간다.
