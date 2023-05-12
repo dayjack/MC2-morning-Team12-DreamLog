@@ -19,7 +19,6 @@ struct DreamBoardEditView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State var dataArray: [BoardElement] = []
-    let dbHelper = DBHelper.shared
     
     let backgroundUUID = UUID()
     
@@ -59,12 +58,12 @@ struct DreamBoardEditView: View {
                             FUUID.focusUUID = backgroundUUID
                             generateImage(geo: geo)
                             // 데이터
-                            dbHelper.dropTable(tableName: "Element")
-                            dbHelper.createElementTable()
+                            DBHelper.shared.dropTable(tableName: "Element")
+                            DBHelper.shared.createElementTable()
                             
                             for item in data.viewArr {
                                 
-                                dbHelper.insertElementData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
+                                DBHelper.shared.insertElementData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
                                 
                                 
                                 

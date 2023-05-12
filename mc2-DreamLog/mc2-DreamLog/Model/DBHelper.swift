@@ -14,19 +14,16 @@ class DBHelper {
     static let shared = DBHelper()
     
     var db : OpaquePointer?
+    private init() {}
     
     let databaseName = "mydb.sqlite"
-    
-    init() {
-        self.db = createDB()
-    }
     
     deinit {
         sqlite3_close(db)
     }
     
     
-    private func createDB() -> OpaquePointer? {
+    func createDB() -> OpaquePointer? {
         var db: OpaquePointer? = nil
         
         do {
@@ -34,6 +31,7 @@ class DBHelper {
             
             if sqlite3_open(dbPath, &db) == SQLITE_OK {
                 print("Successfullt create DB.path: \(dbPath)")
+                self.db = db
                 return db
             }
         } catch {
