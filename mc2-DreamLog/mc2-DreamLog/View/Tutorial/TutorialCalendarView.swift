@@ -12,11 +12,6 @@ struct TutorialCalendarView: View {
 
     @State private var isNextViewActive = false
     @State private var date = Date()
-    static let dateformat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY년 M월 d일"
-        return formatter
-    }()
     
     var body: some View {
         BgColorGeoView { geo in
@@ -32,7 +27,6 @@ struct TutorialCalendarView: View {
                         print("height: \(height)")
                     }
                     .brownText()
-//                grayMediumText(text: "바탕화면에 드림로그를 추가해서\n목표와 오늘의 응원을 확인해보세요.")
                 Text("바탕화면에 드림로그를 추가해서\n목표와 오늘의 응원을 확인해보세요.")
                     .grayText()
 
@@ -43,25 +37,6 @@ struct TutorialCalendarView: View {
                 )
                 .datePickerStyle(.graphical)
                 Spacer()
-                
-                
-//                HStack {
-//                    NavigationLink {
-//                        MainView()
-//                    } label: {
-//                        Text("생략할래요")
-//                            .frame(width: abs(width - 40) / 2, height: 60)
-//                            .whiteWithBorderButton()
-//
-//                    }
-//                    NavigationLink {
-//                        MainView()
-//                    } label: {
-//                        Text("시작하기")
-//                            .frame(width: abs(width - 40) / 2, height: 60)
-//                            .brownButton(isActive: true)
-//                    }
-//                }
                 
                 NavigationLink(destination: MainView(), isActive: $isNextViewActive) {
                     EmptyView()
