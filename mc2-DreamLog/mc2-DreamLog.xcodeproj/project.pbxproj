@@ -16,6 +16,7 @@
 		438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87852A0881CB00037E11 /* FixableImageView.swift */; };
 		438E87882A0882AB00037E11 /* FocusUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87872A0882AB00037E11 /* FocusUUID.swift */; };
 		43CEE4622A0DE3160077559E /* DreamBoardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */; };
+		43CEE4642A0E0CA80077559E /* DreamLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEE4632A0E0CA80077559E /* DreamLogModel.swift */; };
 		781EC7C22A0B3C7B00C47893 /* TransferableUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */; };
 		78293F482A0C95E500F5EA48 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78293F472A0C95E500F5EA48 /* WidgetKit.framework */; };
 		78293F4A2A0C95E500F5EA48 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78293F492A0C95E500F5EA48 /* SwiftUI.framework */; };
@@ -102,6 +103,7 @@
 		438E87852A0881CB00037E11 /* FixableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixableImageView.swift; sourceTree = "<group>"; };
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
 		43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamBoardEditView.swift; sourceTree = "<group>"; };
+		43CEE4632A0E0CA80077559E /* DreamLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamLogModel.swift; sourceTree = "<group>"; };
 		781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		78293F452A0C95E500F5EA48 /* DreamBoardWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DreamBoardWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78293F472A0C95E500F5EA48 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -262,6 +264,7 @@
 				9570416B2A0C856D000633CD /* Tab1Model.swift */,
 				78A28BBB2A0D0E920034B0A9 /* DBHelper.swift */,
 				782DFF692A0DC0D500DB62FF /* ImageFileManager.swift */,
+				43CEE4632A0E0CA80077559E /* DreamLogModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				784EB5D22A0346160096D427 /* TuturialBoardView.swift in Sources */,
 				1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */,
 				78293F572A0C95E600F5EA48 /* DreamBoardWidget.intentdefinition in Sources */,
+				43CEE4642A0E0CA80077559E /* DreamLogModel.swift in Sources */,
 				784EB5CB2A0345B90096D427 /* DreamBoardView.swift in Sources */,
 				9570414E2A0C7150000633CD /* FontExtension.swift in Sources */,
 				784EB5BF2A0342990096D427 /* TextGrayModifier.swift in Sources */,

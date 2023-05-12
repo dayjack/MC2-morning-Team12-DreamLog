@@ -61,11 +61,11 @@ struct DreamBoardEditView: View {
                                 generateImage(geo: geo)
                                 // 데이터
                                 dbHelper.dropTable(tableName: "Element")
-                                dbHelper.createTable()
+                                dbHelper.createElementTable()
                                 
                                 for item in data.viewArr {
                                     
-                                    dbHelper.insertData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
+                                    dbHelper.insertElementData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
                                     
                                     
                                     
