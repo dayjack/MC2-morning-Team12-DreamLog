@@ -27,6 +27,7 @@ struct mc2_DreamLogApp: App {
                             sleep(2)
                         }
                         .environment(\.managedObjectContext, persistentContainer.viewContext)
+                        .environmentObject(TutorialBoardElement())
                 }
                 .tint(.activeBrown)
             } else {

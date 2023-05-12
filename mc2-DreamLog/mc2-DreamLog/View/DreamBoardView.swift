@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DreamBoardView: View {
     
+    @EnvironmentObject var data: TutorialBoardElement
+    @State var isDone = false
     @State var text = ""
     @State private var showingAlert: Bool = false
     @State private var confirmAlert: Bool = false
@@ -16,6 +18,8 @@ struct DreamBoardView: View {
 //    @State private var boardImage: UIImage = !
     @State private var boardImage: UIImage = Tab1Model.instance.image ?? UIImage(named: "BoardDummy")!
     
+    
+    let dbHelper = DBHelper.shared
     var photo: TransferableUIImage {
         return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
     }
@@ -55,7 +59,20 @@ struct DreamBoardView: View {
                                 
                             }
                         
-                        Image(systemName: "pencil")
+                        
+                        NavigationLink(value: isDone, label:{
+                            Button {
+                                data.viewArr.removeAll()
+                                data.viewArr = dbHelper.readData()
+                                isDone = true
+                            } label: {
+                                Image(systemName: "pencil")
+                            }
+                        })
+                        .navigationDestination(isPresented: $isDone, destination: {
+                            DreamBoardEditView()
+                        })
+                            
                     }
                     .font(.system(size: 24))
                     .padding(.horizontal)
