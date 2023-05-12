@@ -42,21 +42,60 @@ struct SimpleEntry: TimelineEntry {
 
 struct DreamBoardWidgetEntryView : View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
 
+    var boardImage = UIImage(named: "BoardDummy") ?? UIImage(systemName: "questionmark")!
     var body: some View {
-        ZStack {
-            Color.green.opacity(0.6)
-            VStack {
-                Spacer()
-                Text(entry.date, style: .time)
-                    .padding()
-                    .background(.white)
+        switch family {
+        case .systemSmall:
+            ZStack {
+                Image(uiImage: boardImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                VStack {
+                    Spacer()
+                    Text("응원로그")
+                        .font(.system(size: 12, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(.white.opacity(0.9))
+                }
+                .padding(.bottom)
+                //.padding을 주면 radius 부분이 안짤림
             }
-            .padding()
-            
-            
+        case .systemMedium:
+            ZStack {
+                Image(uiImage: boardImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    
+                VStack {
+                    Text("응원로그")
+                        .font(.system(size: 18, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(.white.opacity(0.9))
+                    
+                }
+                .padding(.top, 120)
+            }
+        case .systemLarge:
+            ZStack {
+                Image(uiImage: boardImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                VStack {
+                    Text("응원로그")
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(.white.opacity(0.9))
+                }
+                .padding(.top, 290)
+            }
+        @unknown default:
+            Text("Unknown widget size")
         }
-        
     }
 }
 
