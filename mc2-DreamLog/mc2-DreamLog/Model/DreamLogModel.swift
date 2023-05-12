@@ -7,7 +7,15 @@
 
 import Foundation
 
-class DreamLogModel {
+class DreamLogModel: Hashable, Equatable {
+    
+    static func == (lhs: DreamLogModel, rhs: DreamLogModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     
     static let shared = DreamLogModel()
     

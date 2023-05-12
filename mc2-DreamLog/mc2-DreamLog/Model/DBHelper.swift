@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS DreamLog (
     
     func readDreamLogData() -> [DreamLogModel] {
         
-        let query: String = "select * from DreamLog;"
+        let query: String = "select * from DreamLog ORDER BY id DESC;"
         var statement: OpaquePointer? = nil
         
         // 아래는 [MyModel]? 이 되면 값이 안 들어간다.
@@ -336,6 +336,24 @@ CREATE TABLE IF NOT EXISTS DreamLog (
         let errorMessage = String(cString: sqlite3_errmsg(db))
         print("Error preparing update: \(errorMessage)")
         return
+    }
+    
+    func dropTableWithoutRemove() {
+        let queryString = "DROP TABLE Element"
+        var statement: OpaquePointer?
+        
+        if sqlite3_prepare(db, queryString, -1, &statement, nil) != SQLITE_OK {
+            onSQLErrorPrintErrorMessage(db)
+            return
+        }
+        
+        // 쿼리 실행.
+        if sqlite3_step(statement) != SQLITE_DONE {
+            onSQLErrorPrintErrorMessage(db)
+            return
+        }
+        
+        print("drop table has been successfully done")
     }
     
     
