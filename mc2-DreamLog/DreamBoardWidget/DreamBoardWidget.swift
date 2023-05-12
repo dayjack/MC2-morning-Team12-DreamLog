@@ -42,21 +42,56 @@ struct SimpleEntry: TimelineEntry {
 
 struct DreamBoardWidgetEntryView : View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
 
+    var boardImage = UIImage(named: "BoardDummy") ?? UIImage(systemName: "questionmark")!
     var body: some View {
-        ZStack {
-            Color.green.opacity(0.6)
-            VStack {
-                Spacer()
-                Text(entry.date, style: .time)
-                    .padding()
-                    .background(.white)
+        switch family {
+        case .systemSmall:
+            ZStack {
+                Image(uiImage: boardImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                VStack {
+                    Spacer()
+                    Text("응원로그")
+                        .padding()
+                        .background(.white)
+                    
+                }
+                .padding()
             }
-            .padding()
-            
-            
+        case .systemMedium:
+            ZStack {
+                Image(uiImage: boardImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    
+                VStack {
+                    Spacer()
+                    Text(entry.date, style: .time)
+                        .padding()
+                        .background(.white)
+                }
+                .padding()
+            }
+        case .systemLarge:
+            ZStack {
+                Image(uiImage: boardImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                VStack {
+                    Spacer()
+                    Text(entry.date, style: .time)
+                        .padding()
+                        .background(.white)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+            }
+        @unknown default:
+            Text("Unknown widget size")
         }
-        
     }
 }
 
