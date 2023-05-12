@@ -15,6 +15,7 @@
 		167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 167435602A09021D00891AAB /* CoreData.xcdatamodeld */; };
 		438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87852A0881CB00037E11 /* FixableImageView.swift */; };
 		438E87882A0882AB00037E11 /* FocusUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87872A0882AB00037E11 /* FocusUUID.swift */; };
+		43CEE4622A0DE3160077559E /* DreamBoardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */; };
 		781EC7C22A0B3C7B00C47893 /* TransferableUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */; };
 		78293F482A0C95E500F5EA48 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78293F472A0C95E500F5EA48 /* WidgetKit.framework */; };
 		78293F4A2A0C95E500F5EA48 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78293F492A0C95E500F5EA48 /* SwiftUI.framework */; };
@@ -100,6 +101,7 @@
 		167435612A09021D00891AAB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		438E87852A0881CB00037E11 /* FixableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixableImageView.swift; sourceTree = "<group>"; };
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
+		43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamBoardEditView.swift; sourceTree = "<group>"; };
 		781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		78293F452A0C95E500F5EA48 /* DreamBoardWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DreamBoardWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78293F472A0C95E500F5EA48 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -270,6 +272,7 @@
 				784EB5C82A0345A20096D427 /* MainView.swift */,
 				1635FA852A03AB490056C2CB /* CheerLogView.swift */,
 				784EB5CA2A0345B90096D427 /* DreamBoardView.swift */,
+				43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */,
 				9570416D2A0CBDB4000633CD /* DreamLogView.swift */,
 				83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */,
 				784EB5D72A0346630096D427 /* Componets */,
@@ -455,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */,
+				43CEE4622A0DE3160077559E /* DreamBoardEditView.swift in Sources */,
 				784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */,
 				167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */,
 				9570416E2A0CBDB4000633CD /* DreamLogView.swift in Sources */,
