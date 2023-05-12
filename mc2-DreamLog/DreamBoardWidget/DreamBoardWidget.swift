@@ -55,11 +55,13 @@ struct DreamBoardWidgetEntryView : View {
                 VStack {
                     Spacer()
                     Text("응원로그")
-                        .padding()
-                        .background(.white)
-                    
+                        .font(.system(size: 12, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(.white.opacity(0.9))
                 }
-                .padding()
+                .padding(.bottom)
+                //.padding을 주면 radius 부분이 안짤림
             }
         case .systemMedium:
             ZStack {
@@ -68,12 +70,14 @@ struct DreamBoardWidgetEntryView : View {
                     .aspectRatio(contentMode: .fill)
                     
                 VStack {
-                    Spacer()
-                    Text(entry.date, style: .time)
-                        .padding()
-                        .background(.white)
+                    Text("응원로그")
+                        .font(.system(size: 18, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(.white.opacity(0.9))
+                    
                 }
-                .padding()
+                .padding(.top, 120)
             }
         case .systemLarge:
             ZStack {
@@ -81,13 +85,13 @@ struct DreamBoardWidgetEntryView : View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
-                    Spacer()
-                    Text(entry.date, style: .time)
-                        .padding()
-                        .background(.white)
+                    Text("응원로그")
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .background(.white.opacity(0.9))
                 }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .padding(.top, 290)
             }
         @unknown default:
             Text("Unknown widget size")
