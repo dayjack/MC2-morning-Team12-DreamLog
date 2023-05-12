@@ -11,12 +11,12 @@ struct DreamBoardEditView: View {
     /// widget 사이즈 보여줌
     @State var widgetSize = WidgetSize.none
     @State var showScroll: Bool = false
-    @State var goToDreamBoard = false
     
     @EnvironmentObject var data: TutorialBoardElement
     @GestureState var startLocation: CGPoint? = nil
     @EnvironmentObject var FUUID: FocusUUID
     
+    @Environment(\.dismiss) private var dismiss
     
     @State var dataArray: [BoardElement] = []
     let dbHelper = DBHelper.shared
@@ -51,35 +51,27 @@ struct DreamBoardEditView: View {
                             .whiteWithBorderButton()
                     }
                     
-                    NavigationLink(value: goToDreamBoard) {
-                        Text("완료")
-                            .frame(width: abs(width - 40) / 2,height: 60)
-                            .brownButton(isActive: true)
-                            .onTapGesture {
-                                /// 이미지 캡쳐 기능 구현
-                                FUUID.focusUUID = backgroundUUID
-                                generateImage(geo: geo)
-                                // 데이터
-                                dbHelper.dropTable(tableName: "Element")
-                                dbHelper.createElementTable()
+                    Text("완료")
+                        .frame(width: abs(width - 40) / 2,height: 60)
+                        .brownButton(isActive: true)
+                        .onTapGesture {
+                            /// 이미지 캡쳐 기능 구현
+                            FUUID.focusUUID = backgroundUUID
+                            generateImage(geo: geo)
+                            // 데이터
+                            dbHelper.dropTable(tableName: "Element")
+                            dbHelper.createElementTable()
+                            
+                            for item in data.viewArr {
                                 
-                                for item in data.viewArr {
-                                    
-                                    dbHelper.insertElementData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
-                                    
-                                    
-                                    
-                                }
-                                data.viewArr.removeAll()
+                                dbHelper.insertElementData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
                                 
                                 
-                                goToDreamBoard = true
+                                
                             }
-                    }
-                    .navigationDestination(isPresented: $goToDreamBoard) {
-                        DreamBoardView()
-                    }
-                    
+                            data.viewArr.removeAll()
+                            dismiss()
+                        }
                 }
             }
             .navigationBarBackButtonHidden(true)
