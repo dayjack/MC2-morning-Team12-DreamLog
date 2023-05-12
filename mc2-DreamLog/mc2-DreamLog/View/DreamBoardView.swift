@@ -20,7 +20,6 @@ struct DreamBoardView: View {
     
     @State private var dDayString = "calendar"
     
-    let dbHelper = DBHelper.shared
     let imageFileManager = ImageFileManager.shared
     
     var photo: TransferableUIImage {
@@ -74,7 +73,7 @@ struct DreamBoardView: View {
                     NavigationLink(value: isDone, label:{
                         Button {
                             data.viewArr.removeAll()
-                            data.viewArr = dbHelper.readData()
+                            data.viewArr = DBHelper.shared.readData()
                             isDone = true
                         } label: {
                             Image(systemName: "pencil")
@@ -139,8 +138,8 @@ struct DreamBoardView: View {
                 .shadow(color: Color.shadowGray, radius: 2, x: 0, y: 2)
             }
             .onAppear {
-                print("\(dbHelper.readDreamLogDataOne().imagePath)")
-                self.boardImage = imageFileManager.getSavedImage(named: dbHelper.readDreamLogDataOne().imagePath)!
+                print("\(DBHelper.shared.readDreamLogDataOne().imagePath)")
+                self.boardImage = imageFileManager.getSavedImage(named: DBHelper.shared.readDreamLogDataOne().imagePath)!
             }
             .onAppear {
                 getDDayDate()

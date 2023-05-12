@@ -25,6 +25,7 @@ struct mc2_DreamLogApp: App {
                     MainView()
                         .onAppear {
                             sleep(2)
+                            _ = DBHelper.shared.createDB()
                         }
                         .environment(\.managedObjectContext, persistentContainer.viewContext)
                 }
@@ -37,6 +38,7 @@ struct mc2_DreamLogApp: App {
                     .environmentObject(FocusUUID())
                     .onAppear {
                         sleep(2)
+                        _ = DBHelper.shared.createDB()
                     }
                 
             }
