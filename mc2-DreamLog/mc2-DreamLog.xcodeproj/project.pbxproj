@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163214A32A0DD07000FA87CC /* DDayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163214A22A0DD07000FA87CC /* DDayCalendarView.swift */; };
 		1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635FA852A03AB490056C2CB /* CheerLogView.swift */; };
 		166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972612A015A4600702B59 /* mc2_DreamLogApp.swift */; };
 		166972642A015A4600702B59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972632A015A4600702B59 /* ContentView.swift */; };
@@ -93,6 +94,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		163214A22A0DD07000FA87CC /* DDayCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayCalendarView.swift; sourceTree = "<group>"; };
 		1635FA852A03AB490056C2CB /* CheerLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogView.swift; sourceTree = "<group>"; };
 		1669725E2A015A4600702B59 /* mc2-DreamLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mc2-DreamLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166972612A015A4600702B59 /* mc2_DreamLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mc2_DreamLogApp.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				784EB5CA2A0345B90096D427 /* DreamBoardView.swift */,
 				43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */,
 				9570416D2A0CBDB4000633CD /* DreamLogView.swift */,
+				163214A22A0DD07000FA87CC /* DDayCalendarView.swift */,
 				83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */,
 				784EB5D72A0346630096D427 /* Componets */,
 				784EB5CC2A0345CB0096D427 /* Tutorial */,
@@ -504,6 +507,7 @@
 				784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */,
 				784EB5D42A03462F0096D427 /* TutorialCalendarView.swift in Sources */,
 				9500AB9D2A09E8620034933C /* ColorPreset.swift in Sources */,
+				163214A32A0DD07000FA87CC /* DDayCalendarView.swift in Sources */,
 				784EB5B92A03423B0096D427 /* ButtonBrownModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

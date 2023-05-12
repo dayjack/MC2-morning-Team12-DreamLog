@@ -8,28 +8,32 @@
 import SwiftUI
 
 struct DreamBoardView: View {
-    
     @EnvironmentObject var data: TutorialBoardElement
     @State var isDone = false
     @State var text = ""
     @State private var showingAlert: Bool = false
     @State private var confirmAlert: Bool = false
     @StateObject var cheerModel = dataModel()
-//    @State private var boardImage: UIImage = !
     @State private var boardImage: UIImage = Tab1Model.instance.image ?? UIImage(named: "BoardDummy")!
     
+    @State private var showDDayCalendar = false
     
+    @State private var dDayString = "calendar"
+
     let dbHelper = DBHelper.shared
     let imageFileManager = ImageFileManager.shared
+
     var photo: TransferableUIImage {
         return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
     }
     
     var body: some View {
+
             BgColorGeoView { geo in
                 
                 let width = geo.size.width
                 let height = geo.size.height
+
                 
                 
                 VStack {
@@ -46,6 +50,38 @@ struct DreamBoardView: View {
                             .background(.white)
                     }
                     
+
+                    Text(text == "" ? "스스로를 위한 응원을 작성해보세요" : text)
+                        .grayText(fontSize: 22)
+                        .fontWeight(.semibold)
+                        .frame(width: abs(width), height: 40, alignment: .center)
+                        .padding(.top, 10)
+                        .background(.white)
+                }
+                
+                HStack {
+                    
+                    if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
+
+                            NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
+                                Text(dDayString)
+                                    .fontWeight(.bold)
+                            }
+                        
+                    } else {
+                        NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
+                            Image(systemName: dDayString)
+                        }
+                    }
+       
+                    Spacer()
+                    ShareLink(item: photo, preview: SharePreview(
+                        photo.caption,
+                        image: photo.image)) {
+                            Label("", systemImage: "square.and.arrow.up")
+                            
+                        }
+
                     
                     HStack {
                         Text("I")
@@ -134,13 +170,32 @@ struct DreamBoardView: View {
                     self.boardImage = imageFileManager.getSavedImage(named: dbHelper.readDreamLogDataOne().imagePath)!
                 }
             }
-        
+
+        }
+        .onAppear {
+            getDDayDate()
+        }
     }
+
     
     func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: Date())
+    }
+    
+    private func getDDayDate() -> String {
+        
+        if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
+            let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: Date(), to: tomorrow)
+            if let days = components.day {
+                dDayString = days > 0 ? "D - \(days)" : (days == 0 ? "D - DAY !" : "D + \(abs(days)+1)")
+            }
+        }
+        return dDayString
     }
     
 }
