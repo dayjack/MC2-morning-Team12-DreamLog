@@ -19,38 +19,29 @@ struct DreamBoardView: View {
     @State private var showDDayCalendar = false
     
     @State private var dDayString = "calendar"
-
+    
     let dbHelper = DBHelper.shared
     let imageFileManager = ImageFileManager.shared
-
+    
     var photo: TransferableUIImage {
         return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
     }
     
     var body: some View {
-
-            BgColorGeoView { geo in
+        
+        BgColorGeoView { geo in
+            
+            let width = geo.size.width
+            let height = geo.size.height
+            
+            
+            
+            VStack {
                 
-                let width = geo.size.width
-                let height = geo.size.height
-
-                
-                
-                VStack {
+                VStack(spacing: 0) {
                     
-                    VStack(spacing: 0) {
-                        
-                        Image(uiImage: boardImage)
-                        
-                        Text(text == "" ? "스스로를 위한 응원을 작성해보세요" : text)
-                            .grayText(fontSize: 22)
-                            .fontWeight(.semibold)
-                            .frame(width: abs(width), height: 40, alignment: .center)
-                            .padding(.top, 10)
-                            .background(.white)
-                    }
+                    Image(uiImage: boardImage)
                     
-
                     Text(text == "" ? "스스로를 위한 응원을 작성해보세요" : text)
                         .grayText(fontSize: 22)
                         .fontWeight(.semibold)
@@ -59,72 +50,54 @@ struct DreamBoardView: View {
                         .background(.white)
                 }
                 
+ 
                 HStack {
-                    
                     if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
-
-                            NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
-                                Text(dDayString)
-                                    .fontWeight(.bold)
-                            }
+                        
+                        NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
+                            Text(dDayString)
+                                .fontWeight(.bold)
+                        }
                         
                     } else {
                         NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
                             Image(systemName: dDayString)
                         }
                     }
-       
                     Spacer()
                     ShareLink(item: photo, preview: SharePreview(
                         photo.caption,
                         image: photo.image)) {
                             Label("", systemImage: "square.and.arrow.up")
-                            
                         }
-
                     
-                    HStack {
-                        Text("I")
-                            .fontWeight(.bold)
-                        Text("D-340")
-                            .fontWeight(.bold)
-                        Spacer()
-                        ShareLink(item: photo, preview: SharePreview(
-                            photo.caption,
-                            image: photo.image)) {
-                                Label("", systemImage: "square.and.arrow.up")
-                                
-                            }
-                        
-                        
-                        NavigationLink(value: isDone, label:{
-                            Button {
-                                data.viewArr.removeAll()
-                                data.viewArr = dbHelper.readData()
-                                isDone = true
-                            } label: {
-                                Image(systemName: "pencil")
-                            }
-                        })
-                        .navigationDestination(isPresented: $isDone, destination: {
-                            DreamBoardEditView()
-                        })
-                            
-                    }
-                    .font(.system(size: 24))
-                    .padding(.horizontal)
-                    .foregroundColor(.textGreen)
-                    
-                    Rectangle()
-                        .frame(width: width, height: 1)
-                        .shadow(color: Color.gray.opacity(0.6), radius: 1.5, x: 0, y: 2)
-                        .foregroundColor(.bgColor)
-                        .padding(.bottom, 5)
-                    
+                    NavigationLink(value: isDone, label:{
+                        Button {
+                            data.viewArr.removeAll()
+                            data.viewArr = dbHelper.readData()
+                            isDone = true
+                        } label: {
+                            Image(systemName: "pencil")
+                        }
+                    })
+                    .navigationDestination(isPresented: $isDone, destination: {
+                        DreamBoardEditView()
+                    })
+                }
+                .font(.system(size: 24))
+                .padding(.horizontal)
+                .foregroundColor(.textGreen)
+                
+                Rectangle()
+                    .frame(width: width, height: 1)
+                    .shadow(color: Color.gray.opacity(0.6), radius: 1.5, x: 0, y: 2)
+                    .foregroundColor(.bgColor)
+                    .padding(.bottom, 5)
+                
                     VStack(alignment: .leading) {
                         HStack {
                             Text("나에게 주는 응원 한마디")
-    
+                            
                             Spacer()
                             Button {
                                 showingAlert = true
@@ -157,33 +130,35 @@ struct DreamBoardView: View {
                             })
                         }
                     }
-                    .padding(.horizontal, 16)
-                    .frame(width: width - 30)
-                    .frame(height: 50)
-                    .background(.white)
-                    .cornerRadius(12)
-                    .padding(.bottom, 20)
-                    .shadow(color: Color.shadowGray, radius: 2, x: 0, y: 2)
-                }
-                .onAppear {
-                    print("\(dbHelper.readDreamLogDataOne().imagePath)")
-                    self.boardImage = imageFileManager.getSavedImage(named: dbHelper.readDreamLogDataOne().imagePath)!
-                }
+                .padding(.horizontal, 16)
+                .frame(width: width - 30)
+                .frame(height: 50)
+                .background(.white)
+                .cornerRadius(12)
+                .padding(.bottom, 20)
+                .shadow(color: Color.shadowGray, radius: 2, x: 0, y: 2)
             }
-
-        }
-        .onAppear {
-            getDDayDate()
+            .onAppear {
+                print("\(dbHelper.readDreamLogDataOne().imagePath)")
+                self.boardImage = imageFileManager.getSavedImage(named: dbHelper.readDreamLogDataOne().imagePath)!
+            }
+            .onAppear {
+                getDDayDate()
+            }
+            
+            
         }
     }
-
     
+}
+
+
+extension DreamBoardView {
     func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: Date())
     }
-    
     private func getDDayDate() -> String {
         
         if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
@@ -199,6 +174,7 @@ struct DreamBoardView: View {
     }
     
 }
+
 
 struct MainTab1View_Previews: PreviewProvider {
     static var previews: some View {
