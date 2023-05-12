@@ -9,6 +9,10 @@ import SwiftUI
 
 struct DreamBoardView: View {
     
+//    var selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date
+    let formatter = DateFormatter()
+//    var dDayString = ""
+    
     @State var text = ""
     @State private var showingAlert: Bool = false
     @State private var confirmAlert: Bool = false
@@ -44,10 +48,25 @@ struct DreamBoardView: View {
                 
                 
                 HStack {
-                    Text("I")
-                        .fontWeight(.bold)
-                    Text("D-340")
-                        .fontWeight(.bold)
+                    if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
+                        // selectedDate에 하루를 더합니다.
+                        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+                        
+                        let calendar = Calendar.current
+                        let components = calendar.dateComponents([.day], from: Date(), to: tomorrow)
+                        if let days = components.day {
+                            let dDayString = days > 0 ? "D - \(days)" : (days == 0 ? "D - DAY !" : "D + \(abs(days)+1)")
+                            Text(dDayString)
+                                .fontWeight(.bold)
+                        }
+//                        else {
+//                            Text("D - DAY !")
+//                        }
+                    } else {
+                        Text("D - Day")
+                            .fontWeight(.bold)
+                    }
+                    
                     Spacer()
                     ShareLink(item: photo, preview: SharePreview(
                         photo.caption,
