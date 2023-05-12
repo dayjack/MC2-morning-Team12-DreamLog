@@ -36,6 +36,41 @@ class BoardElement: Identifiable, Hashable, ObservableObject {
         self.picture = picture
     }
     
+    init(imagePosition: CGPoint, imageWidth: CGFloat, imageHeight: CGFloat, angle: Angle, angleSum: Double, picture: Image ,rotateDotPosition: CGPoint, deleteDotPosition: CGPoint) {
+        self.imagePosition = imagePosition
+        self.imageWidth = imageWidth
+        self.imageHeight = imageHeight
+        self.rotateDotPosition = CGPoint(x: imagePosition.x + imageWidth/2, y: imagePosition.y + imageHeight/2)
+        self.deleteDotPosition = CGPoint(x: imagePosition.x + imageWidth/2, y: imagePosition.y - imageHeight/2)
+        self.angle = angle
+        self.angleSum = angleSum
+        self.picture = picture
+        self.rotateDotPosition = rotateDotPosition
+        self.deleteDotPosition = deleteDotPosition
+    }
+    
+    
+    
+    init(imagePosition: CGPoint, imageWidth: CGFloat, imageHeight: CGFloat, angle: Angle, angleSum: Double, picturePath: String ,rotateDotPosition: CGPoint, deleteDotPosition: CGPoint) {
+        
+        print(picturePath)
+        let imageFileManager = ImageFileManager.shared
+        
+        self.imagePosition = imagePosition
+        self.imageWidth = imageWidth
+        self.imageHeight = imageHeight
+        self.rotateDotPosition = CGPoint(x: imagePosition.x + imageWidth/2, y: imagePosition.y + imageHeight/2)
+        self.deleteDotPosition = CGPoint(x: imagePosition.x + imageWidth/2, y: imagePosition.y - imageHeight/2)
+        self.angle = angle
+        self.angleSum = angleSum
+        
+        self.picture = Image(uiImage: imageFileManager.getSavedImage(named: picturePath)!)
+        
+        self.rotateDotPosition = rotateDotPosition
+        self.deleteDotPosition = deleteDotPosition
+    }
+    
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

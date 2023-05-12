@@ -28,29 +28,22 @@ extension View {
         modifier(MenuButtonModifier())
     }
     
-    
-    /// Text(String)를 image로 변환해준다. 이미 속성이 전부 적용된 텍스트뷰를 이미지로 바꾸는 형식이 아님
-    /// - Parameters:
-    ///   - text: 텍스트뷰에 들어가야할 텍스트
-    ///   - backgroundColor: 배경색, 기본은 투명색이다
-    ///   - textColor: 글자색, 기본은 검은색이다
-    /// - Returns: 속성이 적용된 텍스트가 여백없이 UIImage 형태로 반환
-    func textToImage(text: String, backgroundColor: UIColor = .clear, textColor: UIColor = .black) -> UIImage {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 100)
-        label.textAlignment = .center
-        label.backgroundColor = backgroundColor
-        label.textColor = textColor
-        label.text = text
+    // This function changes our View to UIView, then calls another function
+    // to convert the newly-made UIView to a UIImage.
+    public func asUIImage() -> UIImage {
+        let controller = UIHostingController(rootView: self)
         
-        label.sizeToFit() // Size the label to fit the text
+        controller.view.frame = CGRect(x: 0, y: CGFloat(Int.max), width: 1, height: 1)
+        UIApplication.shared.windows.first!.rootViewController?.view.addSubview(controller.view)
         
-        UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
-        label.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let size = controller.sizeThatFits(in: UIScreen.main.bounds.size)
+        controller.view.bounds = CGRect(origin: .zero, size: size)
+        controller.view.sizeToFit()
         
-        return image!
+        // here is the call to the function that converts UIView to UIImage: `.asUIImage()`
+        let image = controller.view.asUIImage()
+        controller.view.removeFromSuperview()
+        return image
     }
 }
 

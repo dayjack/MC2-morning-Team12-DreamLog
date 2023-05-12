@@ -28,6 +28,8 @@ struct mc2_DreamLogApp: App {
                         }
                         .environment(\.managedObjectContext, persistentContainer.viewContext)
                 }
+                .environmentObject(TutorialBoardElement())
+                .environmentObject(FocusUUID())
                 .tint(.activeBrown)
             } else {
                 TutorialStartView() // TutorialStartView

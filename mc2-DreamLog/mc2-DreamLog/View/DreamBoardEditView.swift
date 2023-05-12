@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct TutorialBoardView: View {
+struct DreamBoardEditView: View {
     /// widget 사이즈 보여줌
     @State var widgetSize = WidgetSize.none
     @State var showScroll: Bool = false
-    @State var goToCalender = false
+    @State var goToDreamBoard = false
     
     @EnvironmentObject var data: TutorialBoardElement
     @GestureState var startLocation: CGPoint? = nil
@@ -20,7 +20,6 @@ struct TutorialBoardView: View {
     
     @State var dataArray: [BoardElement] = []
     let dbHelper = DBHelper.shared
-    
     
     let backgroundUUID = UUID()
     
@@ -33,15 +32,15 @@ struct TutorialBoardView: View {
                 // 편집될 뷰로 교체하기
                 
                 zstackView(geo: geo)
-                .padding(.bottom, 10)
-                .onTapGesture {
-                    FUUID.focusUUID = backgroundUUID
-                }
+                    .padding(.bottom, 10)
+                    .onTapGesture {
+                        FUUID.focusUUID = backgroundUUID
+                    }
                 
                 
                 /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
                 EditMenuView(widgetSize: $widgetSize)
-                    
+                
                 HStack {
                     Button {
                         FUUID.focusUUID = backgroundUUID
@@ -51,8 +50,8 @@ struct TutorialBoardView: View {
                             .frame(width: abs(width - 40) / 2,height: 60)
                             .whiteWithBorderButton()
                     }
-
-                    NavigationLink(value: goToCalender) {
+                    
+                    NavigationLink(value: goToDreamBoard) {
                         Text("완료")
                             .frame(width: abs(width - 40) / 2,height: 60)
                             .brownButton(isActive: true)
@@ -61,26 +60,26 @@ struct TutorialBoardView: View {
                                 FUUID.focusUUID = backgroundUUID
                                 generateImage(geo: geo)
                                 // 데이터
+                                dbHelper.dropTable(tableName: "Element")
                                 dbHelper.createElementTable()
                                 
                                 for item in data.viewArr {
                                     
                                     dbHelper.insertElementData(imagePosition_x: item.imagePosition.x, imagePosition_y: item.imagePosition.y, imageWidth: Int(item.imageWidth), imageHeight: Int(item.imageHeight), rotateDotPosition_x: item.rotateDotPosition.x, rotateDotPosition_y: item.rotateDotPosition.y, deleteDotPosition_x: item.deleteDotPosition.x, deleteDotPosition_y: item.deleteDotPosition.y, angle: item.angle.degrees, angleSum: item.angleSum, picture: item.picture, id: item.id)
                                     
+                                    
+                                    
                                 }
-                                
-                                dbHelper.createDreamLogTable()
-                                dbHelper.insertDreamLogData(img: Tab1Model.instance.image!)
+                                data.viewArr.removeAll()
                                 
                                 
-                                
-                                goToCalender = true
+                                goToDreamBoard = true
                             }
                     }
-                    .navigationDestination(isPresented: $goToCalender) {
-                        TutorialCalendarView()
+                    .navigationDestination(isPresented: $goToDreamBoard) {
+                        DreamBoardView()
                     }
-
+                    
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -111,17 +110,17 @@ struct TutorialBoardView: View {
 }
 
 
-struct DreamLogTutorialView_Previews: PreviewProvider {
+struct DreamLogDreamBoardEditView_Previews: PreviewProvider {
     static var previews: some View {
         
         MultiPreview {
-            TutorialBoardView()
+            DreamBoardEditView()
         }
     }
 }
 
 
-extension TutorialBoardView {
+extension DreamBoardEditView {
     
     func zstackView(geo: GeometryProxy) -> some View {
         let width = geo.size.width
@@ -129,7 +128,7 @@ extension TutorialBoardView {
         
         return ZStack {
             Color.white
-               
+            
             
             ForEach(data.viewArr, id: \.self) { item in
                 
