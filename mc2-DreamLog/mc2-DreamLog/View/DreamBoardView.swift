@@ -20,6 +20,7 @@ struct DreamBoardView: View {
     
     
     let dbHelper = DBHelper.shared
+    let imageFileManager = ImageFileManager.shared
     var photo: TransferableUIImage {
         return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
     }
@@ -127,6 +128,10 @@ struct DreamBoardView: View {
                     .cornerRadius(12)
                     .padding(.bottom, 20)
                     .shadow(color: Color.shadowGray, radius: 2, x: 0, y: 2)
+                }
+                .onAppear {
+                    print("\(dbHelper.readDreamLogDataOne().imagePath)")
+                    self.boardImage = imageFileManager.getSavedImage(named: dbHelper.readDreamLogDataOne().imagePath)!
                 }
             }
         
