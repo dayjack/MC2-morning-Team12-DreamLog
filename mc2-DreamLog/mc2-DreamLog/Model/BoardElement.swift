@@ -53,7 +53,7 @@ class BoardElement: Identifiable, Hashable, ObservableObject {
     
     init(imagePosition: CGPoint, imageWidth: CGFloat, imageHeight: CGFloat, angle: Angle, angleSum: Double, picturePath: String ,rotateDotPosition: CGPoint, deleteDotPosition: CGPoint) {
         
-        
+        print(picturePath)
         let imageFileManager = ImageFileManager.shared
         
         self.imagePosition = imagePosition

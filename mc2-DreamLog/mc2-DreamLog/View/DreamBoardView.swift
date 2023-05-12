@@ -20,10 +20,6 @@ struct DreamBoardView: View {
         return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
     }
     
-    
-    @State var dataArray: [BoardElement] = []
-    let dbHelper = DBHelper.shared
-    
     var body: some View {
             BgColorGeoView { geo in
                 
@@ -36,7 +32,6 @@ struct DreamBoardView: View {
                     VStack(spacing: 0) {
                         
                         Image(uiImage: boardImage)
-                            
                         
                         Text(text == "" ? "스스로를 위한 응원을 작성해보세요" : text)
                             .grayText(fontSize: 22)

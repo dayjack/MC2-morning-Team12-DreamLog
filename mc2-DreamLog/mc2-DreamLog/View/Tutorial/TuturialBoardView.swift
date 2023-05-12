@@ -61,7 +61,7 @@ struct TutorialBoardView: View {
                                 FUUID.focusUUID = backgroundUUID
                                 generateImage(geo: geo)
                                 // 데이터
-                                dbHelper.createTable2()
+                                dbHelper.createTable()
                                 
                                 for item in data.viewArr {
                                     

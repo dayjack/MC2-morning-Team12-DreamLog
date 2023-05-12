@@ -13,10 +13,8 @@ class DBHelper {
     
     static let shared = DBHelper()
     
-    // OpauquePointer는 불완전한 구조체 유형과 같이 스위프트에서 나타낼 수 없는 유형에 대한 C 포인터를 나타내는 데 사용된다.
-    //C언어의 포인터와 같은 개념, db를 가리키는 포인터
     var db : OpaquePointer?
-    // db의 파일명, db 이름은 항상 "DB이름.sqlite" 형식으로 해줄 것.
+    
     let databaseName = "mydb.sqlite"
     
     init() {
@@ -27,10 +25,7 @@ class DBHelper {
         sqlite3_close(db)
     }
     
-    /*
-     db를 생성하는 함수
-     db를 생성하고, 성공적으로 생성되면 생성한 Db 포인터를 반환한다.
-     */
+    
     private func createDB() -> OpaquePointer? {
         var db: OpaquePointer? = nil
         
@@ -47,36 +42,7 @@ class DBHelper {
         return nil
     }
     
-    
-    
-    
-    /*
-     테이블을 생성하는 함수
-     query
-     -> myTable이란 이름의 테이블이 없으면 id, my_name, my_age 필드를 가진 테이블을 생성한다.
-     -> id는 INTEGER 타입이며 PRIMARY KEY(중복 불가, 유일한 값), AUTOINCREMENT(자동 증가, 값을 넣지 않아도 오름차순으로 값이 들어감, INTEGER 속성만 가능)의 속성을 가진다.
-     -> my_name은 TEXT 타입이며 NOT NULL(비어 있을수 없는 필드, 값이 무조건 있어야함)의 속성을 가진다.
-     -> my_age는 INTEGER 타입이다.
-     */
     func createTable() {
-        
-        let query = "CREATE TABLE IF NOT EXISTS myTable(id INTEGER PRIMARY KEY AUTOINCREMENT, my_name TEXT NOT NULL, my_age INT);"
-        
-        var statement: OpaquePointer? = nil
-        // prepare는 쿼리를 실행할 준비를 하는 단계
-        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
-            // step은 쿼리를 실행하는 단계
-            if sqlite3_step(statement) == SQLITE_DONE {
-                print("Creating table has been succesfully done. db : \(String(describing: self.db))")
-            } else {
-                let errorMessage = String(cString: sqlite3_errmsg(self.db))
-                print("\nsqlite3_prepare failure while createing table: \(errorMessage)")
-            }
-            sqlite3_finalize(statement)
-        }
-    }
-    
-    func createTable2() {
         
         let query = """
 CREATE TABLE IF NOT EXISTS Element (
@@ -91,8 +57,8 @@ CREATE TABLE IF NOT EXISTS Element (
   deleteDotPosition_y float NOT NULL,
   angle double NOT NULL,
   angleSum double NOT NULL,
-  picture TEXT
-);
+  picture CHAR(255) NOT NULL
+) ;
 """
         
         var statement: OpaquePointer? = nil
@@ -116,17 +82,17 @@ CREATE TABLE IF NOT EXISTS Element (
                     deleteDotPosition_x: CGFloat, deleteDotPosition_y: CGFloat, angle: Double, angleSum: Double, picture: Image, id : UUID) {
         // id 는 Auto increment 속성을 갖고 있기에 값을 대입해 줄 필요는 없지만 쿼리문에는 있어야함
         let insertQuery = """
-insert into Element (
-`index`,
-imagePosition_x, imagePosition_y,
-imageWidth, imageHeight,
-rotateDotPosition_x, rotateDotPosition_y,
-deleteDotPosition_x, deleteDotPosition_y,
-angle,
-angleSum,
-picture
-) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-"""
+    insert into Element (
+    `index`,
+    imagePosition_x, imagePosition_y,
+    imageWidth, imageHeight,
+    rotateDotPosition_x, rotateDotPosition_y,
+    deleteDotPosition_x, deleteDotPosition_y,
+    angle,
+    angleSum,
+    picture
+    ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    """
         
         var statement: OpaquePointer? = nil
         // prepare는 쿼리를 실행할 준비를 하는 단계
@@ -149,6 +115,9 @@ picture
             do {
                 // get the documents directory url
                 let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                
+                UserDefaults.standard.set(documentsDirectory, forKey: "dataPath")
+                
                 print("documentsDirectory:", documentsDirectory.path)
                 // choose a name for your image
                 let fileName = "\(id.uuidString).jpg"
@@ -163,7 +132,8 @@ picture
                     // writes the image data to disk
                     try data.write(to: fileURL)
                     print("file saved")
-                    sqlite3_bind_text(statement, 12, fileURL.path, -1, unsafeBitCast(-1, to: sqlite3_destructor_type.self))
+                    sqlite3_bind_text(statement, 12, fileName, -1, unsafeBitCast(-1, to: sqlite3_destructor_type.self))
+                    
                     
                     
                     
@@ -203,20 +173,26 @@ picture
         }
         while sqlite3_step(statement) == SQLITE_ROW {
             
-            let imagePosition_x = sqlite3_column_double(statement, 2)
-            let imagePosition_y = sqlite3_column_double(statement, 3)
+            let imagePosition_x = sqlite3_column_double(statement, 1)
+            let imagePosition_y = sqlite3_column_double(statement, 2)
             let imageWidth = sqlite3_column_int(statement, 3)
-            let imageHeight = sqlite3_column_int(statement, 5)
-            let rotateDotPosition_x  = sqlite3_column_double(statement, 6)
-            let rotateDotPosition_y  = sqlite3_column_double(statement, 7)
-            let deleteDotPosition_x = sqlite3_column_double(statement, 8)
-            let deleteDotPosition_y = sqlite3_column_double(statement, 9)
-            let angle = sqlite3_column_double(statement, 10)
-            let angleSum = sqlite3_column_double(statement, 11)
-            let path = String(cString: sqlite3_column_text(statement, 12))
+            let imageHeight = sqlite3_column_int(statement, 4)
+            let rotateDotPosition_x  = sqlite3_column_double(statement, 5)
+            let rotateDotPosition_y  = sqlite3_column_double(statement, 6)
+            let deleteDotPosition_x = sqlite3_column_double(statement, 7)
+            let deleteDotPosition_y = sqlite3_column_double(statement, 8)
+            let angle = sqlite3_column_double(statement, 9)
+            let angleSum = sqlite3_column_double(statement, 10)
+            
+            
+            
+            
+            
+            print(sqlite3_column_text(statement, 11) ?? "못 불러옴")
+            let filaname = String(cString: sqlite3_column_text(statement, 11))
             
             // 형변환을 해줘야함. Int의 경우 int32 형을 반환하기 때문
-            result.append(BoardElement.init(imagePosition: .init(x: imagePosition_x, y: imagePosition_y), imageWidth: CGFloat(imageWidth), imageHeight: CGFloat(imageHeight), angle: .init(degrees: angle), angleSum: angleSum, picturePath: path, rotateDotPosition: .init(x: rotateDotPosition_x, y: rotateDotPosition_y), deleteDotPosition: .init(x: deleteDotPosition_x, y: deleteDotPosition_y)))
+            result.append(BoardElement.init(imagePosition: .init(x: imagePosition_x, y: imagePosition_y), imageWidth: CGFloat(imageWidth), imageHeight: CGFloat(imageHeight), angle: .init(degrees: angle), angleSum: angleSum, picturePath: filaname, rotateDotPosition: .init(x: rotateDotPosition_x, y: rotateDotPosition_y), deleteDotPosition: .init(x: deleteDotPosition_x, y: deleteDotPosition_y)))
             
         }
         sqlite3_finalize(statement)
@@ -231,10 +207,7 @@ picture
         return
     }
     
-    /*
-     table 전체를 삭제하는 함수
-     어느 table을 삭제할 건지 지정해주기 위해 table의 이름을 매개변수로 이용
-     */
+    
     func dropTable(tableName: String) {
         let queryString = "DROP TABLE \(tableName)"
         var statement: OpaquePointer?
@@ -253,8 +226,6 @@ picture
         print("drop table has been successfully done")
         
     }
-    
-    
     
 }
 
