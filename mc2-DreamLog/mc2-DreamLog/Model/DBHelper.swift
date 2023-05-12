@@ -290,7 +290,7 @@ CREATE TABLE IF NOT EXISTS DreamLog (
         while sqlite3_step(statement) == SQLITE_ROW {
             
             let id = sqlite3_column_int(statement, 0)
-       
+            
             let path = String(cString: sqlite3_column_text(statement, 1))
             let time = String(cString: sqlite3_column_text(statement, 2))
             
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS DreamLog (
         while sqlite3_step(statement) == SQLITE_ROW {
             
             let id = sqlite3_column_int(statement, 0)
-       
+            
             let path = String(cString: sqlite3_column_text(statement, 1))
             let time = String(cString: sqlite3_column_text(statement, 2))
             
@@ -342,6 +342,15 @@ CREATE TABLE IF NOT EXISTS DreamLog (
     
     
     func dropTable(tableName: String) {
+        
+        if tableName == "Element" {
+            let nameArr = readImageNames()
+            
+            for name in nameArr {
+                deleteImageByName(imgName: name)
+            }
+        }
+        
         let queryString = "DROP TABLE \(tableName)"
         var statement: OpaquePointer?
         
@@ -380,6 +389,49 @@ CREATE TABLE IF NOT EXISTS DreamLog (
     }
     
     
+    func readImageNames() -> [String] {
+        
+        let query: String = "select picture from Element;"
+        var statement: OpaquePointer? = nil
+        
+        // 아래는 [MyModel]? 이 되면 값이 안 들어간다.
+        var result: [String] = []
+        
+        if sqlite3_prepare(self.db, query, -1, &statement, nil) != SQLITE_OK {
+            let errorMessage = String(cString: sqlite3_errmsg(db)!)
+            print("error while prepare: \(errorMessage)")
+            return result
+        }
+        while sqlite3_step(statement) == SQLITE_ROW {
+            let filaname = String(cString: sqlite3_column_text(statement, 0))
+            
+            result.append(filaname)
+        }
+        sqlite3_finalize(statement)
+        return result
+    }
+    
+    //id만 인자로 받아서 ID에 해당하는 레코드만 삭제하는 함수
+    func deleteImageByName(imgName: String) {
+        
+        let fileManager = FileManager.default // 파일 매니저 선언
+        let fileDirectoryPath =  fileManager.urls(for: .documentDirectory, in: .userDomainMask).first! // 애플리케이션 저장 폴더
+        
+        
+        // [삭제를 수행할 파일 경로 지정]
+        let fileDeletePath = fileDirectoryPath.absoluteString + imgName
+        
+        
+        do {
+            print("=====\(fileDeletePath)=====")
+            
+            try FileManager.default.removeItem(at: URL(string: fileDeletePath)!)
+        } catch let e {
+            print(e.localizedDescription)
+        }
+        
+    }
     
 }
+
 

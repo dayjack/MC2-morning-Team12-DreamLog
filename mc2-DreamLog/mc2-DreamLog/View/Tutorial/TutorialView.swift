@@ -84,14 +84,15 @@ struct TutorialView: View {
                                 self.tutorialImage = UIImage(named: "DashPlus")!
                             }
                             
-                            guard let image = ImageRenderer(content:
-                                                                Text(self.tutorialText)
-                                .font(.system(size: 100))
-                            ).uiImage else {
-                                return
-                            }
+                            
                             
                             if self.tutorialText != ""  {
+                                guard let image = ImageRenderer(content:
+                                                                    Text(self.tutorialText)
+                                    .font(.system(size: 100))
+                                ).uiImage else {
+                                    return
+                                }
                                 data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: data.TutorialBoardWidthCenter-100...data.TutorialBoardWidthCenter+100) , y: Double.random(in: data.TutorialBoardHeightCenter-100...data.TutorialBoardHeightCenter+100)), imageWidth: (tutorialImage.size.width > tutorialImage.size.height) ?  200 : (tutorialImage.size.width / tutorialImage.size.height * 200), imageHeight: (tutorialImage.size.width > tutorialImage.size.height) ? (tutorialImage.size.height / tutorialImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: image)))
                                 tutorialText = ""
                             }
@@ -150,4 +151,5 @@ extension TutorialView {
         }
     }
 }
+
 
