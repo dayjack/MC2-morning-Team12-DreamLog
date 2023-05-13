@@ -47,6 +47,7 @@ struct CheerList: View {
                             .font(.system(size: 14, weight: .regular))
                             .foregroundColor(.gray)
                     }
+                    
                 }
                 .onDelete { indexSet in
                     let indexes = indexSet.map { $0 }
@@ -60,6 +61,9 @@ struct CheerList: View {
                 
             }
             .listStyle(InsetGroupedListStyle())
+            .scrollContentBackground(.hidden)
+            .background(Color.bgColor)
+            .shadow(color: Color.shadowGray, radius: 4)
             .onAppear {
                 self.cheerList = DBHelper.shared.readCheerLogData()
             }
