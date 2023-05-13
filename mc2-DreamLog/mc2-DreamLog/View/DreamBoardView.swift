@@ -132,6 +132,7 @@ struct DreamBoardView: View {
                                 DBHelper.shared.createCheerLogTable()
                                 DBHelper.shared.insertCheerLogData(alerttext)
                                 cheertext = DBHelper.shared.readCheerLogDataOne().cheer
+                                alerttext = ""
                             }), secondaryButton: .cancel(Text("취소"), action: {
                                 cheertext = DBHelper.shared.readCheerLogDataOne().cheer
                                 alerttext = ""
