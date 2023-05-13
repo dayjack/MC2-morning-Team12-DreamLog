@@ -127,9 +127,7 @@ struct TutorialTextEditView: View {
                 /// fontSize 선택
                 HStack {
                     Text("a")
-                    Slider(value: $fontSize, in: 10...50, step: 1) { change in
-                        print(change)
-                    }
+                    Slider(value: $fontSize, in: 10...50, step: 1)
                     Text("A")
                 }
             

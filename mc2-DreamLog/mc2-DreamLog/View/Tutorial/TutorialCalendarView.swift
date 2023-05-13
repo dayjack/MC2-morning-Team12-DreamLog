@@ -23,9 +23,6 @@ struct TutorialCalendarView: View {
                 Spacer()
                 Text("목표로 하는 날을 입력해주세요")
                     .padding(.bottom, 10)
-                    .onAppear {
-                        print("height: \(height)")
-                    }
                     .brownText()
                 Text("바탕화면에 드림로그를 추가해서\n목표와 오늘의 응원을 확인해보세요.")
                     .grayText()
@@ -50,7 +47,6 @@ struct TutorialCalendarView: View {
 
                     NavigationLink(destination: MainView(), isActive: $isNextViewActive) {
                         Button("시작하기") {
-                            print(date)
                             UserDefaults.standard.set(date, forKey: "selectedDate")
                             UserDefaults.standard.synchronize()
                             isNextViewActive = true
