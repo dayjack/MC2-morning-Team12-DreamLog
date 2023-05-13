@@ -68,6 +68,9 @@ struct TutorialStartView: View {
                     .opacity(opacityAni)
                     .onAppear {
                         withAnimation(.easeInOut(duration: 0.5).delay(2.4)) { self.opacityAni = 1 }
+                        UserDefaults.standard.set(geo.size.width / 2, forKey: "TutorialBoardWidthCenter")
+                        UserDefaults.standard.set((geo.size.height / 2) - 75, forKey: "TutorialBoardHeightCenter")
+                        print("first: \(UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter"))")
                     }
                 }
                 .padding()

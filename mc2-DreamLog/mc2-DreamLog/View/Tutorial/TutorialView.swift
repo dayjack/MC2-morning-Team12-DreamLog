@@ -75,12 +75,9 @@ struct TutorialView: View {
                     NavigationLink(value: showEdit, label: {
                         Button {
                             
-                            data.TutorialBoardWidthCenter = geo.size.width / 2
-                            data.TutorialBoardHeightCenter = (geo.size.height - 250) / 2
-                            
                             if !tutorialImage.isEqual(UIImage(named: "DashPlus")!) {
-                                
-                                data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: data.TutorialBoardWidthCenter-100...data.TutorialBoardWidthCenter+100) , y: Double.random(in: data.TutorialBoardHeightCenter-100...data.TutorialBoardHeightCenter+100)), imageWidth: (tutorialImage.size.width > tutorialImage.size.height) ?  200 : (tutorialImage.size.width / tutorialImage.size.height * 200), imageHeight: (tutorialImage.size.width > tutorialImage.size.height) ? (tutorialImage.size.height / tutorialImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: tutorialImage)))
+                                print("last: \(UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter"))")
+                                data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter")-100...UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter")+100) , y: Double.random(in: UserDefaults.standard.double(forKey: "TutorialBoardHeightCenter")-100...UserDefaults.standard.double(forKey: "TutorialBoardHeightCenter")+100)), imageWidth: (tutorialImage.size.width > tutorialImage.size.height) ?  200 : (tutorialImage.size.width / tutorialImage.size.height * 200), imageHeight: (tutorialImage.size.width > tutorialImage.size.height) ? (tutorialImage.size.height / tutorialImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: tutorialImage)))
                                 self.tutorialImage = UIImage(named: "DashPlus")!
                             }
                             
@@ -93,7 +90,7 @@ struct TutorialView: View {
                                 ).uiImage else {
                                     return
                                 }
-                                data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: data.TutorialBoardWidthCenter-100...data.TutorialBoardWidthCenter+100) , y: Double.random(in: data.TutorialBoardHeightCenter-100...data.TutorialBoardHeightCenter+100)), imageWidth: (tutorialImage.size.width > tutorialImage.size.height) ?  200 : (tutorialImage.size.width / tutorialImage.size.height * 200), imageHeight: (tutorialImage.size.width > tutorialImage.size.height) ? (tutorialImage.size.height / tutorialImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: image)))
+                                data.viewArr.append(BoardElement.init(imagePosition: CGPoint(x:Double.random(in: UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter")-100...UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter")+100) , y: Double.random(in: UserDefaults.standard.double(forKey: "TutorialBoardHeightCenter")-100...UserDefaults.standard.double(forKey: "TutorialBoardHeightCenter")+100)), imageWidth: (tutorialImage.size.width > tutorialImage.size.height) ?  200 : (tutorialImage.size.width / tutorialImage.size.height * 200), imageHeight: (tutorialImage.size.width > tutorialImage.size.height) ? (tutorialImage.size.height / tutorialImage.size.width * 200) : 200, angle: .degrees(0), angleSum: 0, picture: Image(uiImage: image)))
                                 tutorialText = ""
                             }
                             
