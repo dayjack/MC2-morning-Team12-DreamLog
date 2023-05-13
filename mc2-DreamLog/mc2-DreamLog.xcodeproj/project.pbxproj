@@ -13,6 +13,7 @@
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
 		166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972682A015A4800702B59 /* Preview Assets.xcassets */; };
 		167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 167435602A09021D00891AAB /* CoreData.xcdatamodeld */; };
+		43391BF82A0F712700AF1BD5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43391BF72A0F712700AF1BD5 /* LoadingView.swift */; };
 		438E87862A0881CB00037E11 /* FixableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87852A0881CB00037E11 /* FixableImageView.swift */; };
 		438E87882A0882AB00037E11 /* FocusUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E87872A0882AB00037E11 /* FocusUUID.swift */; };
 		43CEE4622A0DE3160077559E /* DreamBoardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */; };
@@ -104,6 +105,7 @@
 		166972652A015A4800702B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		166972682A015A4800702B59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		167435612A09021D00891AAB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		43391BF72A0F712700AF1BD5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		438E87852A0881CB00037E11 /* FixableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixableImageView.swift; sourceTree = "<group>"; };
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
 		43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamBoardEditView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				9570416D2A0CBDB4000633CD /* DreamLogView.swift */,
 				163214A22A0DD07000FA87CC /* DDayCalendarView.swift */,
 				83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */,
+				43391BF72A0F712700AF1BD5 /* LoadingView.swift */,
 				784EB5D72A0346630096D427 /* Componets */,
 				784EB5CC2A0345CB0096D427 /* Tutorial */,
 			);
@@ -523,6 +526,7 @@
 				784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */,
 				784EB5D62A0346470096D427 /* TutorialWidgetView.swift in Sources */,
 				78D85B6A2A0F44E100483D95 /* CheerLogModel.swift in Sources */,
+				43391BF82A0F712700AF1BD5 /* LoadingView.swift in Sources */,
 				784EB5C62A0345630096D427 /* TutorialBoardElement.swift in Sources */,
 				784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */,
 				784EB5D42A03462F0096D427 /* TutorialCalendarView.swift in Sources */,

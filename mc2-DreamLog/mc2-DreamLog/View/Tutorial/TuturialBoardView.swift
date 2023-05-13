@@ -19,59 +19,68 @@ struct TutorialBoardView: View {
     
     
     @State var dataArray: [BoardElement] = []
-    
+    @State var loadingViewShowing = false
     
     let backgroundUUID = UUID()
     
     var body: some View {
-        BgColorGeoView { geo in
-            
-            let width = geo.size.width
-            
-            VStack(spacing: 0) {
-                // 편집될 뷰로 교체하기
+        LoadingView(isShowing: $loadingViewShowing){
+            BgColorGeoView { geo in
                 
-                zstackView(geo: geo)
-                .padding(.bottom, 10)
-                .onTapGesture {
-                    FUUID.focusUUID = backgroundUUID
-                }
-                                
-                /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
-                EditMenuView(widgetSize: $widgetSize)
+                let width = geo.size.width
+                
+                VStack(spacing: 0) {
+                    // 편집될 뷰로 교체하기
                     
-                HStack {
-                    Button {
-                        FUUID.focusUUID = backgroundUUID
-                        showScroll.toggle()
-                    } label: {
-                        Text("샘플보기")
-                            .frame(width: abs(width - 40) / 2,height: 60)
-                            .whiteWithBorderButton()
+                    zstackView(geo: geo)
+                        .padding(.bottom, 10)
+                        .onTapGesture {
+                            FUUID.focusUUID = backgroundUUID
+                        }
+                    
+                    /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
+                    EditMenuView(widgetSize: $widgetSize)
+                    
+                    HStack {
+                        Button {
+                            FUUID.focusUUID = backgroundUUID
+                            showScroll.toggle()
+                        } label: {
+                            Text("샘플보기")
+                                .frame(width: abs(width - 40) / 2,height: 60)
+                                .whiteWithBorderButton()
+                        }
+                        
+                        NavigationLink(value: goToCalender) {
+                            Text("완료")
+                                .frame(width: abs(width - 40) / 2,height: 60)
+                                .brownButton(isActive: true)
+                                .onTapGesture {
+                                    loadingViewShowing = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        loadingViewShowing = false
+                                        FUUID.focusUUID = backgroundUUID
+                                        generateImage(geo: geo)
+                                        // 데이터
+                                        DBHelper.shared.createDreamLogTable()
+                                        // 제대로 된 더미 데이터 넣어주기
+                                        DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
+                                        goToCalender = true
+                                    }
+                                    /// 이미지 캡쳐 기능 구현
+                                    
+                                    
+                                    
+                                }
+                        }
+                        .navigationDestination(isPresented: $goToCalender) {
+                            TutorialCalendarView()
+                        }
+                        
                     }
-
-                    NavigationLink(value: goToCalender) {
-                        Text("완료")
-                            .frame(width: abs(width - 40) / 2,height: 60)
-                            .brownButton(isActive: true)
-                            .onTapGesture {
-                                /// 이미지 캡쳐 기능 구현
-                                FUUID.focusUUID = backgroundUUID
-                                generateImage(geo: geo)
-                                // 데이터
-                                DBHelper.shared.createDreamLogTable()
-                                // 제대로 된 더미 데이터 넣어주기
-                                DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
-                                goToCalender = true
-                            }
-                    }
-                    .navigationDestination(isPresented: $goToCalender) {
-                        TutorialCalendarView()
-                    }
-
                 }
+                .navigationBarBackButtonHidden(true)
             }
-            .navigationBarBackButtonHidden(true)
         }
         .sheet(isPresented: $showScroll) {
             ScrollView {
@@ -117,7 +126,7 @@ extension TutorialBoardView {
         
         return ZStack {
             Color.white
-               
+            
             
             ForEach(data.viewArr, id: \.self) { item in
                 
