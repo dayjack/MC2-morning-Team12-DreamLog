@@ -89,7 +89,7 @@ struct TutorialView: View {
                             if self.tutorialText != ""  {
                                 guard let image = ImageRenderer(content:
                                                                     Text(self.tutorialText)
-                                    .font(.system(size: 100))
+                                    .font(Font.custom("JalnanOTF",  size: 100))
                                 ).uiImage else {
                                     return
                                 }
