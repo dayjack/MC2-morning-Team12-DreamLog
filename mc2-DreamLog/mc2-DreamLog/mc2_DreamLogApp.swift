@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 @main
 struct mc2_DreamLogApp: App {
@@ -25,13 +24,16 @@ struct mc2_DreamLogApp: App {
                     MainView()
                         .onAppear {
                             sleep(2)
-                            _ = DBHelper.shared.createDB()
                         }
-                        .environment(\.managedObjectContext, persistentContainer.viewContext)
                 }
                 .environmentObject(TutorialBoardElement())
                 .environmentObject(FocusUUID())
                 .tint(.activeBrown)
+                .onAppear {
+                    _ = DBHelper.shared.createDB()
+                    DBHelper.shared.createDreamLogTable()
+                    DBHelper.shared.createCheerLogTable()
+                }
             } else {
                 TutorialStartView() // TutorialStartView
                     .environmentObject(TutorialBoardElement())
@@ -42,29 +44,6 @@ struct mc2_DreamLogApp: App {
                     }
                 
             }
-        }
-    }
-}
-
-var persistentContainer: NSPersistentContainer = {
-    
-    let container = NSPersistentContainer(name: "CoreData")
-    container.loadPersistentStores(completionHandler: { (storeDesc, error) in
-        if let error = error as NSError? {
-            fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
-    })
-    return container
-}()
-
-func saveContext() {
-    let context = persistentContainer.viewContext
-    if context.hasChanges {
-        do {
-            try context.save()
-        } catch {
-            let nserror = error as NSError
-            fatalError("\(nserror), \(nserror.userInfo)")
         }
     }
 }
