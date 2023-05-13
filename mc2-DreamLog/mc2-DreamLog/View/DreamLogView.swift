@@ -141,22 +141,4 @@ extension DreamLogView {
         let text = lastTimeString + " 부터 " + currnetTimeString + "까지의 드림보드"
         return text
     }
-    
-    func dateConverter(inputDateString: String) -> String {
-        
-        var dateString = inputDateString
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from: dateString)
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateString = dateFormatter.string(from: date!)
-        
-        let calendar = Calendar.current
-        let updatedDate = calendar.date(byAdding: .hour, value: 9, to: date!)
-        
-        let updatedDateString = dateFormatter.string(from: updatedDate!)
-        
-        return updatedDateString
-    }
 }

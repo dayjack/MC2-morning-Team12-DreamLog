@@ -52,6 +52,10 @@
 		78A28BBE2A0DB6310034B0A9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A28BBD2A0DB6310034B0A9 /* UIViewExtension.swift */; };
 		78B0160D2A08C2060069ED6F /* MenuButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0160C2A08C2060069ED6F /* MenuButtonModifier.swift */; };
 		78C24FD62A0242710070906B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C24FD52A0242710070906B /* ColorExtension.swift */; };
+		78D85B642A0F3EE100483D95 /* DreamLogTableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B632A0F3EE100483D95 /* DreamLogTableProtocol.swift */; };
+		78D85B662A0F3EF000483D95 /* CheerLogTableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B652A0F3EF000483D95 /* CheerLogTableProtocol.swift */; };
+		78D85B682A0F3FDD00483D95 /* DBHelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */; };
+		78D85B6A2A0F44E100483D95 /* CheerLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B692A0F44E100483D95 /* CheerLogModel.swift */; };
 		83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */; };
 		83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */; };
 		9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */; };
@@ -140,6 +144,10 @@
 		78A28BBD2A0DB6310034B0A9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		78B0160C2A08C2060069ED6F /* MenuButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonModifier.swift; sourceTree = "<group>"; };
 		78C24FD52A0242710070906B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		78D85B632A0F3EE100483D95 /* DreamLogTableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamLogTableProtocol.swift; sourceTree = "<group>"; };
+		78D85B652A0F3EF000483D95 /* CheerLogTableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogTableProtocol.swift; sourceTree = "<group>"; };
+		78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperExtension.swift; sourceTree = "<group>"; };
+		78D85B692A0F44E100483D95 /* CheerLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogModel.swift; sourceTree = "<group>"; };
 		83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingView.swift; sourceTree = "<group>"; };
 		83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingMenuView.swift; sourceTree = "<group>"; };
 		9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextEditView.swift; sourceTree = "<group>"; };
@@ -264,6 +272,7 @@
 				78A28BBB2A0D0E920034B0A9 /* DBHelper.swift */,
 				782DFF692A0DC0D500DB62FF /* ImageFileManager.swift */,
 				43CEE4632A0E0CA80077559E /* DreamLogModel.swift */,
+				78D85B692A0F44E100483D95 /* CheerLogModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +326,7 @@
 		78C24FD32A0242540070906B /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				78D85B622A0F3E9000483D95 /* Protocol */,
 				9570414F2A0C7240000633CD /* Resources */,
 				784EB5B72A03421C0096D427 /* Modifier */,
 				78C24FD42A02425E0070906B /* Extension */,
@@ -332,8 +342,18 @@
 				784EB5C22A03453B0096D427 /* BindingExtension.swift */,
 				9570414D2A0C7150000633CD /* FontExtension.swift */,
 				78A28BBD2A0DB6310034B0A9 /* UIViewExtension.swift */,
+				78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		78D85B622A0F3E9000483D95 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				78D85B632A0F3EE100483D95 /* DreamLogTableProtocol.swift */,
+				78D85B652A0F3EF000483D95 /* CheerLogTableProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		9570414F2A0C7240000633CD /* Resources */ = {
@@ -474,6 +494,7 @@
 				78A28BBC2A0D0E920034B0A9 /* DBHelper.swift in Sources */,
 				78C24FD62A0242710070906B /* ColorExtension.swift in Sources */,
 				9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */,
+				78D85B662A0F3EF000483D95 /* CheerLogTableProtocol.swift in Sources */,
 				83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */,
 				784EB5D92A03467B0096D427 /* ImagePicker.swift in Sources */,
 				784EB5CE2A0345E60096D427 /* TutorialStartView.swift in Sources */,
@@ -493,12 +514,15 @@
 				9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */,
 				782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
+				78D85B642A0F3EE100483D95 /* DreamLogTableProtocol.swift in Sources */,
 				784EB5C32A03453B0096D427 /* BindingExtension.swift in Sources */,
 				784EB5DF2A0346FA0096D427 /* MultiPreview.swift in Sources */,
+				78D85B682A0F3FDD00483D95 /* DBHelperExtension.swift in Sources */,
 				83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */,
 				784EB5C92A0345A20096D427 /* MainView.swift in Sources */,
 				784EB5E12A0370E80096D427 /* EditColorView.swift in Sources */,
 				784EB5D62A0346470096D427 /* TutorialWidgetView.swift in Sources */,
+				78D85B6A2A0F44E100483D95 /* CheerLogModel.swift in Sources */,
 				784EB5C62A0345630096D427 /* TutorialBoardElement.swift in Sources */,
 				784EB5C12A0342C90096D427 /* ViewExtension.swift in Sources */,
 				784EB5D42A03462F0096D427 /* TutorialCalendarView.swift in Sources */,
