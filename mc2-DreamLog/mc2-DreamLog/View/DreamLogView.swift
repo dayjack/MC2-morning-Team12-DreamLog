@@ -14,6 +14,7 @@ struct DreamLogView: View {
     @State var detailLogImage: UIImage = UIImage()
     @State var detailLogTime: String = String()
     @State var index: Int = 0
+    @State private var showingAlert = false
     
     var body: some View {
         BgColorGeoView { geo in
@@ -29,7 +30,6 @@ struct DreamLogView: View {
                         ZStack {
                             
                             Button {
-                                print("====onTapGesture=====")
                                 index = idx
                                 getDateLogString(index: 0)
                                 showDetailView = true
@@ -62,7 +62,6 @@ struct DreamLogView: View {
                 }
             }
             .onAppear {
-                print("====readDreamLogData=====")
                 boardList = DBHelper.shared.readDreamLogData()
             }
             .sheet(isPresented: $showDetailView) {
@@ -73,13 +72,6 @@ struct DreamLogView: View {
                             .padding(.top)
                         Spacer()
                             .frame(height: 20)
-                        Button {
-                            DBHelper.shared.deleteDreamLogData(id: boardList[index].id)
-                            boardList.remove(at: index)
-                            showDetailView = false
-                        } label: {
-                            Text("삭제하기")
-                        }
                         
                         Image(uiImage: self.detailLogImage)
                         VStack(spacing: 0) {
@@ -89,6 +81,26 @@ struct DreamLogView: View {
                                 .frame(maxWidth: .infinity)
                                 .font(Font.system(size: 18, weight: Font.Weight.bold))
                                 .foregroundColor(Color.gray)
+                        }
+                        Button {
+                            self.showingAlert = true
+                        } label: {
+                            Image(systemName: "trash")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24)
+                                .foregroundColor(.red)
+                                .padding(.top, 30)
+                        }
+                        .alert("정말로 드림로그를 삭제하시겠습니까?? 삭제하신 드림로그는 다시 복구할 수 없습니다", isPresented: $showingAlert) {
+                            Button("취소", role: .cancel) {
+                                
+                            }
+                            Button("삭제", role: .destructive) {
+                                DBHelper.shared.deleteDreamLogData(id: boardList[index].id)
+                                boardList.remove(at: index)
+                                showDetailView = false
+                            }
                         }
                         Spacer()
                             .frame(height: 20)
@@ -119,7 +131,6 @@ extension DreamLogView {
         if index == boardList.count - 1 {
             
             let text = dateConverter(inputDateString: boardList[index].time) + " 에 처음 만든 드림보드"
-            print(text)
             return text
             
         }

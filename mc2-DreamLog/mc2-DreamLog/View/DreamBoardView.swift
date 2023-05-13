@@ -136,7 +136,6 @@ struct DreamBoardView: View {
                 .shadow(color: Color.shadowGray, radius: 2, x: 0, y: 2)
             }
             .onAppear {
-                print("\(DBHelper.shared.readDreamLogDataOne().imagePath)")
                 // 이것도 샘플 이미지로 바꿔주는 작업
                 self.boardImage = imageFileManager.getSavedImage(named: DBHelper.shared.readDreamLogDataOne().imagePath) ?? UIImage(named: "sticker_check")!
             }

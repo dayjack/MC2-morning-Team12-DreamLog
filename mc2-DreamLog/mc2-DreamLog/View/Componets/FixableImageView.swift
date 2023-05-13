@@ -48,13 +48,6 @@ struct FixableImageView: View {
                     
                     
                 }
-//                .onLongPressGesture(perform: {
-//                    if FUUID.focusUUID == thisElement.id {
-//                        let tempElement = environmentElementList.findOne(one: thisElement.id)
-//                        environmentElementList.removeOne(one: thisElement.id)
-//                        environmentElementList.viewArr.append(tempElement)
-//                    }
-//                })
             
             if FUUID.focusUUID == thisElement.id {
                 Image(systemName: "x.circle.fill")

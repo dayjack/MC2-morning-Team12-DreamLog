@@ -38,20 +38,6 @@ struct MainView: View {
             UserDefaults.standard.set(true, forKey: "gotoMain")
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-//            if selection == 0 {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    Button {
-//                        print("+ clicked")
-//                    } label: {
-//                        Image(systemName: "plus")
-//                            .foregroundColor(.textGreen)
-//                            .font(.system(size: 22))
-//                    }
-//                }
-//            }
-        }
-        
     }
 }
 

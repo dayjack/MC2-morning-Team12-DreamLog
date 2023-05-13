@@ -10,7 +10,6 @@
 		163214A32A0DD07000FA87CC /* DDayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163214A22A0DD07000FA87CC /* DDayCalendarView.swift */; };
 		1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635FA852A03AB490056C2CB /* CheerLogView.swift */; };
 		166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972612A015A4600702B59 /* mc2_DreamLogApp.swift */; };
-		166972642A015A4600702B59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972632A015A4600702B59 /* ContentView.swift */; };
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
 		166972692A015A4800702B59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972682A015A4800702B59 /* Preview Assets.xcassets */; };
 		167435622A09021D00891AAB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 167435602A09021D00891AAB /* CoreData.xcdatamodeld */; };
@@ -98,7 +97,6 @@
 		1635FA852A03AB490056C2CB /* CheerLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogView.swift; sourceTree = "<group>"; };
 		1669725E2A015A4600702B59 /* mc2-DreamLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mc2-DreamLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166972612A015A4600702B59 /* mc2_DreamLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mc2_DreamLogApp.swift; sourceTree = "<group>"; };
-		166972632A015A4600702B59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		166972652A015A4800702B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		166972682A015A4800702B59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		167435612A09021D00891AAB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
-				166972632A015A4600702B59 /* ContentView.swift */,
 				784EB5C72A0345830096D427 /* View */,
 				784EB5C42A0345560096D427 /* Model */,
 				78C24FD32A0242540070906B /* Global */,
@@ -493,7 +490,6 @@
 				9570416C2A0C856D000633CD /* Tab1Model.swift in Sources */,
 				781EC7C22A0B3C7B00C47893 /* TransferableUIImage.swift in Sources */,
 				782DFF6A2A0DC0D500DB62FF /* ImageFileManager.swift in Sources */,
-				166972642A015A4600702B59 /* ContentView.swift in Sources */,
 				9500AB9F2A09F6800034933C /* EmojiPicker.swift in Sources */,
 				782E9AF12A0379CC0025FD48 /* BoardElement.swift in Sources */,
 				166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */,
