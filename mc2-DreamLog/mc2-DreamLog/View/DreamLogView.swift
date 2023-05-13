@@ -18,6 +18,7 @@ struct DreamLogView: View {
     
     var body: some View {
         BgColorGeoView { geo in
+            let width = geo.size.width
             ScrollView {
                 Text("드림보드의 기록들")
                     .brownText()
@@ -79,18 +80,24 @@ struct DreamLogView: View {
                             Text(getDateLogString(index: index))
                                 .frame(height: 50)
                                 .frame(maxWidth: .infinity)
-                                .font(Font.system(size: 18, weight: Font.Weight.bold))
+                                .font(Font.system(size: 16, weight: Font.Weight.bold))
                                 .foregroundColor(Color.gray)
                         }
+                        Spacer()
+                            .frame(height: 40)
+                            
                         Button {
                             self.showingAlert = true
                         } label: {
-                            Image(systemName: "trash")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 24)
-                                .foregroundColor(.red)
-                                .padding(.top, 30)
+                            Text("삭제")
+                                .frame(width: abs(width - 40),height: 60)
+                                .font(.custom("Apple SD Gothic Neo", size: 24))
+                                .fontWeight(.bold)
+                                .background(Color.redDark)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .padding(.bottom, 20)
+
                         }
                         .alert("정말로 드림로그를 삭제하시겠습니까?? 삭제하신 드림로그는 다시 복구할 수 없습니다", isPresented: $showingAlert) {
                             Button("취소", role: .cancel) {
@@ -102,8 +109,8 @@ struct DreamLogView: View {
                                 showDetailView = false
                             }
                         }
-                        Spacer()
-                            .frame(height: 20)
+//                        Spacer()
+//                            .frame(height: 20)
                     }
                 }
                 .onAppear {

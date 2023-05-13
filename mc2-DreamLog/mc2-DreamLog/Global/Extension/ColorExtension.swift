@@ -21,8 +21,11 @@ extension Color {
     static let textGray = Color(hex: "#757575")
     // 앱 배경 색깔
     static let bgColor = Color(hex: "#FFFBF6")
-    // shadoe 색깔
+    // shadow 색깔
     static let shadowGray = Color(hex: "#B1B1B1").opacity(0.5)
+    // delete button colro
+    static let redDark = Color(hex: "#E32B21")
+    
     
     /// Color Pallete
     static let black = Color(hex: "000000")
