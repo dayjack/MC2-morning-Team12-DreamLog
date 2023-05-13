@@ -74,13 +74,13 @@ struct DreamLogView: View {
                         Spacer()
                             .frame(height: 20)
                         Button {
-//                            DBHelper.shared.deleteDreamLogData(id: boardList[index].id)
-//                            boardList.remove(at: index)
+                            DBHelper.shared.deleteDreamLogData(id: boardList[index].id)
+                            boardList.remove(at: index)
                             showDetailView = false
                         } label: {
                             Text("삭제하기")
                         }
-
+                        
                         Image(uiImage: self.detailLogImage)
                         VStack(spacing: 0) {
                             Spacer()
@@ -140,10 +140,10 @@ extension DreamLogView {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateString = dateFormatter.string(from: date!)
-
+        
         let calendar = Calendar.current
         let updatedDate = calendar.date(byAdding: .hour, value: 9, to: date!)
-
+        
         let updatedDateString = dateFormatter.string(from: updatedDate!)
         
         return updatedDateString

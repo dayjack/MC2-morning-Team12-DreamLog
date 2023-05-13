@@ -72,8 +72,6 @@ struct DreamBoardView: View {
                     
                     NavigationLink(value: isDone, label:{
                         Button {
-                            data.viewArr.removeAll()
-                            data.viewArr = DBHelper.shared.readData()
                             isDone = true
                         } label: {
                             Image(systemName: "pencil")
@@ -139,7 +137,8 @@ struct DreamBoardView: View {
             }
             .onAppear {
                 print("\(DBHelper.shared.readDreamLogDataOne().imagePath)")
-                self.boardImage = imageFileManager.getSavedImage(named: DBHelper.shared.readDreamLogDataOne().imagePath)!
+                // 이것도 샘플 이미지로 바꿔주는 작업
+                self.boardImage = imageFileManager.getSavedImage(named: DBHelper.shared.readDreamLogDataOne().imagePath) ?? UIImage(named: "sticker_check")!
             }
             .onAppear {
                 getDDayDate()
