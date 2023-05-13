@@ -19,49 +19,62 @@ struct DreamBoardEditView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State var dataArray: [BoardElement] = []
+    @State var loadingViewShowing = false
     
     let backgroundUUID = UUID()
     
     var body: some View {
-        BgColorGeoView { geo in
-            
-            let width = geo.size.width
-            
-            VStack(spacing: 0) {
-                // 편집될 뷰로 교체하기
+        LoadingView(isShowing: $loadingViewShowing){
+            BgColorGeoView { geo in
                 
-                zstackView(geo: geo)
-                    .padding(.bottom, 10)
-                    .onTapGesture {
-                        FUUID.focusUUID = backgroundUUID
-                    }
+                let width = geo.size.width
                 
-                
-                /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
-                EditMenuView(widgetSize: $widgetSize)
-                
-                HStack {
-                    Button {
-                        FUUID.focusUUID = backgroundUUID
-                        showScroll.toggle()
-                    } label: {
-                        Text("샘플보기")
-                            .frame(width: abs(width - 40) / 2,height: 60)
-                            .whiteWithBorderButton()
-                    }
+                VStack(spacing: 0) {
+                    // 편집될 뷰로 교체하기
                     
-                    Text("완료")
-                        .frame(width: abs(width - 40) / 2,height: 60)
-                        .brownButton(isActive: true)
+                    zstackView(geo: geo)
+                        .padding(.bottom, 10)
                         .onTapGesture {
-                            /// 이미지 캡쳐 기능 구현
                             FUUID.focusUUID = backgroundUUID
-                            generateImage(geo: geo)
-                            // 데이터
-//                            data.viewArr.removeAll()
-                            DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
-                            dismiss()
                         }
+                    
+                    
+                    /// EditMenuView - WidgetSizeButtonsView에 widgetSize 설정 버튼이 있어서 widgetSize Binding
+                    EditMenuView(widgetSize: $widgetSize)
+                    
+                    HStack {
+                        Button {
+                            FUUID.focusUUID = backgroundUUID
+                            showScroll.toggle()
+                        } label: {
+                            Text("샘플보기")
+                                .frame(width: abs(width - 40) / 2,height: 60)
+                                .whiteWithBorderButton()
+                        }
+                        
+                        Text("완료")
+                            .frame(width: abs(width - 40) / 2,height: 60)
+                            .brownButton(isActive: true)
+                            .onTapGesture {
+                                loadingViewShowing = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    loadingViewShowing = false
+                                    
+                                    /// 이미지 캡쳐 기능 구현
+                                    FUUID.focusUUID = backgroundUUID
+                                    generateImage(geo: geo)
+                                    // 데이터
+                                    //data.viewArr.removeAll()
+                                    DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
+                                    
+                                    
+                                    // Mock some network request or other task
+                                    
+                                    
+                                    dismiss()
+                                }
+                            }
+                    }
                 }
             }
             .navigationBarBackButtonHidden(true)
