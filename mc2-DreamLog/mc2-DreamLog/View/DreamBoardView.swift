@@ -14,7 +14,7 @@ struct DreamBoardView: View {
     @State var alerttext = ""
     @State private var showingAlert: Bool = false
     @State private var confirmAlert: Bool = false
-    @State private var boardImage: UIImage = Tab1Model.instance.image ?? UIImage(named: "BoardDummy")!
+    @State private var boardImage: UIImage? = Tab1Model.instance.image
     
     @State private var showDDayCalendar = false
     
@@ -23,7 +23,7 @@ struct DreamBoardView: View {
     let imageFileManager = ImageFileManager.shared
     
     var photo: TransferableUIImage {
-        return .init(uiimage: boardImage, caption: "드림보드를 공유해보세요🚀")
+        return .init(uiimage: boardImage ?? UIImage(named: "MainDummyImage")!, caption: "드림보드를 공유해보세요🚀")
     }
     
     var body: some View {
@@ -37,7 +37,21 @@ struct DreamBoardView: View {
                 
                 VStack(spacing: 0) {
                     
-                    Image(uiImage: boardImage)
+                    if boardImage != nil {
+                        Image(uiImage: boardImage ?? UIImage(named: "MainDummyImage")!)
+                    } else {
+                        VStack {
+                            Spacer()
+                            Image("MainDummyImage")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: width / 2)
+                            Spacer()
+                        }
+                        .frame(width: width)
+                        .background(Color.white)
+                    }
+                    
                     
                     Text(cheertext == "" ? "스스로를 위한 응원을 작성해보세요" : cheertext)
                         .grayText(fontSize: 22)
@@ -137,7 +151,7 @@ struct DreamBoardView: View {
             }
             .onAppear {
                 getDDayDate()
-                self.boardImage = imageFileManager.getSavedImage(named: DBHelper.shared.readDreamLogDataOne().imagePath) ?? UIImage(named: "sticker_check")!
+                self.boardImage = imageFileManager.getSavedImage(named: DBHelper.shared.readDreamLogDataOne().imagePath)
                 cheertext = DBHelper.shared.readCheerLogDataOne().cheer
             }
         }
