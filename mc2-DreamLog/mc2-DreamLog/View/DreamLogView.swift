@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct DreamLogView: View {
     @State var tab1Model = Tab1Model()
@@ -106,6 +107,14 @@ struct DreamLogView: View {
                             Button("삭제", role: .destructive) {
                                 DBHelper.shared.deleteDreamLogData(id: boardList[index].id)
                                 boardList.remove(at: index)
+                                
+                                if boardList.isEmpty {
+                                    UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("", forKey: "WidgetImageName")
+                                } else {
+                                    let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                                    UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
+                                }
+                                WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
                                 showDetailView = false
                             }
                         }

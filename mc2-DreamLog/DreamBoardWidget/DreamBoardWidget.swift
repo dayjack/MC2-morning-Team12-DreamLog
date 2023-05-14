@@ -41,20 +41,27 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct DreamBoardWidgetEntryView : View {
+    
     var entry: Provider.Entry
+    let imageFileManager2 = WidgetImageFileManager()
+    
     @Environment(\.widgetFamily) var family
-
-    var boardImage = UIImage(named: "BoardDummy") ?? UIImage(systemName: "questionmark")!
+    @State var text = ""
+    @State var imagePath = ""
+//    var boardImage : UIImage = UIImage(systemName: "questionmark")!
+    
+    
+    
     var body: some View {
         switch family {
         case .systemSmall:
             ZStack {
-                Image(uiImage: boardImage)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
                     Spacer()
-                    Text("응원로그")
+                    Text(text == "" ? "응원을 작성해보세요!" : text)
                         .font(.system(size: 12, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(8)
@@ -65,12 +72,12 @@ struct DreamBoardWidgetEntryView : View {
             }
         case .systemMedium:
             ZStack {
-                Image(uiImage: boardImage)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     
                 VStack {
-                    Text("응원로그")
+                    Text(text == "" ? "응원을 작성해보세요!" : text)
                         .font(.system(size: 18, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(8)
@@ -81,11 +88,11 @@ struct DreamBoardWidgetEntryView : View {
             }
         case .systemLarge:
             ZStack {
-                Image(uiImage: boardImage)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
-                    Text("응원로그")
+                    Text(text == "" ? "응원을 작성해 보세요!" : text)
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(8)
@@ -101,10 +108,18 @@ struct DreamBoardWidgetEntryView : View {
 
 struct DreamBoardWidget: Widget {
     let kind: String = "DreamBoardWidget"
+    // MARK: - url 수정
+    var path = UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetImageName")
+    
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            DreamBoardWidgetEntryView(entry: entry)
+            DreamBoardWidgetEntryView(entry: entry,text: UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetCheer") ?? "응원을 작성해 보세요!", imagePath: UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetImageName") ?? "")
+                .onAppear {
+                    print("path - DreamBoardWidget : \(path)")
+                    print("DreamBoardWidget onApear")
+                    
+                }
         }
         .configurationDisplayName("드림 보드 위젯입니다!!")
         .description("당신의 목표들을 항상 볼 수 있는 곳에 두세요!!")
@@ -120,5 +135,47 @@ struct DreamBoardWidget_Previews: PreviewProvider {
             .previewContext(WidgetPreviewContext(family: .systemMedium))
         DreamBoardWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
+    }
+}
+
+
+
+
+class WidgetImageFileManager {
+    static let shared: WidgetImageFileManager = WidgetImageFileManager()
+    // Save Image
+    // name: ImageName
+    func saveImage(image: UIImage, name: String,
+                   onSuccess: @escaping ((Bool) -> Void)) {
+        guard let data: Data
+                = image.jpegData(compressionQuality: 1)
+                ?? image.pngData() else { return }
+        if let directory: NSURL =
+            // MARK: - url 수정
+            try? FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")! as NSURL {
+            do {
+                try data.write(to: directory.appendingPathComponent(name)!)
+                onSuccess(true)
+            } catch let error as NSError {
+                print("Could not saveImage🥺: \(error), \(error.userInfo)")
+                onSuccess(false)
+            }
+        }
+    }
+    
+    
+    // named: 저장할 때 지정했던 uniqueFileName
+    func getSavedImage(named: String) -> UIImage? {
+        // MARK: - url 수정
+        if let dir: URL
+            = try? FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")! {
+            let path: String
+            = URL(fileURLWithPath: dir.absoluteString)
+                .appendingPathComponent(named).path
+            let image: UIImage? = UIImage(contentsOfFile: path)
+            
+            return image
+        }
+        return nil
     }
 }

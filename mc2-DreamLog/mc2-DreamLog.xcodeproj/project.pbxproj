@@ -57,6 +57,7 @@
 		78D85B662A0F3EF000483D95 /* CheerLogTableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B652A0F3EF000483D95 /* CheerLogTableProtocol.swift */; };
 		78D85B682A0F3FDD00483D95 /* DBHelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */; };
 		78D85B6A2A0F44E100483D95 /* CheerLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D85B692A0F44E100483D95 /* CheerLogModel.swift */; };
+		78FDCE762A1086FC00BFB04A /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDCE752A1086FC00BFB04A /* FileManagerExtension.swift */; };
 		83C60E1C2A03D51D00F8E76B /* EditDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */; };
 		83C60E2C2A05251500F8E76B /* EditDrawingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */; };
 		9500AB9B2A07E2350034933C /* TutorialTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */; };
@@ -110,6 +111,8 @@
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
 		43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamBoardEditView.swift; sourceTree = "<group>"; };
 		43CEE4632A0E0CA80077559E /* DreamLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamLogModel.swift; sourceTree = "<group>"; };
+		78028F782A10752500758C5B /* mc2-DreamLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "mc2-DreamLog.entitlements"; sourceTree = "<group>"; };
+		78028F792A10752A00758C5B /* DreamBoardWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DreamBoardWidgetExtension.entitlements; sourceTree = "<group>"; };
 		781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		78293F452A0C95E500F5EA48 /* DreamBoardWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DreamBoardWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78293F472A0C95E500F5EA48 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,7 @@
 		78D85B652A0F3EF000483D95 /* CheerLogTableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogTableProtocol.swift; sourceTree = "<group>"; };
 		78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperExtension.swift; sourceTree = "<group>"; };
 		78D85B692A0F44E100483D95 /* CheerLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogModel.swift; sourceTree = "<group>"; };
+		78FDCE752A1086FC00BFB04A /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		83C60E1B2A03D51D00F8E76B /* EditDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingView.swift; sourceTree = "<group>"; };
 		83C60E2B2A05251500F8E76B /* EditDrawingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingMenuView.swift; sourceTree = "<group>"; };
 		9500AB9A2A07E2350034933C /* TutorialTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextEditView.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 		166972552A015A4600702B59 = {
 			isa = PBXGroup;
 			children = (
+				78028F792A10752A00758C5B /* DreamBoardWidgetExtension.entitlements */,
 				166972602A015A4600702B59 /* mc2-DreamLog */,
 				78293F4B2A0C95E500F5EA48 /* DreamBoardWidget */,
 				78293F462A0C95E500F5EA48 /* Frameworks */,
@@ -208,6 +213,7 @@
 		166972602A015A4600702B59 /* mc2-DreamLog */ = {
 			isa = PBXGroup;
 			children = (
+				78028F782A10752500758C5B /* mc2-DreamLog.entitlements */,
 				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
 				784EB5C72A0345830096D427 /* View */,
 				784EB5C42A0345560096D427 /* Model */,
@@ -346,6 +352,7 @@
 				9570414D2A0C7150000633CD /* FontExtension.swift */,
 				78A28BBD2A0DB6310034B0A9 /* UIViewExtension.swift */,
 				78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */,
+				78FDCE752A1086FC00BFB04A /* FileManagerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -505,6 +512,7 @@
 				784EB5BD2A0342800096D427 /* TextBrownModifier.swift in Sources */,
 				78A28BBE2A0DB6310034B0A9 /* UIViewExtension.swift in Sources */,
 				784EB5D22A0346160096D427 /* TuturialBoardView.swift in Sources */,
+				78FDCE762A1086FC00BFB04A /* FileManagerExtension.swift in Sources */,
 				1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */,
 				78293F572A0C95E600F5EA48 /* DreamBoardWidget.intentdefinition in Sources */,
 				43CEE4642A0E0CA80077559E /* DreamLogModel.swift in Sources */,
@@ -678,6 +686,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "mc2-DreamLog/mc2-DreamLog.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mc2-DreamLog/Preview Content\"";
@@ -708,6 +717,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "mc2-DreamLog/mc2-DreamLog.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mc2-DreamLog/Preview Content\"";
@@ -737,6 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DreamBoardWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UG6UT639QH;
@@ -765,6 +776,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DreamBoardWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UG6UT639QH;

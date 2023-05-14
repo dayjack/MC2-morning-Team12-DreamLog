@@ -18,10 +18,8 @@ class ImageFileManager {
                 = image.jpegData(compressionQuality: 1)
                 ?? image.pngData() else { return }
         if let directory: NSURL =
-            try? FileManager.default.url(for: .documentDirectory,
-                                         in: .userDomainMask,
-                                         appropriateFor: nil,
-                                         create: false) as NSURL {
+            // MARK: - url 수정
+            try? FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")! as NSURL {
             do {
                 try data.write(to: directory.appendingPathComponent(name)!)
                 onSuccess(true)
@@ -35,11 +33,9 @@ class ImageFileManager {
     
     // named: 저장할 때 지정했던 uniqueFileName
     func getSavedImage(named: String) -> UIImage? {
+        // MARK: - url 수정
         if let dir: URL
-            = try? FileManager.default.url(for: .documentDirectory,
-                                           in: .userDomainMask,
-                                           appropriateFor: nil,
-                                           create: false) {
+            = try? FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")! {
             let path: String
             = URL(fileURLWithPath: dir.absoluteString)
                 .appendingPathComponent(named).path

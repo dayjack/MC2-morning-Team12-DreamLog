@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct TutorialBoardView: View {
     /// widget 사이즈 보여줌
@@ -58,6 +59,11 @@ struct TutorialBoardView: View {
                                 .onTapGesture {
                                     loadingViewShowing = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        
+                                        
+                                        
+                                        
+                                        
                                         loadingViewShowing = false
                                         FUUID.focusUUID = backgroundUUID
                                         generateImage(geo: geo)
@@ -65,6 +71,14 @@ struct TutorialBoardView: View {
                                         DBHelper.shared.createDreamLogTable()
                                         // 제대로 된 더미 데이터 넣어주기
                                         DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
+                                        
+                                        // MARK: - widget code
+                                        let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                                        UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
+                                        print("tutorial Board : \(widgetImageName)")
+                                        WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
+                                        
+                                        
                                         goToCalender = true
                                     }
                                     /// 이미지 캡쳐 기능 구현

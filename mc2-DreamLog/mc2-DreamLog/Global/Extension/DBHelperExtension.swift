@@ -46,8 +46,8 @@ import SQLite3
                 
                 // 이미지 처리
                 do {
-                    // get the documents directory url
-                    let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                    // MARK: - url 수정
+                    let documentsDirectory = try FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")!
                     
                     UserDefaults.standard.set(documentsDirectory, forKey: "dataPath")
                     
@@ -60,6 +60,7 @@ import SQLite3
                     // create the destination file url to save your image
                     let fileURL = documentsDirectory.appendingPathComponent(fileName)
                     // get your UIImage jpeg data representation and check if the destination file url already exists
+                    // MARK: - url 수정
                     if let data = uiImage.jpegData(compressionQuality:  1),
                        !FileManager.default.fileExists(atPath: fileURL.path) {
                         // writes the image data to disk
@@ -159,16 +160,16 @@ import SQLite3
         
         //id만 인자로 받아서 ID에 해당하는 레코드만 삭제하는 함수
         func deleteImageByName(imgName: String) {
-            
+            // MARK: - url 수정
             let fileManager = FileManager.default // 파일 매니저 선언
-            let fileDirectoryPath =  fileManager.urls(for: .documentDirectory, in: .userDomainMask).first! // 애플리케이션 저장 폴더
+            let fileDirectoryPath =  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")! // 애플리케이션 저장 폴더
             
             // [삭제를 수행할 파일 경로 지정]
             let fileDeletePath = fileDirectoryPath.absoluteString + imgName
             
             do {
                 print("=====\(fileDeletePath)=====")
-                
+                // MARK: - url 수정
                 try FileManager.default.removeItem(at: URL(string: fileDeletePath)!)
             } catch let e {
                 print(e.localizedDescription)

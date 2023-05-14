@@ -22,7 +22,8 @@ class DBHelper {
         var db: OpaquePointer? = nil
         
         do {
-            let dbPath: String = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(databaseName).path
+            // MARK: - url 수정
+            let dbPath: String = try FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")!.appendingPathComponent(databaseName).path
             
             if sqlite3_open(dbPath, &db) == SQLITE_OK {
                 print("Successfullt create DB.path: \(dbPath)")

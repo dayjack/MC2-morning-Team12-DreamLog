@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct DreamBoardEditView: View {
     /// widget 사이즈 보여줌
@@ -65,12 +66,18 @@ struct DreamBoardEditView: View {
                                     generateImage(geo: geo)
                                     // 데이터
                                     //data.viewArr.removeAll()
-                                    DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
+                                    DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "MainDummyImage")!)
+                                    
+                                    // MARK: - widget code
+                                    let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                                    UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
+                                    print("tutorial Board : \(widgetImageName)")
+                                    WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
                                     
                                     
                                     // Mock some network request or other task
                                     
-                                    
+                                     
                                     dismiss()
                                 }
                             }
