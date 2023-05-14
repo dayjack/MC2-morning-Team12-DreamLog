@@ -48,7 +48,7 @@ struct DreamBoardWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     @State var text = ""
     @State var imagePath = ""
-    var boardImage : UIImage = UIImage(systemName: "questionmark")!
+//    var boardImage : UIImage = UIImage(systemName: "questionmark")!
     
     
     
@@ -56,7 +56,7 @@ struct DreamBoardWidgetEntryView : View {
         switch family {
         case .systemSmall:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(systemName: "questionmark")!)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
@@ -72,7 +72,7 @@ struct DreamBoardWidgetEntryView : View {
             }
         case .systemMedium:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(systemName: "questionmark")!)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     
@@ -88,7 +88,7 @@ struct DreamBoardWidgetEntryView : View {
             }
         case .systemLarge:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(systemName: "questionmark")!)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
