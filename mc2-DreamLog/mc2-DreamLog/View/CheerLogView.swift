@@ -18,7 +18,7 @@ struct CheerLogView: View {
                     .padding(.bottom, 4)
                 Text("나를 향한 응원 한마디가 기록됩니다.")
                     .grayText(fontSize: 12)
-                
+                Divider()
                 Spacer()
                 
                 CheerList()
@@ -43,6 +43,7 @@ struct CheerList: View {
                         Text(cheerData.cheer)
                             .multilineTextAlignment(.leading)
                             .padding(.bottom, 8)
+                        
                         
                         Text(dateConverter(inputDateString: cheerData.time))
                             .font(.system(size: 14, weight: .regular))
@@ -72,8 +73,8 @@ struct CheerList: View {
             }
             .listStyle(InsetGroupedListStyle())
             .scrollContentBackground(.hidden)
-            .background(Color.bgColor)
             .shadow(color: Color.shadowGray, radius: 4)
+            .background(Color.bgColor)
             .onAppear {
                 self.cheerList = DBHelper.shared.readCheerLogData()
             }
