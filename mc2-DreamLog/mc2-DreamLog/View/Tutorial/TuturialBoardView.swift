@@ -58,6 +58,7 @@ struct TutorialBoardView: View {
                                 .brownButton(isActive: true)
                                 .onTapGesture {
                                     loadingViewShowing = true
+                                    widgetSize = .none 
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         
                                         
