@@ -56,7 +56,7 @@ struct DreamBoardWidgetEntryView : View {
         switch family {
         case .systemSmall:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageSquare")!)
                     .resizable()
                     .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
                 VStack {
@@ -72,7 +72,7 @@ struct DreamBoardWidgetEntryView : View {
             }
         case .systemMedium:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageRectangle")!)
                     .resizable()
                     .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
 
@@ -88,7 +88,7 @@ struct DreamBoardWidgetEntryView : View {
             }
         case .systemLarge:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
+                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageSquare")!)
                     .resizable()
                     .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
                 VStack {
