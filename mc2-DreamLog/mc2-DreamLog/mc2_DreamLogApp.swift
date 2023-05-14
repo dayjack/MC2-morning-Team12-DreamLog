@@ -27,10 +27,11 @@ struct mc2_DreamLogApp: App {
                             sleep(2)
                             // MARK: - widgetcode - 나
                             
-//                            let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                            let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
+                            print("mc2_DreamLogApp : \(widgetImageName)")
+                            
                             let widgetCheer: String = DBHelper.shared.readCheerLogDataOne().cheer
-//                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
-//                            print("mc2_DreamLogApp : \(widgetImageName)")
                             UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetCheer, forKey: "WidgetCheer")
                             WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
                         }
