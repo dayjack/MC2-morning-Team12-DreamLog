@@ -110,6 +110,8 @@
 		438E87872A0882AB00037E11 /* FocusUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUUID.swift; sourceTree = "<group>"; };
 		43CEE4612A0DE3160077559E /* DreamBoardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamBoardEditView.swift; sourceTree = "<group>"; };
 		43CEE4632A0E0CA80077559E /* DreamLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamLogModel.swift; sourceTree = "<group>"; };
+		78028F782A10752500758C5B /* mc2-DreamLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "mc2-DreamLog.entitlements"; sourceTree = "<group>"; };
+		78028F792A10752A00758C5B /* DreamBoardWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DreamBoardWidgetExtension.entitlements; sourceTree = "<group>"; };
 		781EC7C12A0B3C7B00C47893 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		78293F452A0C95E500F5EA48 /* DreamBoardWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DreamBoardWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78293F472A0C95E500F5EA48 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -189,6 +191,7 @@
 		166972552A015A4600702B59 = {
 			isa = PBXGroup;
 			children = (
+				78028F792A10752A00758C5B /* DreamBoardWidgetExtension.entitlements */,
 				166972602A015A4600702B59 /* mc2-DreamLog */,
 				78293F4B2A0C95E500F5EA48 /* DreamBoardWidget */,
 				78293F462A0C95E500F5EA48 /* Frameworks */,
@@ -208,6 +211,7 @@
 		166972602A015A4600702B59 /* mc2-DreamLog */ = {
 			isa = PBXGroup;
 			children = (
+				78028F782A10752500758C5B /* mc2-DreamLog.entitlements */,
 				166972612A015A4600702B59 /* mc2_DreamLogApp.swift */,
 				784EB5C72A0345830096D427 /* View */,
 				784EB5C42A0345560096D427 /* Model */,
@@ -678,6 +682,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "mc2-DreamLog/mc2-DreamLog.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mc2-DreamLog/Preview Content\"";
@@ -708,6 +713,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "mc2-DreamLog/mc2-DreamLog.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mc2-DreamLog/Preview Content\"";
@@ -737,6 +743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DreamBoardWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UG6UT639QH;
@@ -765,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DreamBoardWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UG6UT639QH;

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct DreamBoardView: View {
     @EnvironmentObject var data: TutorialBoardElement
@@ -133,6 +134,8 @@ struct DreamBoardView: View {
                                 DBHelper.shared.insertCheerLogData(alerttext)
                                 cheertext = DBHelper.shared.readCheerLogDataOne().cheer
                                 alerttext = ""
+                                UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(cheertext, forKey: "WidgetCheer")
+                                WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
                             }), secondaryButton: .cancel(Text("취소"), action: {
                                 cheertext = DBHelper.shared.readCheerLogDataOne().cheer
                                 alerttext = ""

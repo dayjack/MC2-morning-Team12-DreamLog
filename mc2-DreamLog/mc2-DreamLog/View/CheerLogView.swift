@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct CheerLogView: View {
     var body: some View {
@@ -56,6 +57,15 @@ struct CheerList: View {
                         let i = cheerList.firstIndex(of: cheerData)!
                         DBHelper.shared.deleteCheerLogData(id: cheerList[i].id)
                         cheerList = DBHelper.shared.readCheerLogData()
+                        print("cheerList.count : \(cheerList.count)")
+                        if cheerList.count == 0 {
+                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("응원을 작성해 보세요!", forKey: "WidgetCheer")
+                        } else {
+                            print("delete : \(cheerList.count - 1)")
+                            
+                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(cheerList[0].cheer, forKey: "WidgetCheer")
+                        }
+                        WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
                     }
                 }
                 

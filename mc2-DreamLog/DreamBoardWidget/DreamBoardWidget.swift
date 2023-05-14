@@ -43,7 +43,8 @@ struct SimpleEntry: TimelineEntry {
 struct DreamBoardWidgetEntryView : View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
-
+    @State var text = ""
+    
     var boardImage = UIImage(named: "BoardDummy") ?? UIImage(systemName: "questionmark")!
     var body: some View {
         switch family {
@@ -54,7 +55,7 @@ struct DreamBoardWidgetEntryView : View {
                     .aspectRatio(contentMode: .fill)
                 VStack {
                     Spacer()
-                    Text("응원로그")
+                    Text(text)
                         .font(.system(size: 12, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(8)
@@ -70,7 +71,7 @@ struct DreamBoardWidgetEntryView : View {
                     .aspectRatio(contentMode: .fill)
                     
                 VStack {
-                    Text("응원로그")
+                    Text(text)
                         .font(.system(size: 18, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(8)
@@ -85,7 +86,7 @@ struct DreamBoardWidgetEntryView : View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
-                    Text("응원로그")
+                    Text(text)
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(8)
@@ -101,10 +102,16 @@ struct DreamBoardWidgetEntryView : View {
 
 struct DreamBoardWidget: Widget {
     let kind: String = "DreamBoardWidget"
+    
+    let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mc2-DreamLog")?.appendingPathComponent("ddd.jpg")
+    
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            DreamBoardWidgetEntryView(entry: entry)
+            DreamBoardWidgetEntryView(entry: entry,text: UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetCheer") ?? "응원을 작성해 보세요!")
+                .onAppear {
+                    print(path)
+                }
         }
         .configurationDisplayName("드림 보드 위젯입니다!!")
         .description("당신의 목표들을 항상 볼 수 있는 곳에 두세요!!")

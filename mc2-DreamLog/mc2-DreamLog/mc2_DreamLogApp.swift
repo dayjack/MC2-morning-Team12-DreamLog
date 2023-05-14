@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 @main
 struct mc2_DreamLogApp: App {
@@ -24,6 +25,14 @@ struct mc2_DreamLogApp: App {
                     MainView()
                         .onAppear {
                             sleep(2)
+                            // MARK: - widgetcode - 나
+                            
+//                            let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                            let widgetCheer: String = DBHelper.shared.readCheerLogDataOne().cheer
+//                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
+//                            print("mc2_DreamLogApp : \(widgetImageName)")
+                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetCheer, forKey: "WidgetCheer")
+                            WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
                         }
                 }
                 .environmentObject(TutorialBoardElement())
@@ -33,6 +42,7 @@ struct mc2_DreamLogApp: App {
                     _ = DBHelper.shared.createDB()
                     DBHelper.shared.createDreamLogTable()
                     DBHelper.shared.createCheerLogTable()
+                    
                 }
             } else {
                 TutorialStartView() // TutorialStartView
@@ -41,6 +51,11 @@ struct mc2_DreamLogApp: App {
                     .onAppear {
                         sleep(2)
                         _ = DBHelper.shared.createDB()
+                        DBHelper.shared.createDreamLogTable()
+                        DBHelper.shared.createCheerLogTable()
+                        
+                        UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("", forKey: "WidgetImageName")
+                        UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("응원을 작성헤보세요!", forKey: "WidgetCheer")
                     }
                 
             }
