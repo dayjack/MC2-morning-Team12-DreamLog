@@ -58,7 +58,7 @@ struct DreamBoardWidgetEntryView : View {
             ZStack {
                 Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
                 VStack {
                     Spacer()
                     Text(text == "" ? "응원을 작성해보세요!" : text)
@@ -74,8 +74,8 @@ struct DreamBoardWidgetEntryView : View {
             ZStack {
                 Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    
+                    .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
+
                 VStack {
                     Text(text == "" ? "응원을 작성해보세요!" : text)
                         .font(.system(size: 18, weight: .bold))
@@ -90,7 +90,7 @@ struct DreamBoardWidgetEntryView : View {
             ZStack {
                 Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDummyImage")!)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
                 VStack {
                     Text(text == "" ? "응원을 작성해 보세요!" : text)
                         .font(.system(size: 24, weight: .bold))
