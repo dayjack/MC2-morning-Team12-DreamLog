@@ -43,7 +43,7 @@ struct SimpleEntry: TimelineEntry {
 struct DreamBoardWidgetEntryView : View {
     
     var entry: Provider.Entry
-    let imageFileManager2 = ImageFileManager2()
+    let imageFileManager2 = WidgetImageFileManager()
     
     @Environment(\.widgetFamily) var family
     @State var text = ""
@@ -141,8 +141,8 @@ struct DreamBoardWidget_Previews: PreviewProvider {
 
 
 
-class ImageFileManager2 {
-    static let shared: ImageFileManager2 = ImageFileManager2()
+class WidgetImageFileManager {
+    static let shared: WidgetImageFileManager = WidgetImageFileManager()
     // Save Image
     // name: ImageName
     func saveImage(image: UIImage, name: String,
