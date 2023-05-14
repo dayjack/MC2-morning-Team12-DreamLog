@@ -27,6 +27,7 @@ struct DreamLogView: View {
                     .padding(.bottom, 4)
                 Text("이제까지 만든 드림보드의 기록입니다.")
                     .grayText(fontSize: 12)
+                Divider()
                 LazyVStack(spacing: 0) {
                     ForEach(Array(boardList.enumerated()), id: \.1.id) { idx, data in
                         ZStack {
