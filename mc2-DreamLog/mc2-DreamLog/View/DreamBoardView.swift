@@ -40,6 +40,7 @@ struct DreamBoardView: View {
                     
                     if boardImage != nil {
                         Image(uiImage: boardImage ?? UIImage(named: "MainDummyImage")!)
+                            .resizable()
                     } else {
                         VStack {
                             Spacer()
@@ -158,6 +159,7 @@ struct DreamBoardView: View {
                 cheertext = DBHelper.shared.readCheerLogDataOne().cheer
             }
         }
+        .ignoresSafeArea(.keyboard)
     }
     
 }
@@ -198,6 +200,8 @@ struct MainTab1View_Previews: PreviewProvider {
         }
     }
 }
+
+
 
 
 

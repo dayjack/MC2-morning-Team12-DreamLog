@@ -105,10 +105,11 @@ struct DreamBoardEditView: View {
     }
     
     func generateImage(geo: GeometryProxy) {
-        guard let uiImage = ImageRenderer(content: zstackView(geo: geo)).uiImage else {
-            return
-        }
-        Tab1Model.instance.image = uiImage
+        
+        
+        let renderer =  ImageRenderer(content: zstackView(geo: geo))
+        renderer.scale = 3.0
+        Tab1Model.instance.image = renderer.uiImage
     }
 }
 
