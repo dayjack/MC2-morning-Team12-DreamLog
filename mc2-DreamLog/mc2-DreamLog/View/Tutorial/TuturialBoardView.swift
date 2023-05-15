@@ -53,40 +53,49 @@ struct TutorialBoardView: View {
                         }
                         
                         NavigationLink(value: goToCalender) {
-                            Text("완료")
-                                .frame(width: abs(width - 40) / 2,height: 60)
-                                .brownButton(isActive: true)
-                                .onTapGesture {
-                                    loadingViewShowing = true
-                                    widgetSize = .none 
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        loadingViewShowing = false
-                                        FUUID.focusUUID = backgroundUUID
-                                        generateImage(geo: geo)
-                                        // 데이터
-                                        DBHelper.shared.createDreamLogTable()
-                                        // 제대로 된 더미 데이터 넣어주기
-                                        DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "sticker_check")!)
-                                        
-                                        // MARK: - widget code
-                                        let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
-                                        UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
-                                        print("tutorial Board : \(widgetImageName)")
-                                        WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
-                                        
-                                        
-                                        goToCalender = true
-                                    }
+                            
+                            
+                            Button {
+                                
+                                loadingViewShowing = true
+                                widgetSize = .none
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        
+                                    loadingViewShowing = false
+                                    
                                     /// 이미지 캡쳐 기능 구현
+                                    FUUID.focusUUID = backgroundUUID
+                                    generateImage(geo: geo)
+                                    // 데이터
+                                    //data.viewArr.removeAll()
+                                    DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "MainDummyImage")!)
+                                    
+                                    // MARK: - widget code
+                                    let widgetImageName: String = DBHelper.shared.readDreamLogDataOne().imagePath
+                                    UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(widgetImageName, forKey: "WidgetImageName")
+                                    print("tutorial Board : \(widgetImageName)")
+                                    WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
+                                    
+                                    
+                                    // Mock some network request or other task
                                     
                                     
                                     
+                                    goToCalender = true
                                 }
+                                /// 이미지 캡쳐 기능 구현
+                                
+                                
+                                
+                                
+                            } label: {
+                                Text("완료")
+                                    .frame(width: abs(width - 40) / 2,height: 60)
+                                    .brownButton(isActive: true)
+                            }
+                            
+                            
                         }
                         .navigationDestination(isPresented: $goToCalender) {
                             TutorialCalendarView()
@@ -119,6 +128,7 @@ struct TutorialBoardView: View {
         let renderer =  ImageRenderer(content: zstackView(geo: geo))
         renderer.scale = 3.0
         Tab1Model.instance.image = renderer.uiImage
+        print("generateImage - Tab1Model : \(Tab1Model.instance.image.debugDescription)")
     }
 }
 

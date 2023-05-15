@@ -148,7 +148,7 @@ class WidgetImageFileManager {
     func saveImage(image: UIImage, name: String,
                    onSuccess: @escaping ((Bool) -> Void)) {
         guard let data: Data
-                = image.jpegData(compressionQuality: 1)
+                = image.pngData()
                 ?? image.pngData() else { return }
         if let directory: NSURL =
             // MARK: - url 수정
