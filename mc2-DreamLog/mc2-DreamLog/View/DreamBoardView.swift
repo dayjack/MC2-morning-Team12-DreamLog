@@ -105,45 +105,44 @@ struct DreamBoardView: View {
                     .padding(.bottom, 5)
                 
                 VStack(alignment: .leading) {
-                    HStack {
-                        Text("나에게 주는 응원 한마디")
-                        
+
+                    Button {
+                        showingAlert = true
+                    } label: {
+                        Text("나에게 주는 응원 한 마디")
+                            .foregroundColor(.black)
                         Spacer()
-                        Button {
-                            showingAlert = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .foregroundColor(.textGreen)
-                        }
-                        .alert("나에게 주는 응원 한마디를\n작성해주세요", isPresented: $showingAlert, actions: {
-                            TextField("응원의 한 마디를 작성해보아요", text: $alerttext)
-                            
-                            Button("완료", action: {
-                                confirmAlert = true
-                            })
-                            Button("취소", role: .cancel, action: {
-                                alerttext = ""
-                            })
-                        })
-                        .alert(isPresented: $confirmAlert, content: {
-                            Alert(title: Text("\(alerttext)으로\n응원을 추가하시겠어요?"),
-                                  message: Text("작성하신 응원은 위젯에 표시됩니다."),
-                                  primaryButton: .default(Text("확인"), action: {
-                                // 데이터 처리
-                                DBHelper.shared.createCheerLogTable()
-                                DBHelper.shared.insertCheerLogData(alerttext)
-                                cheertext = DBHelper.shared.readCheerLogDataOne().cheer
-                                alerttext = ""
-                                UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(cheertext, forKey: "WidgetCheer")
-                                WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
-                            }), secondaryButton: .cancel(Text("취소"), action: {
-                                cheertext = DBHelper.shared.readCheerLogDataOne().cheer
-                                alerttext = ""
-                            }))
-                            
-                        })
-                        
+                        Image(systemName: "plus")
+                            .foregroundColor(.textGreen)
                     }
+                    .alert("나에게 주는 응원 한 마디를\n작성해주세요", isPresented: $showingAlert, actions: {
+                        TextField("응원의 한 마디를 작성해보아요", text: $alerttext)
+                        
+                        Button("완료", action: {
+                            confirmAlert = true
+                        })
+                        Button("취소", role: .cancel, action: {
+                            alerttext = ""
+                        })
+                    })
+                    .alert(isPresented: $confirmAlert, content: {
+                        Alert(title: Text("\(alerttext)으로\n응원을 추가하시겠어요?"),
+                              message: Text("작성하신 응원은 위젯에 표시됩니다."),
+                              primaryButton: .default(Text("확인"), action: {
+                            // 데이터 처리
+                            DBHelper.shared.createCheerLogTable()
+                            DBHelper.shared.insertCheerLogData(alerttext)
+                            cheertext = DBHelper.shared.readCheerLogDataOne().cheer
+                            alerttext = ""
+                            UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue(cheertext, forKey: "WidgetCheer")
+                            WidgetCenter.shared.reloadTimelines(ofKind: "DreamBoardWidget")
+                        }), secondaryButton: .cancel(Text("취소"), action: {
+                            cheertext = DBHelper.shared.readCheerLogDataOne().cheer
+                            alerttext = ""
+                        }))
+                        
+                    })
+
                 }
                 .padding(.horizontal, 16)
                 .frame(width: width - 30)
