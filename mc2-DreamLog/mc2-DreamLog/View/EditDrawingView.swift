@@ -38,7 +38,7 @@ struct EditDrawingView: View {
         case redo
     }
     
-    @State var sliderValue = 1.0
+    @State var sliderValue = 5.0
     @State var colorNum = 0
     @State var color : Color = .black
     @State var canvas = PKCanvasView()
@@ -125,6 +125,7 @@ struct EditDrawingView: View {
                                 .menuButton()
                                 .foregroundColor(
                                     curPenType == buttonDictionary[btnNames[index]] ? .textGreen : .textGray)
+                                .padding(.bottom, 10)
                         }
                     }
                 }
