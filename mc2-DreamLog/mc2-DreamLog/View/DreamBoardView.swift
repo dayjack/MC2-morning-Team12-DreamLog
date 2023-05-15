@@ -35,7 +35,13 @@ struct DreamBoardView: View {
             let height = geo.size.height
             
             VStack {
-                
+                Spacer()
+                    .frame(height: 20)
+                Image("dreamLog")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 20)
+                Spacer()
                 VStack(spacing: 0) {
                     
                     if boardImage != nil {
@@ -52,15 +58,9 @@ struct DreamBoardView: View {
                         .frame(width: width)
                         .background(Color.white)
                     }
-                    
-                    
-                    Text(cheertext == "" ? "스스로를 위한 응원을 작성해보세요" : cheertext)
-                        .grayText(fontSize: 22)
-                        .fontWeight(.semibold)
-                        .frame(width: abs(width), height: 40, alignment: .center)
-                        .padding(.top, 10)
-                        .background(.white)
                 }
+                
+                    
                 
                 
                 HStack {
@@ -69,25 +69,37 @@ struct DreamBoardView: View {
                         NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
                             Text(dDayString)
                                 .fontWeight(.bold)
+                                .font(.system(size: 26))
                         }
                         
                     } else {
                         NavigationLink(destination: DDayCalendarView(showDDayCalendar: $showDDayCalendar)) {
                             Image(systemName: dDayString)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 28)
+                                .padding(5)
                         }
                     }
                     Spacer()
                     ShareLink(item: photo, preview: SharePreview(
                         photo.caption,
                         image: photo.image)) {
-                            Label("", systemImage: "square.and.arrow.up")
+                            Image(systemName: "square.and.arrow.up")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 28)
                         }
-                    
+                    Spacer()
+                        .frame(width: 20)
                     NavigationLink(value: isDone, label:{
                         Button {
                             isDone = true
                         } label: {
                             Image(systemName: "pencil")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 28)
                         }
                     })
                     .navigationDestination(isPresented: $isDone, destination: {
@@ -109,7 +121,7 @@ struct DreamBoardView: View {
                     Button {
                         showingAlert = true
                     } label: {
-                        Text("나에게 주는 응원 한 마디")
+                        Text(cheertext == "" ? "스스로를 위한 응원을 작성해보세요" : cheertext)
                             .foregroundColor(.black)
                         Spacer()
                         Image(systemName: "plus")
