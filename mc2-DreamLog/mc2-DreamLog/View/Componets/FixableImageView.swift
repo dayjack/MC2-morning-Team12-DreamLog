@@ -60,7 +60,7 @@ struct FixableImageView: View {
                         environmentElementList.removeOne(one: thisElement.id)
                     }
                 
-                Image(systemName: "arrow.counterclockwise.circle.fill")
+                Image(systemName: "arrow.up.backward.and.arrow.down.forward.circle.fill")
                     .resizable()
                     .frame(width: 25, height: 25)
                     .foregroundColor(.gray)
