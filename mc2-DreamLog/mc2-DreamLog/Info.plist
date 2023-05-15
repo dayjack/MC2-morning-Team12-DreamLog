@@ -4,10 +4,8 @@
 <dict>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIColorName</key>
-		<string>bgColor</string>
 		<key>UIImageName</key>
-		<string>dreamLog</string>
+		<string>LanchScreen</string>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
