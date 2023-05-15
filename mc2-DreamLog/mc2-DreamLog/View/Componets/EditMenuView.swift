@@ -31,7 +31,8 @@ struct EditMenuView: View {
         "paintbrush.pointed",
         "photo",
         "face.smiling",
-        "rectangle"
+        "rectangle",
+        "trash"
     ]
     
     @State var btnDictionary: [String : EditState] = [
@@ -39,11 +40,12 @@ struct EditMenuView: View {
         "paintbrush.pointed" : .paintbrush,
         "photo" : .photo,
         "face.smiling" : .face,
-        "rectangle" : .rectangle
+        "rectangle" : .rectangle,
+        "trash" : .trash
     ]
     
     enum EditState {
-        case character, paintbrush, photo, face, rectangle, none
+        case character, paintbrush, photo, face, rectangle, trash, none
     }
     
     var body: some View {
@@ -69,7 +71,7 @@ struct EditMenuView: View {
             editview(editState: self.editState)
             HStack {
                 
-                ForEach(0..<5, id: \.self) { index in
+                ForEach(0..<6, id: \.self) { index in
                     Button {
                         FUUID.focusUUID = UUID()
                         // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
@@ -97,6 +99,8 @@ struct EditMenuView: View {
                             }
                             /// widgetArea를 숨기고 싶을 때 아래 위젯 버튼 클릭시 보이지 않음
                             widgetSize = .none
+                        case 5:
+                            data.viewArr.removeAll()
                         default:
                             editState = btnDictionary[btnNames[index]]!
                         }
@@ -154,6 +158,9 @@ extension EditMenuView {
             case .rectangle:
                 /// WidgetSizeButtonsView에서 widget 사이즈 변동하기 때문에 Binding
                 WidgetSizeButtonsView(widgetSize: $widgetSize)
+                    .frame(height: 60)
+            case .trash:
+                VStack{}
                     .frame(height: 60)
             case .none:
                 VStack{}
