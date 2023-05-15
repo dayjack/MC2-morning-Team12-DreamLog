@@ -43,7 +43,8 @@ struct DDayCalendarView: View {
                 Spacer()
 
                 HStack {
-                    Button("취소") {
+                    Button("생략하기") {
+                        UserDefaults.standard.set("calendar", forKey: "selectedDate")
                         showDDayCalendar.toggle()
                         presentationMode.wrappedValue.dismiss()
                     }
