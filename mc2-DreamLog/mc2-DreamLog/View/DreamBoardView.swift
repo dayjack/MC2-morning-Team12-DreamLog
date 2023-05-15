@@ -171,6 +171,11 @@ extension DreamBoardView {
     }
     private func getDDayDate() -> String {
         
+        if let skipDate = UserDefaults.standard.object(forKey: "selectedDate") as? String {
+            dDayString = skipDate
+            return dDayString
+        }
+        
         if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
             let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
             
