@@ -140,13 +140,12 @@ struct TutorialTextEditView: View {
 /// Text to Image
 struct RenderView: View {
     let text: String
-    let fontSize: Double
     let fontType: String
     let color: Color
 
     var body: some View {
         Text(text)
-            .font(Font.custom(fontType,  size: fontSize))
+            .font(Font.custom(fontType,  size: 200))
             .foregroundColor(color)
     }
 }
@@ -157,7 +156,6 @@ extension TutorialTextEditView {
         let renderer = ImageRenderer(
             content: RenderView(
                 text: text,
-                fontSize: self.fontSize,
                 fontType: self.selectedFont,
                 color: self.fontColor
             )
