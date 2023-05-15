@@ -15,4 +15,5 @@ protocol DreamLogTableProtocol {
     func readDreamLogDataOne() -> DreamLogModel
     func deleteDreamLogData(id: Int)
     func deleteImageByName(imgName: String)
+    func deleteAllDreamLog()
 }

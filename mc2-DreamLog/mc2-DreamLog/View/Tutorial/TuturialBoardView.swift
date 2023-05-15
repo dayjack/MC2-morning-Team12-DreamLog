@@ -61,7 +61,7 @@ struct TutorialBoardView: View {
                                 widgetSize = .none
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-        
+                                    
                                     loadingViewShowing = false
                                     
                                     /// 이미지 캡쳐 기능 구현
@@ -69,6 +69,7 @@ struct TutorialBoardView: View {
                                     generateImage(geo: geo)
                                     // 데이터
                                     //data.viewArr.removeAll()
+                                    DBHelper.shared.deleteAllDreamLog()
                                     DBHelper.shared.insertDreamLogData(img: Tab1Model.instance.image ?? UIImage(named: "MainDummyImage")!)
                                     
                                     // MARK: - widget code
