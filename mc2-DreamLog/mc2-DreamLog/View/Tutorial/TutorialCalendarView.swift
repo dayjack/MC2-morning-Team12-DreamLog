@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TutorialCalendarView: View {
     
-
+    
     @State private var isNextViewActive = false
     @State private var date = Date()
     
@@ -26,7 +26,7 @@ struct TutorialCalendarView: View {
                     .brownText()
                 Text("바탕화면에 드림로그를 추가해서\n목표와 오늘의 응원을 확인해보세요.")
                     .grayText()
-
+                
                 DatePicker(
                     "Start Date",
                     selection: $date,
@@ -35,17 +35,14 @@ struct TutorialCalendarView: View {
                 .datePickerStyle(.graphical)
                 Spacer()
                 
-                NavigationLink(destination: MainView(), isActive: $isNextViewActive) {
-                    EmptyView()
-                }
-                HStack {
-                    Button("생략할래요") {
-                        isNextViewActive = true
-                    }
-                    .frame(width: abs(width - 40) / 2, height: 60)
-                    .whiteWithBorderButton()
-
-                    NavigationLink(destination: MainView(), isActive: $isNextViewActive) {
+                NavigationLink(destination: TutorialWidgetView(), isActive: $isNextViewActive) {
+                    HStack {
+                        Button("생략할래요") {
+                            isNextViewActive = true
+                        }
+                        .frame(width: abs(width - 40) / 2, height: 60)
+                        .whiteWithBorderButton()
+                        
                         Button("시작하기") {
                             UserDefaults.standard.set(date, forKey: "selectedDate")
                             UserDefaults.standard.synchronize()
@@ -55,7 +52,7 @@ struct TutorialCalendarView: View {
                         .brownButton(isActive: true)
                     }
                 }
-
+                
             }
             .padding()
         }
