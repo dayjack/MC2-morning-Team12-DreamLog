@@ -23,7 +23,7 @@ import SQLite3
             if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
                 // step은 쿼리를 실행하는 단계
                 if sqlite3_step(statement) == SQLITE_DONE {
-                    print("Creating table has been succesfully done. db : \(String(describing: self.db))")
+                    print("Creating Dream Log table has been succesfully done. db : \(String(describing: self.db))")
                 } else {
                     let errorMessage = String(cString: sqlite3_errmsg(self.db))
                     print("\nsqlite3_prepare failure while createing table: \(errorMessage)")
@@ -53,7 +53,7 @@ import SQLite3
                     
                     print("documentsDirectory:", documentsDirectory.path)
                     // choose a name for your image
-                    let fileName = "\(Date.now.description).jpg"
+                    let fileName = "\(Date.now.description).png"
                     //let image: Image = img
                     let uiImage: UIImage = img
                     
@@ -61,7 +61,7 @@ import SQLite3
                     let fileURL = documentsDirectory.appendingPathComponent(fileName)
                     // get your UIImage jpeg data representation and check if the destination file url already exists
                     // MARK: - url 수정
-                    if let data = uiImage.jpegData(compressionQuality:  1),
+                    if let data = uiImage.pngData(),
                        !FileManager.default.fileExists(atPath: fileURL.path) {
                         // writes the image data to disk
                         try data.write(to: fileURL)

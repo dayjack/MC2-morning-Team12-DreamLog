@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DDayCalendarView: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     @Binding var showDDayCalendar: Bool
     
     @State private var isNextViewActive = false
@@ -46,7 +46,7 @@ struct DDayCalendarView: View {
                     Button("생략하기") {
                         UserDefaults.standard.set("calendar", forKey: "selectedDate")
                         showDDayCalendar.toggle()
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                     .frame(width: abs(width - 40) / 2, height: 60)
                     .whiteWithBorderButton()
@@ -56,7 +56,7 @@ struct DDayCalendarView: View {
                         UserDefaults.standard.synchronize()
                         
                         showDDayCalendar.toggle()
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                     .frame(width: abs(width - 40) / 2, height: 60)
                     .brownButton(isActive: true)
