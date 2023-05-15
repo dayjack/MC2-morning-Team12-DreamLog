@@ -77,6 +77,8 @@ struct DreamLogView: View {
                             .frame(height: 20)
                         
                         Image(uiImage: self.detailLogImage)
+                            .resizable()
+                            .scaledToFit()
                         VStack(spacing: 0) {
                             Spacer()
                             Text(getDateLogString(index: index))

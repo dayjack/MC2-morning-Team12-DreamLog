@@ -24,7 +24,7 @@ struct TutorialCalendarView: View {
                 Text("목표로 하는 날을 입력해주세요")
                     .padding(.bottom, 10)
                     .brownText()
-                Text("바탕화면에 드림로그를 추가해서\n목표와 오늘의 응원을 확인해보세요.")
+                Text("날짜 설정은 선택사항이에요.")
                     .grayText()
                 
                 DatePicker(
