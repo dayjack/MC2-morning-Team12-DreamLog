@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		163214A32A0DD07000FA87CC /* DDayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163214A22A0DD07000FA87CC /* DDayCalendarView.swift */; };
+		163214A52A11CFB700FA87CC /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163214A42A11CFB700FA87CC /* UIApplication.swift */; };
 		1635FA862A03AB490056C2CB /* CheerLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635FA852A03AB490056C2CB /* CheerLogView.swift */; };
 		166972622A015A4600702B59 /* mc2_DreamLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166972612A015A4600702B59 /* mc2_DreamLogApp.swift */; };
 		166972662A015A4800702B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166972652A015A4800702B59 /* Assets.xcassets */; };
@@ -100,6 +101,7 @@
 
 /* Begin PBXFileReference section */
 		163214A22A0DD07000FA87CC /* DDayCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayCalendarView.swift; sourceTree = "<group>"; };
+		163214A42A11CFB700FA87CC /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		1635FA852A03AB490056C2CB /* CheerLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerLogView.swift; sourceTree = "<group>"; };
 		1669725E2A015A4600702B59 /* mc2-DreamLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mc2-DreamLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166972612A015A4600702B59 /* mc2_DreamLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mc2_DreamLogApp.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				78A28BBD2A0DB6310034B0A9 /* UIViewExtension.swift */,
 				78D85B672A0F3FDD00483D95 /* DBHelperExtension.swift */,
 				78FDCE752A1086FC00BFB04A /* FileManagerExtension.swift */,
+				163214A42A11CFB700FA87CC /* UIApplication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163214A52A11CFB700FA87CC /* UIApplication.swift in Sources */,
 				784EB5D02A0345FD0096D427 /* TutorialView.swift in Sources */,
 				43CEE4622A0DE3160077559E /* DreamBoardEditView.swift in Sources */,
 				784EB5DD2A0346E20096D427 /* BgColorGeoView.swift in Sources */,
