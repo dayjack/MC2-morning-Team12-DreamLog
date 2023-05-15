@@ -113,7 +113,11 @@ struct TutorialView: View {
                         TutorialBoardView()
                     }
                 }
+
             .frame(width: abs(width - 40))
+        }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
         }
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $showSheet) {
