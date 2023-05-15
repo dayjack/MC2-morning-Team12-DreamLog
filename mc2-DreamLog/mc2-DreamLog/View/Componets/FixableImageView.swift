@@ -51,6 +51,7 @@ struct FixableImageView: View {
             
             if FUUID.focusUUID == thisElement.id {
                 Image(systemName: "x.circle.fill")
+                    .resizable()
                     .frame(width: 20, height: 20)
                     .foregroundColor(.red)
                     .position(x: thisElement.deleteDotPosition.x, y: thisElement.deleteDotPosition.y)
@@ -60,8 +61,9 @@ struct FixableImageView: View {
                     }
                 
                 Image(systemName: "arrow.counterclockwise.circle.fill")
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(.black)
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(.gray)
                     .position(x: thisElement.rotateDotPosition.x, y: thisElement.rotateDotPosition.y)
                     .zIndex(Double(environmentElementList.findIndex(one: thisElement.id))+1)
                     .gesture(
