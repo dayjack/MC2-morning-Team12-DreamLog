@@ -56,7 +56,6 @@ struct TutorialStartView: View {
                         
                         Text("꿈을 현실로 만들기 위한 나만의 드림로그\n 불안과 무기력이 찾아오면 드림로그를 통해\n 나의 목표를 상기시켜보세요")
                             .brownText(fontSize: 18)
-                        
                         NavigationLink {
                             TutorialView()
                         } label: {
@@ -73,7 +72,6 @@ struct TutorialStartView: View {
                         print("first: \(UserDefaults.standard.double(forKey: "TutorialBoardWidthCenter"))")
                     }
                 }
-                .padding()
             }
         }
         .tint(.activeBrown)
