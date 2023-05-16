@@ -25,6 +25,7 @@
   <div style="border: 1px solid black; padding: 20px;">
     <h2>Austin</h2>
     <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/b3c7fd61-2f75-4df4-afc9-e9bfaaf85c23" width="200">
+    <br>
     <a href="https://github.com/moonkey48">
       <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
     </a>
@@ -32,6 +33,7 @@
   <div style="border: 1px solid black; padding: 20px;">
     <h2>Loki</h2>
     <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/2a186821-5e3b-4f17-8dee-be16065a8783" width="200">
+    <br>
     <a href="https://github.com/KLJH1025">
       <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
     </a>
@@ -39,6 +41,7 @@
   <div style="border: 1px solid black; padding: 20px;">
     <h2>Eugene</h2>
     <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/fdcaffc5-09b9-465b-966b-7dbbef472c79" width="200">
+    <br>
     <a href="https://github.com/dayjack">
       <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
     </a>
@@ -46,6 +49,7 @@
   <div style="border: 1px solid black; padding: 20px;">
     <h2>Ted</h2>
     <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/188a6cfd-203e-4d62-9805-d3e4fb08e73d" width="200">
+    <br>
     <a href="https://github.com/Taerogrammer">
       <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
     </a>
