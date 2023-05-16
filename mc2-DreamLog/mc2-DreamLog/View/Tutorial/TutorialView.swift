@@ -30,6 +30,11 @@ struct TutorialView: View {
         "하고 싶은 일을 적어주세요",
         "가장 듣고싶은 응원을 적어주세요"
     ]
+    @State var placeHolderText: [String] = [
+        "현재 나에게 가장 중요한 목표",
+        "목표를 이룬 후 하고싶은 일",
+        "가장 듣고 싶은 응원"
+    ]
     
     var body: some View {
         
@@ -55,7 +60,7 @@ struct TutorialView: View {
                     Text(subTitleArr[index])
                         .grayText()
 
-                    TextField("placeholder", text: binding)
+                    TextField(placeHolderText[index], text: binding)
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
