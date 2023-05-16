@@ -72,8 +72,7 @@
 
 # **🤔 프로젝트 정보**  
 
-<div style="display: flex; justify-content: center;">
-
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
   <img src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/e1399698-662f-4f9a-8cf5-e3214e739daa" style="width: calc(33.33% - 10px); margin: 5px;">
   <img src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/4216f45a-8745-42b6-9b64-bafd54b3aa5f" style="width: calc(33.33% - 10px); margin: 5px;">
   <img src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/068881cf-8e68-4523-9c2d-7b4412214752" style="width: calc(33.33% - 10px); margin: 5px;">
