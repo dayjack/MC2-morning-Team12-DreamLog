@@ -220,7 +220,6 @@
 				784EB5C72A0345830096D427 /* View */,
 				784EB5C42A0345560096D427 /* Model */,
 				78C24FD32A0242540070906B /* Global */,
-				166972652A015A4800702B59 /* Assets.xcassets */,
 				7891C6712A02802F006B5109 /* Info.plist */,
 				166972672A015A4800702B59 /* Preview Content */,
 				167435602A09021D00891AAB /* CoreData.xcdatamodeld */,
@@ -372,6 +371,7 @@
 		9570414F2A0C7240000633CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				166972652A015A4800702B59 /* Assets.xcassets */,
 				957041642A0C776D000633CD /* Font */,
 			);
 			path = Resources;

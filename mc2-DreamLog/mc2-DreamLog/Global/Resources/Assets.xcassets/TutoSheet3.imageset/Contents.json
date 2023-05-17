@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "TutoSheet1.png",
+      "filename" : "TutoSheet3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "TutoSheet3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "TutoSheet3@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
