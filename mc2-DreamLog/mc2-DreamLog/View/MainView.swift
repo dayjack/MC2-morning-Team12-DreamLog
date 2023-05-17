@@ -17,13 +17,13 @@ struct MainView: View {
                     DreamBoardView()
                         .tabItem {
                             Image(systemName: "list.clipboard")
-                            Text("비전보드")
+                            Text("드림보드")
                         }
                         .tag(0)
                     DreamLogView()
                         .tabItem {
                             Image(systemName: "sparkles.rectangle.stack")
-                            Text("비전로그")
+                            Text("드림로그")
                         }
                         .tag(1)
                     CheerLogView()
