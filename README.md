@@ -1,112 +1,17 @@
 
-# **프로젝트 소개**
+# **Apple Developer Academy @ POSTECH 2nd <br> Team 12-외주업체**  
 
-![dreamLog@3x](https://user-images.githubusercontent.com/59696697/237054762-03b265d6-767e-4d73-a0b9-a5835234d00f.png)
+<img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/104834390/9d1b2ab2-beaa-430e-b8d2-55127405ae6f" height="200px">
 
-## **Apple Developer Academy @ POSTECH 2nd 👨🏻‍💻 오전 세션 Team 12-외주업체입니다.**  
 
 <br>
-
-![outSourcingLogo](https://user-images.githubusercontent.com/59696697/237054990-734e8538-8f98-4231-87b2-426ee964f7f5.png)
-
-## **👨‍👨‍👧 Member**  
-
 <br>
 
-<div>
-<table>
-  <tr>
-    <td><div style="border: 1px solid black; padding: 20px;">
-    <h2>Santa</h2>
-    <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/7e916d98-b09e-43d7-bec1-e12b159db9f6" width="200">
-    <br>
-    <a href="https://github.com/ChrisP-00">
-      <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
-    </a>
-  </div>
-  </td>
-    <td>
-   <div style="border: 1px solid black; padding: 20px;">
-    <h2>Austin</h2>
-    <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/b3c7fd61-2f75-4df4-afc9-e9bfaaf85c23" width="200">
-    <br>
-    <a href="https://github.com/moonkey48">
-      <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
-    </a>
-  </div>
-    </td>
-    <td>
-   <div style="border: 1px solid black; padding: 20px;">
-    <h2>Loki</h2>
-    <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/2a186821-5e3b-4f17-8dee-be16065a8783" width="200">
-    <br>
-    <a href="https://github.com/KLJH1025">
-      <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
-    </a>
-    </tr>
-    <tr>
-  </div>
-    </td>
-    <td>
-  <div style="border: 1px solid black; padding: 20px;">
-    <h2>Eugene</h2>
-    <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/fdcaffc5-09b9-465b-966b-7dbbef472c79" width="200">
-    <br>
-    <a href="https://github.com/dayjack">
-      <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
-    </a>
-  </div>
-    </td>
-     <td>
-   <div style="border: 1px solid black; padding: 20px;">
-    <h2>Ted</h2>
-    <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/188a6cfd-203e-4d62-9805-d3e4fb08e73d" width="200">
-    <br>
-    <a href="https://github.com/Taerogrammer">
-      <img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>
-    </a>
-  </div>
-    </td>
+# **📱 프로젝트**
 
-  <tr>
-</table>
-
-</div>
+<img src ="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/104834390/eb233979-d05b-4d62-85fc-95adef3b8731">
 
 <br>
-
-# **📱 프로젝트 아이콘 & 로고**
-
-<div>
-<table>
-  <tr>
-    <td>
-    <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/97bdbb9a-4ae8-4801-8086-a6dab36da92a" width="200">
-    </td>
-    <td>
-    <img alt="" src="https://user-images.githubusercontent.com/59696697/237054762-03b265d6-767e-4d73-a0b9-a5835234d00f.png">
-    </td>
-  <tr>
-</table>
-
-</div>
-
-# **🤔 프로젝트 정보**  
-
-<div>
-<table>
-  <tr>
-    <td><img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/e1399698-662f-4f9a-8cf5-e3214e739daa" width="200"></td>
-    <td><img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/4216f45a-8745-42b6-9b64-bafd54b3aa5f" width="200"></td>
-      <td><img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/068881cf-8e68-4523-9c2d-7b4412214752" width="200"></td>
-  <tr>
-</table>
-
-
-## **✏️ 프로젝트 제목**
-
-- ### DreamLog
-
 <br>
 
 ## **💻 기술스택**
@@ -122,8 +27,10 @@
 <br>
 
 ## **🙇‍♂️프로젝트 소개**
-
-## 1. 프로젝트 계획 이유와 프로젝트에 대한 설명
+  
+   <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/e1399698-662f-4f9a-8cf5-e3214e739daa" width="200"> <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/4216f45a-8745-42b6-9b64-bafd54b3aa5f" width="200"> <img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/068881cf-8e68-4523-9c2d-7b4412214752" width="200">
+  
+### 1. 프로젝트 계획 이유와 프로젝트에 대한 설명
 
 <br>
 
@@ -182,8 +89,11 @@
 드림로그를 통해 내가 그렸던 미래들을 되돌아 볼 수도 있습니다.
 
 <br>
+<br>
+<br>
 
-## 2. 기능 소개
+
+### 2. 기능 소개
 
 <br>
 
@@ -194,7 +104,7 @@
 
  <br>
 
-## 3. 개발환경
+## 개발환경
 
 <br>
 
@@ -203,14 +113,14 @@
 
 <br>
 
-## **Repository 방문 횟수**
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FDeveloperAcademy-POSTECH%2FMC2-morning-Team12-DreamLog&count_bg=%2326980A&title_bg=%23FFFBF6&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-
+## **커밋 컨벤션**
+  
 <details>
 <summary>팀 협업용 깃허브 컨벤션 문서 </summary>
 <div markdown="1">
 
+<br>
+ 
 ## **Fork를 통한 협업**
 
 ### 원본(메인) 레포에서 브랜치를 생성하여 작업을 하는 것이 아니라
@@ -386,6 +296,22 @@ ex) [Design] MyView - MyView 레이아웃 디자인
 
 </div>
 </details>
+  
+  <br>
+  
+   [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FDeveloperAcademy-POSTECH%2FMC2-morning-Team12-DreamLog&count_bg=%2326980A&title_bg=%23FFFBF6&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 
 <br>
+<br>
+
+  
+
+## **👨‍👨‍👧 Member**  
+
+|Austin|Eugene|Loki|Santa|Ted|
+|:---:|:---:|:---:|:---:|:---:|
+|<img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/b3c7fd61-2f75-4df4-afc9-e9bfaaf85c23" width="150">|<img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/fdcaffc5-09b9-465b-966b-7dbbef472c79" width="150">|<img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/2a186821-5e3b-4f17-8dee-be16065a8783" width="150">|<img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/7e916d98-b09e-43d7-bec1-e12b159db9f6" width="150">|<img alt="" src="https://github.com/DeveloperAcademy-POSTECH/MC2-morning-Team12-DreamLog/assets/59696697/188a6cfd-203e-4d62-9805-d3e4fb08e73d" width="150">
+|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/moonkey48)|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/dayjack)|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/KLJH1025)|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/ChrisP-00)|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/Taerogrammer)|
+
 <br>
