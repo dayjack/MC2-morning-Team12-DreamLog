@@ -20,6 +20,7 @@ struct EditMenuView: View {
     @State var showImagePicker = false
     @State var showTextEditView = false
     @State var showEditDrawingView = false
+    @State var showAlert = false
     
     @State var elementImage = UIImage()
     @EnvironmentObject var data: TutorialBoardElement
@@ -67,58 +68,59 @@ struct EditMenuView: View {
             }
         )
         
-        VStack(spacing: 0){
-            editview(editState: self.editState)
-            HStack {
-                
-                ForEach(0..<6, id: \.self) { index in
-                    Button {
-                        FUUID.focusUUID = UUID()
-                        // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
-                        switch index {
-                        case 0:
-                            editState = btnDictionary[btnNames[index]]!
-                            showTextEditView = true
-                        case 1:
-                            editState = btnDictionary[btnNames[index]]!
-                            showEditDrawingView = true
-                        case 2:
-                            editState = btnDictionary[btnNames[index]]!
-                            showImagePicker = true
-                        case 3:
-                            if editState != btnDictionary[btnNames[index]]! {
+            VStack(spacing: 0){
+                editview(editState: self.editState)
+                HStack {
+                    
+                    ForEach(0..<6, id: \.self) { index in
+                        Button {
+                            FUUID.focusUUID = UUID()
+                            // 나중에 따로 기능 할당. 지금은 모든 버튼 앨범 띄우기로 되어있다.
+                            switch index {
+                            case 0:
                                 editState = btnDictionary[btnNames[index]]!
-                            } else {
-                                stateNone()
-                            }
-                        case 4:
-                            if editState != btnDictionary[btnNames[index]]! {
+                                showTextEditView = true
+                            case 1:
                                 editState = btnDictionary[btnNames[index]]!
-                            } else {
-                                stateNone()
+                                showEditDrawingView = true
+                            case 2:
+                                editState = btnDictionary[btnNames[index]]!
+                                showImagePicker = true
+                            case 3:
+                                if editState != btnDictionary[btnNames[index]]! {
+                                    editState = btnDictionary[btnNames[index]]!
+                                } else {
+                                    stateNone()
+                                }
+                            case 4:
+                                if editState != btnDictionary[btnNames[index]]! {
+                                    editState = btnDictionary[btnNames[index]]!
+                                } else {
+                                    stateNone()
+                                }
+                                /// widgetArea를 숨기고 싶을 때 아래 위젯 버튼 클릭시 보이지 않음
+                                widgetSize = .none
+                            case 5:
+                                editState = .none
+                                showAlert = true
+                            default:
+                                editState = btnDictionary[btnNames[index]]!
                             }
-                            /// widgetArea를 숨기고 싶을 때 아래 위젯 버튼 클릭시 보이지 않음
-                            widgetSize = .none
-                        case 5:
-                            data.viewArr.removeAll()
-                        default:
-                            editState = btnDictionary[btnNames[index]]!
+                            
+                            
+                        } label: {
+                            Image(systemName: btnNames[index])
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20,height: 20)
+                                .menuButton()
+                                .foregroundColor(editState == btnDictionary[btnNames[index]]! ? .textGreen : .textGray)
                         }
-                        
-                        
-                    } label: {
-                        Image(systemName: btnNames[index])
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20,height: 20)
-                            .menuButton()
-                            .foregroundColor(editState == btnDictionary[btnNames[index]]! ? .textGreen : .textGray)
                     }
+                    .padding(.vertical, 10)
+                    
                 }
-                .padding(.vertical, 10)
-                
             }
-        }
         .sheet(isPresented: binding,onDismiss: stateNone) {
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$elementImage)
         }
@@ -127,6 +129,12 @@ struct EditMenuView: View {
         }
         .fullScreenCover(isPresented: $showEditDrawingView, onDismiss: stateNone) {
             EditDrawingView()
+        }
+        .alert("보드의 요소들을 전체 삭제 하시겠습니까??", isPresented: $showAlert) {
+            Button("취소", role: .cancel) { }
+            Button("삭제", role: .destructive) {
+                data.viewArr.removeAll()
+            }
         }
     }
 }
