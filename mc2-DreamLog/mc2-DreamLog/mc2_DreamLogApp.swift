@@ -56,7 +56,7 @@ struct mc2_DreamLogApp: App {
                         DBHelper.shared.createCheerLogTable()
                         
                         UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("", forKey: "WidgetImageName")
-                        UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("응원을 작성헤보세요!", forKey: "WidgetCheer")
+                        UserDefaults.init(suiteName: "group.mc2-DreamLog")?.setValue("응원을 작성해보세요!", forKey: "WidgetCheer")
                     }
                 
             }

@@ -13,15 +13,15 @@ struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationIntent())
     }
-
+    
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let entry = SimpleEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
-
+    
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-
+        
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -29,7 +29,7 @@ struct Provider: IntentTimelineProvider {
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
-
+        
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -56,49 +56,57 @@ struct DreamBoardWidgetEntryView : View {
         switch family {
         case .systemSmall:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageSquare")!)
-                    .resizable()
-                    .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
+                Color.white.opacity(0.9)
+                Color.clear.overlay {
+                    Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageSquare")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                }
+               
                 VStack {
                     Spacer()
                     Text(text == "" ? "응원을 작성해보세요!" : text)
                         .font(.system(size: 12, weight: .bold))
                         .frame(maxWidth: .infinity)
-                        .padding(8)
+                        .padding(.vertical, 10)
                         .background(.white.opacity(0.9))
                 }
-                .padding(.bottom)
                 //.padding을 주면 radius 부분이 안짤림
             }
         case .systemMedium:
             ZStack {
-                Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageRectangle")!)
-                    .resizable()
-                    .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
-
+                Color.white.opacity(0.9)
+                Color.clear.overlay {
+                    Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageRectangle")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                }
                 VStack {
+                    Spacer()
                     Text(text == "" ? "응원을 작성해보세요!" : text)
                         .font(.system(size: 18, weight: .bold))
                         .frame(maxWidth: .infinity)
-                        .padding(8)
+                        .padding(.vertical, 10)
                         .background(.white.opacity(0.9))
-                    
                 }
-                .padding(.top, 120)
             }
         case .systemLarge:
             ZStack {
+                Color.white.opacity(0.9)
                 Image(uiImage: imageFileManager2.getSavedImage(named: imagePath) ?? UIImage(named: "WidgetDuimmyImageSquare")!)
                     .resizable()
-                    .aspectRatio(contentMode: imagePath == "" ? .fit : .fill)
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
                 VStack {
+                    Spacer()
                     Text(text == "" ? "응원을 작성해 보세요!" : text)
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity)
-                        .padding(8)
+                        .padding(.vertical, 10)
                         .background(.white.opacity(0.9))
                 }
-                .padding(.top, 290)
             }
         @unknown default:
             Text("Unknown widget size")
@@ -111,10 +119,11 @@ struct DreamBoardWidget: Widget {
     // MARK: - url 수정
     var path = UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetImageName")
     
-
+    
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             DreamBoardWidgetEntryView(entry: entry,text: UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetCheer") ?? "응원을 작성해 보세요!", imagePath: UserDefaults.init(suiteName: "group.mc2-DreamLog")?.string(forKey: "WidgetImageName") ?? "")
+                .colorScheme(.light)
                 .onAppear {
                     print("path - DreamBoardWidget : \(path)")
                     print("DreamBoardWidget onApear")
