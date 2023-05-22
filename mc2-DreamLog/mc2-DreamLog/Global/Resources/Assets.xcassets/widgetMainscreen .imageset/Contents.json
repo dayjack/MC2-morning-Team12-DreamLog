@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "widgetMainscreen.png",
+      "filename" : "widgetMainscreen .png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "widgetMainscreen @2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "widgetMainscreen @3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
